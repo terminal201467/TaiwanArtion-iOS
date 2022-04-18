@@ -12,6 +12,10 @@
 		62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */; };
 		62CD769A280D073E00696DBC /* ShareExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7699280D073E00696DBC /* ShareExhibitionViewController.swift */; };
 		62CD769C280D08A600696DBC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD769B280D08A600696DBC /* MainTabBarController.swift */; };
+		62CD76A0280D40A800696DBC /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD769F280D40A800696DBC /* SideMenuController.swift */; };
+		62CD76A2280D491E00696DBC /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A1280D491E00696DBC /* SideMenuView.swift */; };
+		62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A5280D7EEF00696DBC /* SearchViewController.swift */; };
+		62CD76A9280D804A00696DBC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A8280D804A00696DBC /* SearchView.swift */; };
 		97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AE9F2809737E00B61974 /* AppDelegate.swift */; };
 		97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AEA12809737E00B61974 /* SceneDelegate.swift */; };
 		97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F6AEA82809737F00B61974 /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 		62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewController.swift; sourceTree = "<group>"; };
 		62CD7699280D073E00696DBC /* ShareExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionViewController.swift; sourceTree = "<group>"; };
 		62CD769B280D08A600696DBC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		62CD769F280D40A800696DBC /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		62CD76A1280D491E00696DBC /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		62CD76A5280D7EEF00696DBC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		62CD76A8280D804A00696DBC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		97F6AE9C2809737E00B61974 /* TaiwanArtion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaiwanArtion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F6AE9F2809737E00B61974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97F6AEA12809737E00B61974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,19 +74,23 @@
 			name = App;
 			sourceTree = "<group>";
 		};
-		62CD768E280D040F00696DBC /* MainViewController */ = {
+		62CD768E280D040F00696DBC /* FindExhibitionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				62CD7695280D067200696DBC /* FindExhibitionViewController.swift */,
+				62CD769F280D40A800696DBC /* SideMenuController.swift */,
+				62CD76AA280D805900696DBC /* SearchController */,
 				62CD7691280D04C900696DBC /* FindExhibitionView */,
 			);
-			name = MainViewController;
+			name = FindExhibitionViewController;
 			sourceTree = "<group>";
 		};
 		62CD7691280D04C900696DBC /* FindExhibitionView */ = {
 			isa = PBXGroup;
 			children = (
 				62CD7692280D04DD00696DBC /* FindExhibitionView.swift */,
+				62CD76A1280D491E00696DBC /* SideMenuView.swift */,
+				62CD76AB280D806E00696DBC /* SearchView */,
 			);
 			name = FindExhibitionView;
 			sourceTree = "<group>";
@@ -87,10 +99,40 @@
 			isa = PBXGroup;
 			children = (
 				62CD769B280D08A600696DBC /* MainTabBarController.swift */,
-				62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */,
-				62CD7699280D073E00696DBC /* ShareExhibitionViewController.swift */,
 			);
 			name = TabBarController;
+			sourceTree = "<group>";
+		};
+		62CD76A3280D797500696DBC /* NearbyExhibitionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */,
+			);
+			name = NearbyExhibitionViewController;
+			sourceTree = "<group>";
+		};
+		62CD76A4280D7AB000696DBC /* ShareExhibitionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				62CD7699280D073E00696DBC /* ShareExhibitionViewController.swift */,
+			);
+			name = ShareExhibitionViewController;
+			sourceTree = "<group>";
+		};
+		62CD76AA280D805900696DBC /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				62CD76A5280D7EEF00696DBC /* SearchViewController.swift */,
+			);
+			name = SearchController;
+			sourceTree = "<group>";
+		};
+		62CD76AB280D806E00696DBC /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				62CD76A8280D804A00696DBC /* SearchView.swift */,
+			);
+			name = SearchView;
 			sourceTree = "<group>";
 		};
 		97F6AE932809737E00B61974 = {
@@ -115,7 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				62CD768D280D040000696DBC /* App */,
-				62CD768E280D040F00696DBC /* MainViewController */,
+				62CD768E280D040F00696DBC /* FindExhibitionViewController */,
+				62CD76A3280D797500696DBC /* NearbyExhibitionViewController */,
+				62CD76A4280D7AB000696DBC /* ShareExhibitionViewController */,
 				62CD7694280D04EF00696DBC /* TabBarController */,
 				97F6AEA82809737F00B61974 /* Assets.xcassets */,
 				97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */,
@@ -246,13 +290,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */,
+				62CD76A0280D40A800696DBC /* SideMenuController.swift in Sources */,
 				62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */,
 				62CD769C280D08A600696DBC /* MainTabBarController.swift in Sources */,
 				62CD769A280D073E00696DBC /* ShareExhibitionViewController.swift in Sources */,
 				97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */,
 				62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */,
+				62CD76A2280D491E00696DBC /* SideMenuView.swift in Sources */,
 				62CD7693280D04DD00696DBC /* FindExhibitionView.swift in Sources */,
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
+				62CD76A9280D804A00696DBC /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

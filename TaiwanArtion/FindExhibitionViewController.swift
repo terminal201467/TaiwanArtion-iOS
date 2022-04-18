@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SideMenu
 
 class FindExhibitionViewController: UIViewController {
     //MARK: Properties
     private let mainView = FindExhibitionView()
-    
+    private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuController())
     
     
     //MARK: - Lifecycle
@@ -21,12 +22,21 @@ class FindExhibitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSideMenu()
         setupNavigationItem()
+    }
+    
+    //MARK: - SetupSideMenu
+    func setupSideMenu() {
+        sideMenu.leftSide = true
+        sideMenu.menuWidth = 150
+        SideMenuManager.default.menuLeftNavigationController = sideMenu
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: view)
     }
     
     //MARK: - SetupNavigationItem
     func setupNavigationItem() {
-        title = "findTest"
+        navigationItem.title = "FindTest"
         //leftBarButtonItem
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(leftButton))
         self.navigationItem.leftBarButtonItem = leftButton
@@ -37,11 +47,12 @@ class FindExhibitionViewController: UIViewController {
     }
     
     @objc func leftButton(_ sender: UIBarButtonItem) {
-        print("leftButton")
+        present(sideMenu, animated: true, completion: nil)
     }
     
     @objc func rightButton(_ sender: UIBarButtonItem) {
-        print("rightButton")
+        let searchVC = SearchViewController()
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
 
