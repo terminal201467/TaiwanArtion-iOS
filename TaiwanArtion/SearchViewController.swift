@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
         
     }
     
-    
+    //MARK: - SetupUI
     func setupNavigationItem() {
         navigationItem.title = "SearchTest"
     }

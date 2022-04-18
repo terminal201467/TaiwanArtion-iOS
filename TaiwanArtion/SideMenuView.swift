@@ -9,13 +9,14 @@ import UIKit
 import SnapKit
 
 class SideMenuView: UIView {
-    
+    //MARK: UIs
     let sideMenuTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
 
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -25,6 +26,7 @@ class SideMenuView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - SetupUI
     func setupUI() {
         addSubview(sideMenuTableView)
         sideMenuTableView.snp.makeConstraints { make in

@@ -9,9 +9,11 @@ import UIKit
 import SideMenu
 
 class SideMenuController: UIViewController {
-    
+    //MARK: - Properties
     let sideMenuView = SideMenuView()
     
+    
+    //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = sideMenuView
@@ -23,12 +25,14 @@ class SideMenuController: UIViewController {
         sideMenuView.sideMenuTableView.reloadData()
     }
     
+    //MARK: setupTableViewDelegate
     func setupTableViewDelegate() {
         sideMenuView.sideMenuTableView.dataSource = self
         sideMenuView.sideMenuTableView.delegate = self
     }
 }
 
+//MARK: - TableViewDataSource
 extension SideMenuController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -42,6 +46,7 @@ extension SideMenuController: UITableViewDataSource {
     }
 }
 
+//MARK: - TableViewDelegate
 extension SideMenuController: UITableViewDelegate {
     
 }

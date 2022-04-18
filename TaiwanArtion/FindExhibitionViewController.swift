@@ -46,6 +46,7 @@ class FindExhibitionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
+    //MARK: - Methods
     @objc func leftButton(_ sender: UIBarButtonItem) {
         present(sideMenu, animated: true, completion: nil)
     }
@@ -54,6 +55,4 @@ class FindExhibitionViewController: UIViewController {
         let searchVC = SearchViewController()
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
-    
-
 }

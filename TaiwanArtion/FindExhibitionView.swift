@@ -10,9 +10,9 @@ import SnapKit
 
 class FindExhibitionView: UIView {
     //MARK: UIs
-    let searchButton: UIButton = {
-        let button = UIButton()
-        return button
+    let findExhibitionTableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
     }()
 
     
@@ -28,7 +28,9 @@ class FindExhibitionView: UIView {
     
     //MARK: - SetupUI
     private func setupUI() {
-        
+        addSubview(findExhibitionTableView)
+        findExhibitionTableView.snp.makeConstraints { make in
+            
+        }
     }
-    
 }
