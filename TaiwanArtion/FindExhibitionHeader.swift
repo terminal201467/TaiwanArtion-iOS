@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Reusable
 
 class FindExhibitionHeader: UITableViewHeaderFooterView {
     

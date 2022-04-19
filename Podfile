@@ -8,4 +8,5 @@ target 'TaiwanArtion' do
   # Pods for TaiwanArtion
   pod 'SnapKit', '~> 5.0.0'
   pod 'SideMenu', '~> 5.0'
+  pod 'Reusable'
 end
