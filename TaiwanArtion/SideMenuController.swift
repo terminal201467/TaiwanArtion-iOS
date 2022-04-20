@@ -39,7 +39,7 @@ extension SideMenuController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sideMenuCell", for: indexPath)
         cell.textLabel?.text = "Button \(indexPath.row + 1)"
         
         return cell

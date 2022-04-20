@@ -7,11 +7,14 @@
 
 import UIKit
 import SnapKit
+import Reusable
 
 class FindExhibitionView: UIView {
     //MARK: UIs
     let findExhibitionTableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(FindExhibitionHeader.self, forHeaderFooterViewReuseIdentifier: FindExhibitionHeader.identifier)
+        tableView.register(cellType: FindExhibitionTableViewCell.self)
         return tableView
     }()
 
@@ -30,7 +33,8 @@ class FindExhibitionView: UIView {
     private func setupUI() {
         addSubview(findExhibitionTableView)
         findExhibitionTableView.snp.makeConstraints { make in
-            
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.bottom.equalTo(0)
         }
     }
 }
