@@ -18,6 +18,10 @@
 		62CD76A9280D804A00696DBC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A8280D804A00696DBC /* SearchView.swift */; };
 		62CD76B2280DB04A00696DBC /* FindExhibitionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76B1280DB04A00696DBC /* FindExhibitionHeader.swift */; };
 		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
+		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
+		97F409B62813CA6800527646 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B52813CA6800527646 /* MapView.swift */; };
+		97F409B82813CA8000527646 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B72813CA8000527646 /* MapViewModel.swift */; };
+		97F409BB2813CAA700527646 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409BA2813CAA700527646 /* Model.swift */; };
 		97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AE9F2809737E00B61974 /* AppDelegate.swift */; };
 		97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AEA12809737E00B61974 /* SceneDelegate.swift */; };
 		97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F6AEA82809737F00B61974 /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 		62CD76A8280D804A00696DBC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		62CD76B1280DB04A00696DBC /* FindExhibitionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionHeader.swift; sourceTree = "<group>"; };
 		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
+		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		97F409B52813CA6800527646 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		97F409B72813CA8000527646 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		97F409BA2813CAA700527646 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		97F6AE9C2809737E00B61974 /* TaiwanArtion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaiwanArtion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F6AE9F2809737E00B61974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97F6AEA12809737E00B61974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +173,31 @@
 			name = FindExhibitionTableViewCell;
 			sourceTree = "<group>";
 		};
+		97F409B22813CA3B00527646 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				97F409B32813CA5600527646 /* MapViewController.swift */,
+				97F409B52813CA6800527646 /* MapView.swift */,
+				97F409B72813CA8000527646 /* MapViewModel.swift */,
+			);
+			name = MapViewController;
+			sourceTree = "<group>";
+		};
+		97F409B92813CA9500527646 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97F409BA2813CAA700527646 /* Model.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		97F409BC2813CAB500527646 /* CustomObject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomObject;
+			sourceTree = "<group>";
+		};
 		97F6AE932809737E00B61974 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +219,9 @@
 		97F6AE9E2809737E00B61974 /* TaiwanArtion */ = {
 			isa = PBXGroup;
 			children = (
+				97F409BC2813CAB500527646 /* CustomObject */,
+				97F409B92813CA9500527646 /* Model */,
+				97F409B22813CA3B00527646 /* MapViewController */,
 				62CD768D280D040000696DBC /* App */,
 				62CD768E280D040F00696DBC /* FindExhibitionViewController */,
 				62CD76A3280D797500696DBC /* NearbyExhibitionViewController */,
@@ -327,12 +363,16 @@
 				62CD769A280D073E00696DBC /* ShareExhibitionViewController.swift in Sources */,
 				97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */,
 				62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */,
+				97F409B82813CA8000527646 /* MapViewModel.swift in Sources */,
+				97F409B62813CA6800527646 /* MapView.swift in Sources */,
 				62CD76A2280D491E00696DBC /* SideMenuView.swift in Sources */,
+				97F409BB2813CAA700527646 /* Model.swift in Sources */,
 				62CD7693280D04DD00696DBC /* FindExhibitionView.swift in Sources */,
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
 				62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */,
 				62CD76B2280DB04A00696DBC /* FindExhibitionHeader.swift in Sources */,
 				62CD76A9280D804A00696DBC /* SearchView.swift in Sources */,
+				97F409B42813CA5600527646 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
