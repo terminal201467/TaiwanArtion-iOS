@@ -13,6 +13,7 @@ class FindExhibitionViewController: UIViewController {
     private let findExhibitionView = FindExhibitionView()
     private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuController())
     
+    let testList: [Int] = [1, 2, 3, 4, 5, 6]
     
     //MARK: - Lifecycle
     override func loadView() {
@@ -67,33 +68,51 @@ class FindExhibitionViewController: UIViewController {
 
 //MARK: - TableViewDataSource
 extension FindExhibitionViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 1
+        } else {
+            return testList.count
+        }
+            
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FindExhibitionTableViewCell.self)
-        cell.textLabel?.text = "Cell \(indexPath.row + 1)"
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FindExhibitionHeader.identifier)
-        header?.backgroundColor = .orange
-        return header
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ScrollPhotoTableViewCell.self)
+            cell.backgroundColor = .black
+            cell.selectionStyle = .none
+            return cell
+            
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FilterTableViewCell.self)
+            cell.selectionStyle = .none
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FindExhibitionTableViewCell.self)
+            let image = UIImage(named: "3")
+            cell.recentExhibitionImageView.image = image!
+            return cell
+        }
     }
 }
 
 //MARK: - TableViewDelegate
 extension FindExhibitionViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        500
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
+        if indexPath.section == 0 {
+            return 600
+        } else if indexPath.section == 1 {
+            return 50
+        } else {
+            return 370
+        }
     }
 }
-

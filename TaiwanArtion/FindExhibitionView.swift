@@ -12,12 +12,12 @@ import Reusable
 class FindExhibitionView: UIView {
     //MARK: UIs
     let findExhibitionTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(FindExhibitionHeader.self, forHeaderFooterViewReuseIdentifier: FindExhibitionHeader.identifier)
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(cellType: ScrollPhotoTableViewCell.self)
         tableView.register(cellType: FindExhibitionTableViewCell.self)
+        tableView.register(cellType: FilterTableViewCell.self)
         return tableView
     }()
-
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -34,7 +34,7 @@ class FindExhibitionView: UIView {
         addSubview(findExhibitionTableView)
         findExhibitionTableView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.bottom.equalTo(0)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
