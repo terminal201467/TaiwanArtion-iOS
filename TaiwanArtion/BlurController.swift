@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class BlurController: UIViewController {
     
     private let blurView = BlurView()
     
+    //MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = blurView
@@ -18,11 +20,14 @@ class BlurController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        setupBlurView()
     }
     
-
-    
-
+    func setupBlurView() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+//        blurView.frame = view.frame
+        blurView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
+        self.view.addSubview(blurView)
+    }
 }

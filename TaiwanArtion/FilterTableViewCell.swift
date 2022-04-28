@@ -10,25 +10,29 @@ import SnapKit
 import Reusable
 
 class FilterTableViewCell: UITableViewCell, Reusable {
+    //MARK: Properties
+    var popOutFilterButton: (() -> Void)?
     
-    //    //MARK: - UIs
-        let titleLabel: UILabel = {
-            let label = UILabel()
-            label.text = "近期展覽"
-            label.font = .boldSystemFont(ofSize: 20)
-            return label
-        }()
-        
-        let filterButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.backgroundColor = .red
-            button.layer.cornerRadius = button.bounds.size.height / 2.0
-            button.clipsToBounds = true
-//            button.layer.borderWidth = 1
-//            button.layer.borderColor = UIColor.red.cgColor
-            button.setTitle("一個月", for: .normal)
-            return button
-        }()
+    
+    
+    //MARK: - UIs
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "近期展覽"
+        label.font = .boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    let filterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = button.bounds.size.height / 2.0
+        button.clipsToBounds = true
+        //            button.layer.borderWidth = 1
+        //            button.layer.borderColor = UIColor.red.cgColor
+        button.setTitle("一個月", for: .normal)
+        return button
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,7 +51,6 @@ class FilterTableViewCell: UITableViewCell, Reusable {
             make.leading.equalTo(10)
         }
         
-        
         contentView.addSubview(filterButton)
         filterButton.addTarget(self, action: #selector(popup), for: .touchUpInside)
         filterButton.snp.makeConstraints { make in
@@ -60,8 +63,6 @@ class FilterTableViewCell: UITableViewCell, Reusable {
     
     @objc
     func popup() {
-        let blurVC = BlurController()
-        let navigationController = UINavigationController(rootViewController: blurVC)
-        
+        popOutFilterButton?()
     }
 }

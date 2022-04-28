@@ -93,6 +93,11 @@ extension FindExhibitionViewController: UITableViewDataSource {
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: FilterTableViewCell.self)
             cell.selectionStyle = .none
+            cell.popOutFilterButton = { [unowned self] in
+                let blurVC = BlurController()
+                blurVC.modalPresentationStyle = .custom
+                self.present(blurVC, animated: true, completion: nil)
+            }
             return cell
             
         } else {

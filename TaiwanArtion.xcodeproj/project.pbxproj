@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */; };
 		6274AA0B2816D326008D076D /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0A2816D326008D076D /* FilterTableViewCell.swift */; };
+		62806AEC281A297900FD5AF2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62806AEB281A297900FD5AF2 /* Extension.swift */; };
 		62CD7693280D04DD00696DBC /* FindExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7692280D04DD00696DBC /* FindExhibitionView.swift */; };
 		62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7695280D067200696DBC /* FindExhibitionViewController.swift */; };
 		62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */; };
@@ -36,6 +37,7 @@
 		0D3A771C6FD194AE3B906211 /* Pods-TaiwanArtion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaiwanArtion.release.xcconfig"; path = "Target Support Files/Pods-TaiwanArtion/Pods-TaiwanArtion.release.xcconfig"; sourceTree = "<group>"; };
 		6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		6274AA0A2816D326008D076D /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		62806AEB281A297900FD5AF2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		62CD7692280D04DD00696DBC /* FindExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionView.swift; sourceTree = "<group>"; };
 		62CD7695280D067200696DBC /* FindExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionViewController.swift; sourceTree = "<group>"; };
 		62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 			children = (
 				62CD7695280D067200696DBC /* FindExhibitionViewController.swift */,
 				62CD7691280D04C900696DBC /* FindExhibitionView */,
-				62D51EAE2817DA0D00010C6A /* BlurController */,
+				62D51EAE2817DA0D00010C6A /* BlurViewController */,
 				62CD76AC280D87BF00696DBC /* SideMenuController */,
 				62CD76AA280D805900696DBC /* SearchController */,
 			);
@@ -181,13 +183,13 @@
 			name = FindExhibitionTableViewCell;
 			sourceTree = "<group>";
 		};
-		62D51EAE2817DA0D00010C6A /* BlurController */ = {
+		62D51EAE2817DA0D00010C6A /* BlurViewController */ = {
 			isa = PBXGroup;
 			children = (
 				62D51EAF2817DA7D00010C6A /* BlurController.swift */,
 				62D51EB12817DA8700010C6A /* BlurView */,
 			);
-			name = BlurController;
+			name = BlurViewController;
 			sourceTree = "<group>";
 		};
 		62D51EB12817DA8700010C6A /* BlurView */ = {
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				97F409BA2813CAA700527646 /* Model.swift */,
+				62806AEB281A297900FD5AF2 /* Extension.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */,
 				62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */,
 				6274AA0B2816D326008D076D /* FilterTableViewCell.swift in Sources */,
+				62806AEC281A297900FD5AF2 /* Extension.swift in Sources */,
 				97F409B82813CA8000527646 /* MapViewModel.swift in Sources */,
 				97F409B62813CA6800527646 /* MapView.swift in Sources */,
 				62CD76A2280D491E00696DBC /* SideMenuView.swift in Sources */,

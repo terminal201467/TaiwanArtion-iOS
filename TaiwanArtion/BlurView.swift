@@ -10,9 +10,16 @@ import SnapKit
 
 class BlurView: UIView {
     //MARK: - UIs
-    let backView: UIView = {
+    let blurView: UIVisualEffectView = {
+        let blur = UIVisualEffectView(effect: .none)
+        blur.backgroundColor = .blurBackView
+        return blur
+    }()
+    
+    let buttonBackView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
+        
         return view
     }()
     
@@ -62,19 +69,29 @@ class BlurView: UIView {
     
     //MARK: - SetupUI
     private func setupUI() {
-        addSubview(backView)
-        backView.snp.makeConstraints { make in
-            
+        addSubview(blurView)
+        blurView.snp.makeConstraints { make in
+            make.edges.equalTo(0)
         }
         
-        addSubview(cancelButton)
-        cancelButton.snp.makeConstraints { make in
-            
+        addSubview(buttonBackView)
+        buttonBackView.snp.makeConstraints { make in
+            make.height.equalTo(300)
+            make.width.equalTo(200)
+            make.centerY.equalTo(self.snp.centerY)
+            make.centerX.equalTo(self.snp.centerX)
         }
         
-        addSubview(buttonStackView)
-        buttonStackView.snp.makeConstraints { make in
-            
-        }
+//        addSubview(cancelButton)
+//        cancelButton.snp.makeConstraints { make in
+//
+//        }
+//
+//        addSubview(buttonStackView)
+//        buttonStackView.snp.makeConstraints { make in
+//
+//        }
+        
+//
     }
 }
