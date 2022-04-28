@@ -20,14 +20,12 @@ class BlurController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBlurView()
+        let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapToDismiss(_:)))
+        blurView.blurBackView.addGestureRecognizer(tapToDismiss)
     }
     
-    func setupBlurView() {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-//        blurView.frame = view.frame
-        blurView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
-        self.view.addSubview(blurView)
-    }
+    @objc func tapToDismiss(_ recognizer: UITapGestureRecognizer) {
+            dismiss(animated: true, completion: nil)
+        }
+
 }
