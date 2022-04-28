@@ -20,6 +20,11 @@ class BlurController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapToDismiss()
+    }
+    
+    //MARK: - Methods
+    func tapToDismiss() {
         let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapToDismiss(_:)))
         blurView.blurBackView.addGestureRecognizer(tapToDismiss)
     }

@@ -16,18 +16,20 @@ class BlurView: UIView {
         return blur
     }()
     
-    
-    
     let buttonBackView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
         view.layer.cornerRadius = 10
         return view
     }()
     
     let cancelButton: UIButton = {
         let button = UIButton()
-        
+        button.setImage(UIImage(systemName: "multiply.circle"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+//        button.imageView?.contentMode = .scaleAspectFit
+//        button.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         return button
     }()
     
@@ -35,27 +37,33 @@ class BlurView: UIView {
     var buttonStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [noLimitButton, weekButton, oneMonthButton, threeMonthButton])
         stackView.axis = .vertical
-        
+        stackView.alignment = .fill
+        stackView.spacing = 0
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
     let noLimitButton: UIButton = {
         let button = UIButton()
+        button.setTitle("不限", for: .normal)
         return button
     }()
     
     let weekButton: UIButton = {
         let button = UIButton()
+        button.setTitle("一週", for: .normal)
         return button
     }()
     
     let oneMonthButton: UIButton = {
         let button = UIButton()
+        button.setTitle("一個月", for: .normal)
         return button
     }()
     
     let threeMonthButton: UIButton = {
         let button = UIButton()
+        button.setTitle("三個月", for: .normal)
         return button
     }()
     
@@ -84,16 +92,20 @@ class BlurView: UIView {
             make.centerX.equalTo(self.snp.centerX)
         }
         
-//        addSubview(cancelButton)
-//        cancelButton.snp.makeConstraints { make in
-//
-//        }
-//
-//        addSubview(buttonStackView)
-//        buttonStackView.snp.makeConstraints { make in
-//
-//        }
-        
-//
+        buttonBackView.addSubview(cancelButton)
+        cancelButton.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+            make.top.equalTo(10)
+            make.trailing.equalTo(-10)
+        }
+
+        buttonBackView.addSubview(buttonStackView)
+        buttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp.bottom).offset(10)
+            make.bottom.equalTo(-15)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
     }
 }
