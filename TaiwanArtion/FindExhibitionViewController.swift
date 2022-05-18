@@ -48,10 +48,12 @@ class FindExhibitionViewController: UIViewController {
         navigationItem.title = "FindTest"
         //leftBarButtonItem
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(leftButton))
+        leftButton.tintColor = .black
         self.navigationItem.leftBarButtonItem = leftButton
         
         //rightBarButtonItem
         let rightButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(rightButton))
+        rightButton.tintColor = .black
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
@@ -112,7 +114,7 @@ extension FindExhibitionViewController: UITableViewDataSource {
 extension FindExhibitionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 500
+            return 510
         } else if indexPath.section == 1 {
             return 50
         } else {

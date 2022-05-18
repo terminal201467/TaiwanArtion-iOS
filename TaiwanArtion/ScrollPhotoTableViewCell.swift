@@ -14,13 +14,23 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     static let identifier = "ScrollPhotoTableViewCell"
     
     //MARK: - UIs
+//    lazy
+//    var titleStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [titleImageStackView, subtitlelabel])
+//        stackView.axis = .vertical
+//        stackView.alignment = .fill
+//        stackView.distribution = .equalSpacing
+//        stackView.spacing = 4
+//        return stackView
+//    }()
+    
     lazy
-    var titleStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitlelabel])
-        stackView.axis = .vertical
+    var titleImageStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, titleImageView])
+        stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
-        stackView.spacing = 4
+        stackView.spacing = 0
         return stackView
     }()
     
@@ -30,6 +40,11 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 30)
         return label
+    }()
+    
+    let titleImageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "Vector"))
+        return image
     }()
     
     let subtitlelabel: UILabel = {
@@ -42,7 +57,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     
     let imageBackView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .scrollViewBackViewColor
         view.layer.cornerRadius = 20
         return view
     }()
@@ -96,6 +111,31 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         return image
     }()
     
+    lazy
+    var exhibitionNameAndDate: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [exhibitionNameLabel, exhibitionDateLabel])
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 3
+        return stackView
+    }()
+    
+    let exhibitionNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "奇美博物館驚魂夜"
+        label.textColor = .black
+        label.font = .boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    let exhibitionDateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2020/03/21-4/20"
+        label.textColor = .gray
+        label.font = .boldSystemFont(ofSize: 15)
+        return label
+    }()
+    
 //    let leftButton: UIButton = {
 //        let button = UIButton()
 //        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
@@ -125,19 +165,33 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     
     //MARK: - SetupUI
     func setupUI() {
-        contentView.addSubview(titleStackView)
-        titleStackView.snp.makeConstraints { make in
-            make.top.equalTo(16)
-            make.leading.equalTo(10)
-            make.trailing.equalTo(-10)
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(20)
+            make.leading.equalTo(15)
+//            make.trailing.equalTo(-15)
+        }
+        contentView.addSubview(titleImageView)
+        titleImageView.snp.makeConstraints { make in
+//            make.top.equalTo(20)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(11)
+            make.centerY.equalTo(titleLabel.snp.centerY)
+            make.height.equalTo(22)
+            make.width.equalTo(23)
+        }
+        
+        contentView.addSubview(subtitlelabel)
+        subtitlelabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(16)
         }
         
         contentView.addSubview(imageBackView)
         imageBackView.snp.makeConstraints { make in
-            make.top.equalTo(titleStackView.snp.bottom).offset(16)
+            make.top.equalTo(subtitlelabel.snp.bottom).offset(16)
             make.bottom.equalTo(-30)
-            make.leading.equalTo(18)
-            make.trailing.equalTo(-18)
+            make.leading.equalTo(15)
+            make.trailing.equalTo(-15)
         }
         
         imageBackView.addSubview(photoScrollView)
@@ -166,6 +220,12 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)
+        }
+        
+        imageBackView.addSubview(exhibitionNameAndDate)
+        exhibitionNameAndDate.snp.makeConstraints { make in
+            make.top.equalTo(photoScrollView.snp.bottom).offset(19)
+            make.leading.equalTo(16)
         }
         
         contentView.addSubview(imagePageControl)

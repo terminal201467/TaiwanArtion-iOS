@@ -24,6 +24,7 @@ class FindExhibitionView: UIView {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         setupUI()
     }
     
