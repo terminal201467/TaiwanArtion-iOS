@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static var blurBackView: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    static var blurBackView: UIColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7)
 }

@@ -19,23 +19,24 @@ class FilterTableViewCell: UITableViewCell, Reusable {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "近期展覽"
+        label.textColor = .black
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
     let filterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .red
         button.layer.cornerRadius = button.bounds.size.height / 2.0
         button.clipsToBounds = true
-        //            button.layer.borderWidth = 1
-        //            button.layer.borderColor = UIColor.red.cgColor
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.red.cgColor
         button.setTitle("一個月", for: .normal)
         return button
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .white
         setupUI()
     }
     
@@ -48,7 +49,7 @@ class FilterTableViewCell: UITableViewCell, Reusable {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(10)
-            make.leading.equalTo(10)
+            make.leading.equalTo(16)
         }
         
         contentView.addSubview(filterButton)
@@ -57,7 +58,7 @@ class FilterTableViewCell: UITableViewCell, Reusable {
             make.height.equalTo(30)
             make.width.equalTo(80)
             make.centerY.equalTo(titleLabel.snp.centerY)
-            make.trailing.equalTo(-10)
+            make.trailing.equalTo(-16)
         }
     }
     

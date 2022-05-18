@@ -80,7 +80,6 @@ extension FindExhibitionViewController: UITableViewDataSource {
         } else {
             return testList.count
         }
-            
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,11 +112,11 @@ extension FindExhibitionViewController: UITableViewDataSource {
 extension FindExhibitionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 600
+            return 500
         } else if indexPath.section == 1 {
             return 50
         } else {
-            return 370
+            return 150
         }
     }
 }

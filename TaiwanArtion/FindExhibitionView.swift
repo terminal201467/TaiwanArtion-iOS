@@ -13,6 +13,8 @@ class FindExhibitionView: UIView {
     //MARK: UIs
     let findExhibitionTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .white
+        tableView.separatorColor = UIColor.clear
         tableView.register(cellType: ScrollPhotoTableViewCell.self)
         tableView.register(cellType: FindExhibitionTableViewCell.self)
         tableView.register(cellType: FilterTableViewCell.self)

@@ -18,6 +18,9 @@ class MainTabBarController: UITabBarController {
     
     //MARK: - SetupTabBar
     func setupTabBarController() {
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().tintColor = .brown
+        
         let findVC = FindExhibitionViewController()
         let findController = UINavigationController(rootViewController: findVC)
         findController.tabBarItem.image = UIImage(systemName: "star.fill")

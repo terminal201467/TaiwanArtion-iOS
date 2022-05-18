@@ -20,12 +20,14 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
+        stackView.spacing = 4
         return stackView
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "沒有想法嗎"
+        label.textColor = .black
         label.font = .boldSystemFont(ofSize: 30)
         return label
     }()
@@ -38,11 +40,17 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         return label
     }()
     
+    let imageBackView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        view.layer.cornerRadius = 20
+        return view
+    }()
+    
     let photoScrollView: UIScrollView = {
-        
 //        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         let scrollView = UIScrollView()
-//        scrollView.contentSize = CGSize(width: 5000, height: 300)
+        scrollView.contentSize = CGSize(width: 100, height: 100)
         scrollView.backgroundColor = .black
         scrollView.isPagingEnabled = true
         // 是否顯示水平的滑動條
@@ -55,6 +63,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         scrollView.bounces = true
         // 以一頁為單位滑動
         scrollView.isPagingEnabled = true
+        scrollView.layer.cornerRadius = 20
         return scrollView
     }()
     
@@ -67,6 +76,16 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         return stackView
     }()
     
+    let imagePageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = 3
+        pageControl.currentPage = 0
+//        pageControl.tintColor = .red
+        pageControl.pageIndicatorTintColor = .gray
+        pageControl.currentPageIndicatorTintColor = .brown
+        return pageControl
+    }()
+    
     let testImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "1"))
         return image
@@ -77,22 +96,26 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         return image
     }()
     
-    let leftButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        
-        return button
-    }()
-    
-    let rightButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        return button
-    }()
+//    let leftButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+//        button.contentVerticalAlignment = .fill
+//        button.contentHorizontalAlignment = .fill
+//        return button
+//    }()
+//    
+//    let rightButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+//        button.contentVerticalAlignment = .fill
+//        button.contentHorizontalAlignment = .fill
+//        return button
+//    }()
     
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .white
         setupUI()
     }
     
@@ -104,47 +127,68 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     func setupUI() {
         contentView.addSubview(titleStackView)
         titleStackView.snp.makeConstraints { make in
-            make.top.equalTo(5)
+            make.top.equalTo(16)
             make.leading.equalTo(10)
             make.trailing.equalTo(-10)
         }
         
-        contentView.addSubview(photoScrollView)
-        photoScrollView.snp.makeConstraints { make in
+        contentView.addSubview(imageBackView)
+        imageBackView.snp.makeConstraints { make in
             make.top.equalTo(titleStackView.snp.bottom).offset(16)
-            make.leading.equalTo(10)
-            make.trailing.equalTo(-10)
-            make.bottom.equalTo(-16)
+            make.bottom.equalTo(-30)
+            make.leading.equalTo(18)
+            make.trailing.equalTo(-18)
+        }
+        
+        imageBackView.addSubview(photoScrollView)
+        photoScrollView.snp.makeConstraints { make in
+            make.top.equalTo(imageBackView.snp.top).offset(16)
+            make.leading.equalTo(imageBackView.snp.leading).offset(16)
+            make.trailing.equalTo(imageBackView.snp.trailing).offset(-16)
+            make.bottom.equalTo(imageBackView.snp.bottom).offset(-81)
         }
         
         photoScrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+//            make.edges.equalToSuperview()
+            make.top.equalTo(photoScrollView.snp.top)
+            make.leading.equalTo(photoScrollView.snp.leading)
+            make.trailing.equalTo(photoScrollView.snp.trailing)
         }
         
         testImageView.snp.makeConstraints { make in
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
-            make.width.equalTo(titleStackView.snp.width)
+            make.width.equalTo(photoScrollView.snp.width)
         }
-        
+
         test2ImageView.snp.makeConstraints { make in
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
-            make.width.equalTo(titleStackView.snp.width)
+            make.width.equalTo(photoScrollView.snp.width)
         }
         
-        contentView.addSubview(leftButton)
-        leftButton.snp.makeConstraints { make in
-            make.top.equalTo(titleStackView.snp.bottom).offset(250)
-            make.leading.equalTo(20)
+        contentView.addSubview(imagePageControl)
+        imagePageControl.snp.makeConstraints { make in
+            make.top.equalTo(imageBackView.snp.bottom).offset(5)
+            make.centerX.equalTo(self.snp.centerX)
         }
         
-        contentView.addSubview(rightButton)
-        rightButton.snp.makeConstraints { make in
-            make.trailing.equalTo(-20)
-            make.centerY.equalTo(leftButton.snp.centerY)
-        }
+//        contentView.addSubview(leftButton)
+//        leftButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(photoScrollView.snp.centerY)
+//            make.leading.equalTo(20)
+//            make.height.equalTo(50)
+//            make.width.equalTo(30)
+//        }
+//
+//        contentView.addSubview(rightButton)
+//        rightButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(leftButton.snp.centerY)
+//            make.trailing.equalTo(-20)
+//            make.height.equalTo(50)
+//            make.width.equalTo(30)
+//        }
     }
 }
 
