@@ -95,9 +95,9 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
-//        pageControl.tintColor = .red
         pageControl.pageIndicatorTintColor = .gray
         pageControl.currentPageIndicatorTintColor = .brown
+        
         return pageControl
     }()
     
@@ -156,11 +156,18 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
+        setPageControl()
         setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPageControl() {
+        imagePageControl.preferredIndicatorImage = UIImage(named: "Rectangle8")
+        let startPage = 0
+        imagePageControl.setIndicatorImage(UIImage(named: "Rectangle6"), forPage: startPage)
     }
     
     //MARK: - SetupUI
@@ -207,16 +214,22 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
 //            make.edges.equalToSuperview()
             make.top.equalTo(photoScrollView.snp.top)
             make.leading.equalTo(photoScrollView.snp.leading)
+//            make.height.equalTo(photoScrollView.snp.height)
+//            make.width.equalTo(1000)
             make.trailing.equalTo(photoScrollView.snp.trailing)
         }
         
         testImageView.snp.makeConstraints { make in
+//            make.height.equalTo(photoScrollView.snp.height)
+//            make.width.equalTo(photoScrollView.snp.width)
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)
         }
 
         test2ImageView.snp.makeConstraints { make in
+//            make.height.equalTo(photoScrollView.snp.height)
+//            make.width.equalTo(photoScrollView.snp.width)
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)

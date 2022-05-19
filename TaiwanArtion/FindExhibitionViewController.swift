@@ -114,7 +114,7 @@ extension FindExhibitionViewController: UITableViewDataSource {
 extension FindExhibitionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 510
+            return 600
         } else if indexPath.section == 1 {
             return 50
         } else {
