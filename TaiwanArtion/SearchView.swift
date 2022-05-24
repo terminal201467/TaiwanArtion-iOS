@@ -32,13 +32,7 @@ class SearchView: UIView {
         let view = UIView()
         return view
     }()
-    
-//    let searchTableView: UITableView = {
-//        let tableView = UITableView()
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-//        return tableView
-//    }()
-    
+        
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)

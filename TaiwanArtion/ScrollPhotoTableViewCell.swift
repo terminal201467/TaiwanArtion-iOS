@@ -43,7 +43,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     }()
     
     let titleImageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "Vector"))
+        let image = UIImageView(image: UIImage(named: "Bulb"))
         return image
     }()
     
@@ -165,9 +165,9 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
     }
     
     func setPageControl() {
-        imagePageControl.preferredIndicatorImage = UIImage(named: "Rectangle8")
+        imagePageControl.preferredIndicatorImage = UIImage(named: "BrownPageControl")
         let startPage = 0
-        imagePageControl.setIndicatorImage(UIImage(named: "Rectangle6"), forPage: startPage)
+        imagePageControl.setIndicatorImage(UIImage(named: "GrayPageControl"), forPage: startPage)
     }
     
     //MARK: - SetupUI

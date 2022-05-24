@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
     }
     
     //MARK: - SetNavigation
-    func setupNavigationItem() {
+    private func setupNavigationItem() {
         navigationItem.title = "SearchTest"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
     }

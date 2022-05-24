@@ -14,6 +14,7 @@
 		62B753B92835F47D00286FFF /* AreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753B82835F47D00286FFF /* AreaViewController.swift */; };
 		62B753BB2835F4A900286FFF /* CompanyNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753BA2835F4A900286FFF /* CompanyNameViewController.swift */; };
 		62B753BD2835F4BA00286FFF /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753BC2835F4BA00286FFF /* DateViewController.swift */; };
+		62B753C22836269800286FFF /* AreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753C12836269800286FFF /* AreaView.swift */; };
 		62CD7693280D04DD00696DBC /* FindExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7692280D04DD00696DBC /* FindExhibitionView.swift */; };
 		62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7695280D067200696DBC /* FindExhibitionViewController.swift */; };
 		62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */; };
@@ -46,6 +47,7 @@
 		62B753B82835F47D00286FFF /* AreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewController.swift; sourceTree = "<group>"; };
 		62B753BA2835F4A900286FFF /* CompanyNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNameViewController.swift; sourceTree = "<group>"; };
 		62B753BC2835F4BA00286FFF /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		62B753C12836269800286FFF /* AreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaView.swift; sourceTree = "<group>"; };
 		62CD7692280D04DD00696DBC /* FindExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionView.swift; sourceTree = "<group>"; };
 		62CD7695280D067200696DBC /* FindExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionViewController.swift; sourceTree = "<group>"; };
 		62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				62B753B82835F47D00286FFF /* AreaViewController.swift */,
+				62B753C32836269B00286FFF /* AreaView */,
 			);
 			name = AreaViewController;
 			sourceTree = "<group>";
@@ -115,6 +118,14 @@
 				62B753BC2835F4BA00286FFF /* DateViewController.swift */,
 			);
 			name = DateViewController;
+			sourceTree = "<group>";
+		};
+		62B753C32836269B00286FFF /* AreaView */ = {
+			isa = PBXGroup;
+			children = (
+				62B753C12836269800286FFF /* AreaView.swift */,
+			);
+			name = AreaView;
 			sourceTree = "<group>";
 		};
 		62CD768D280D040000696DBC /* App */ = {
@@ -439,6 +450,7 @@
 				6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */,
 				62B753B92835F47D00286FFF /* AreaViewController.swift in Sources */,
 				62CD7693280D04DD00696DBC /* FindExhibitionView.swift in Sources */,
+				62B753C22836269800286FFF /* AreaView.swift in Sources */,
 				62B753B72835F3FE00286FFF /* TabButtonCollectionViewCell.swift in Sources */,
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
 				62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */,
