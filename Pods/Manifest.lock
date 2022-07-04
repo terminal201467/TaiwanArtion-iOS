@@ -4,25 +4,39 @@ PODS:
     - Reusable/View (= 4.1.2)
   - Reusable/Storyboard (4.1.2)
   - Reusable/View (4.1.2)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - SideMenu (5.0.1)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Reusable
+  - RxCocoa
+  - RxSwift
   - SideMenu (~> 5.0)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Reusable
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SideMenu
     - SnapKit
 
 SPEC CHECKSUMS:
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 80662d30533084b404a31589a702b7b5557ddc60
+PODFILE CHECKSUM: f490f6c2426a32ef1a09da4f26827b91bb0d4368
 
 COCOAPODS: 1.11.2

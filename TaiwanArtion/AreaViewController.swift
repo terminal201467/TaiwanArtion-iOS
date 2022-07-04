@@ -12,7 +12,7 @@ class AreaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.tag = 0
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray3
         
     }
     

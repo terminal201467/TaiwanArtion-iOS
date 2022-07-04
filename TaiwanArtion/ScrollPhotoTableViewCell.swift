@@ -7,23 +7,12 @@
 
 import UIKit
 import SnapKit
-import Reusable
 
-class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
+class ScrollPhotoTableViewCell: UITableViewCell {
     
     static let identifier = "ScrollPhotoTableViewCell"
     
     //MARK: - UIs
-//    lazy
-//    var titleStackView: UIStackView = {
-//        let stackView = UIStackView(arrangedSubviews: [titleImageStackView, subtitlelabel])
-//        stackView.axis = .vertical
-//        stackView.alignment = .fill
-//        stackView.distribution = .equalSpacing
-//        stackView.spacing = 4
-//        return stackView
-//    }()
-    
     lazy
     var titleImageStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, titleImageView])
@@ -135,23 +124,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         label.font = .boldSystemFont(ofSize: 15)
         return label
     }()
-    
-//    let leftButton: UIButton = {
-//        let button = UIButton()
-//        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-//        button.contentVerticalAlignment = .fill
-//        button.contentHorizontalAlignment = .fill
-//        return button
-//    }()
-//    
-//    let rightButton: UIButton = {
-//        let button = UIButton()
-//        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-//        button.contentVerticalAlignment = .fill
-//        button.contentHorizontalAlignment = .fill
-//        return button
-//    }()
-    
+        
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -164,14 +137,14 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPageControl() {
+    private func setPageControl() {
         imagePageControl.preferredIndicatorImage = UIImage(named: "BrownPageControl")
         let startPage = 0
         imagePageControl.setIndicatorImage(UIImage(named: "GrayPageControl"), forPage: startPage)
     }
     
     //MARK: - SetupUI
-    func setupUI() {
+    private func setupUI() {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(20)
@@ -186,13 +159,13 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
             make.height.equalTo(22)
             make.width.equalTo(23)
         }
-        
+
         contentView.addSubview(subtitlelabel)
         subtitlelabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(16)
         }
-        
+
         contentView.addSubview(imageBackView)
         imageBackView.snp.makeConstraints { make in
             make.top.equalTo(subtitlelabel.snp.bottom).offset(16)
@@ -200,7 +173,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
             make.leading.equalTo(15)
             make.trailing.equalTo(-15)
         }
-        
+
         imageBackView.addSubview(photoScrollView)
         photoScrollView.snp.makeConstraints { make in
             make.top.equalTo(imageBackView.snp.top).offset(16)
@@ -208,7 +181,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
             make.trailing.equalTo(imageBackView.snp.trailing).offset(-16)
             make.bottom.equalTo(imageBackView.snp.bottom).offset(-81)
         }
-        
+
         photoScrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
 //            make.edges.equalToSuperview()
@@ -218,7 +191,7 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
 //            make.width.equalTo(1000)
             make.trailing.equalTo(photoScrollView.snp.trailing)
         }
-        
+
         testImageView.snp.makeConstraints { make in
 //            make.height.equalTo(photoScrollView.snp.height)
 //            make.width.equalTo(photoScrollView.snp.width)
@@ -234,34 +207,18 @@ class ScrollPhotoTableViewCell: UITableViewCell, Reusable {
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)
         }
-        
+
         imageBackView.addSubview(exhibitionNameAndDate)
         exhibitionNameAndDate.snp.makeConstraints { make in
             make.top.equalTo(photoScrollView.snp.bottom).offset(19)
             make.leading.equalTo(16)
         }
-        
+
         contentView.addSubview(imagePageControl)
         imagePageControl.snp.makeConstraints { make in
             make.top.equalTo(imageBackView.snp.bottom).offset(5)
             make.centerX.equalTo(self.snp.centerX)
         }
-        
-//        contentView.addSubview(leftButton)
-//        leftButton.snp.makeConstraints { make in
-//            make.centerY.equalTo(photoScrollView.snp.centerY)
-//            make.leading.equalTo(20)
-//            make.height.equalTo(50)
-//            make.width.equalTo(30)
-//        }
-//
-//        contentView.addSubview(rightButton)
-//        rightButton.snp.makeConstraints { make in
-//            make.centerY.equalTo(leftButton.snp.centerY)
-//            make.trailing.equalTo(-20)
-//            make.height.equalTo(50)
-//            make.width.equalTo(30)
-//        }
     }
 }
 

@@ -7,9 +7,8 @@
 
 import UIKit
 import SnapKit
-import Reusable
 
-class FindExhibitionTableViewCell: UITableViewCell, Reusable {
+class FindExhibitionTableViewCell: UITableViewCell {
     
     static let identifier = "FindExhibitionTableViewCell"
     

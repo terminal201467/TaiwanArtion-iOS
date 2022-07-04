@@ -9,4 +9,6 @@ target 'TaiwanArtion' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SideMenu', '~> 5.0'
   pod 'Reusable'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

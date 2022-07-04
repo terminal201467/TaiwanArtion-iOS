@@ -12,7 +12,7 @@ class CompanyNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.tag = 1
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
     }
     
 

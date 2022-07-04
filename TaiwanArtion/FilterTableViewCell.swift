@@ -7,12 +7,13 @@
 
 import UIKit
 import SnapKit
-import Reusable
 
-class FilterTableViewCell: UITableViewCell, Reusable {
+class FilterTableViewCell: UITableViewCell {
+    
+    static let identifier = "FilterTableViewCell"
+
     //MARK: Properties
     var popOutFilterButton: (() -> Void)?
-    
     
     
     //MARK: - UIs
@@ -26,11 +27,8 @@ class FilterTableViewCell: UITableViewCell, Reusable {
     
     let filterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = button.bounds.size.height / 2.0
-        button.clipsToBounds = true
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-        button.setTitle("一個月", for: .normal)
+        button.setTitle("See all", for: .normal)
+        button.setTitleColor(.brown, for: .normal)
         return button
     }()
     
