@@ -9,10 +9,10 @@ import UIKit
 
 class FindExhibitionTableView: UITableView {
     
-    
-    
     //MARK: - Properties
     let testList: [Int] = [1, 2, 3, 4, 5, 6]
+    
+    weak var buttonDelegate: TableViewCellDelegate?
     
     convenience init() {
         self.init(frame: .zero, style: .plain)
@@ -20,7 +20,7 @@ class FindExhibitionTableView: UITableView {
         register(FilterTableViewCell.self, forCellReuseIdentifier: FilterTableViewCell.identifier)
         register(FindExhibitionTableViewCell.self, forCellReuseIdentifier: FindExhibitionTableViewCell.identifier)
 //        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        backgroundColor = .white
+        backgroundColor = .backgroundColor
         separatorStyle = .none
         separatorColor = .clear
         allowsSelection = false
@@ -63,13 +63,7 @@ extension FindExhibitionTableView: UITableViewDataSource {
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.identifier, for: indexPath) as! FilterTableViewCell
             cell.selectionStyle = .none
-            cell.popOutFilterButton = { [unowned self] in
-                let blurVC = BlurController()
-                blurVC.modalPresentationStyle = .custom
-//                self.present(blurVC, animated: true, completion: nil)
-                self.window?.rootViewController!.present(blurVC, animated: true, completion: nil)
-
-            }
+            cell.buttonDelegate = buttonDelegate
             return cell
 
         } else {

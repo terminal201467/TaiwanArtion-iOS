@@ -25,7 +25,7 @@
 		62CD76A2280D491E00696DBC /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A1280D491E00696DBC /* SideMenuView.swift */; };
 		62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A5280D7EEF00696DBC /* SearchViewController.swift */; };
 		62CD76A9280D804A00696DBC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD76A8280D804A00696DBC /* SearchView.swift */; };
-		62D51EB02817DA7D00010C6A /* BlurController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D51EAF2817DA7D00010C6A /* BlurController.swift */; };
+		62D51EB02817DA7D00010C6A /* SeeAllExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D51EAF2817DA7D00010C6A /* SeeAllExhibitionViewController.swift */; };
 		62D51EB32817DA9C00010C6A /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D51EB22817DA9C00010C6A /* BlurView.swift */; };
 		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
 		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
@@ -59,7 +59,7 @@
 		62CD76A1280D491E00696DBC /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		62CD76A5280D7EEF00696DBC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		62CD76A8280D804A00696DBC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		62D51EAF2817DA7D00010C6A /* BlurController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurController.swift; sourceTree = "<group>"; };
+		62D51EAF2817DA7D00010C6A /* SeeAllExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllExhibitionViewController.swift; sourceTree = "<group>"; };
 		62D51EB22817DA9C00010C6A /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 				6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */,
 				6274AA0A2816D326008D076D /* FilterTableViewCell.swift */,
 				62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */,
-				62D51EAE2817DA0D00010C6A /* BlurViewController */,
 				62CD76AC280D87BF00696DBC /* SideMenuController */,
+				62D51EAE2817DA0D00010C6A /* BlurViewController */,
 				62CD76AA280D805900696DBC /* SearchController */,
 			);
 			name = FindExhibition;
@@ -183,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				62CD76A8280D804A00696DBC /* SearchView.swift */,
-				62B753B62835F3FE00286FFF /* TabButtonCollectionViewCell.swift */,
 				62CD76A5280D7EEF00696DBC /* SearchViewController.swift */,
+				62B753B62835F3FE00286FFF /* TabButtonCollectionViewCell.swift */,
 				62B753BE2835F4D500286FFF /* AreaViewController */,
 				62B753BF2835F4E400286FFF /* CompanyName */,
 				62B753C02835F4F300286FFF /* Date */,
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				62D51EB22817DA9C00010C6A /* BlurView.swift */,
-				62D51EAF2817DA7D00010C6A /* BlurController.swift */,
+				62D51EAF2817DA7D00010C6A /* SeeAllExhibitionViewController.swift */,
 			);
 			name = BlurViewController;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 			files = (
 				62B753BD2835F4BA00286FFF /* DateViewController.swift in Sources */,
 				62A558272872BB3C00EDCCB3 /* FindExhibitionViewModel.swift in Sources */,
-				62D51EB02817DA7D00010C6A /* BlurController.swift in Sources */,
+				62D51EB02817DA7D00010C6A /* SeeAllExhibitionViewController.swift in Sources */,
 				62B753BB2835F4A900286FFF /* CompanyNameViewController.swift in Sources */,
 				62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */,
 				62CD76A0280D40A800696DBC /* SideMenuController.swift in Sources */,

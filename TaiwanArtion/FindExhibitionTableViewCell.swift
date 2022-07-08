@@ -15,7 +15,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
     //MARK: - UIs
     let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         view.layer.shadowRadius = 7
         view.layer.shadowOffset = CGSize(width: 3, height: 3)
         view.layer.shadowOpacity = 0.1
@@ -70,6 +70,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         let label = UILabel()
         label.layer.borderColor = UIColor.black.cgColor
         label.backgroundColor = .brown
+        label.textColor = .white
         label.layer.borderWidth = 1
         label.layer.cornerRadius = 5
         label.clipsToBounds = true
@@ -87,7 +88,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .backgroundColor
         selectionStyle = .none
         setupUI()
     }

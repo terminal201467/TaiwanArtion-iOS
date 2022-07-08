@@ -8,13 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol TableViewCellDelegate: AnyObject {
+    func didButtonPressed()
+}
+
 class FilterTableViewCell: UITableViewCell {
     
     static let identifier = "FilterTableViewCell"
 
     //MARK: Properties
-    var popOutFilterButton: (() -> Void)?
-    
+    weak var buttonDelegate: TableViewCellDelegate?
     
     //MARK: - UIs
     let titleLabel: UILabel = {
@@ -25,7 +28,7 @@ class FilterTableViewCell: UITableViewCell {
         return label
     }()
     
-    let filterButton: UIButton = {
+    var filterButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("See all", for: .normal)
         button.setTitleColor(.brown, for: .normal)
@@ -34,7 +37,7 @@ class FilterTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .backgroundColor
         setupUI()
     }
     
@@ -62,6 +65,6 @@ class FilterTableViewCell: UITableViewCell {
     
     @objc
     func popup() {
-        popOutFilterButton?()
+        buttonDelegate?.didButtonPressed()
     }
 }

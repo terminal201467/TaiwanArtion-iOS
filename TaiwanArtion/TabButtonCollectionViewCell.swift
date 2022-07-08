@@ -36,20 +36,6 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI() {
-        addSubview(pageLabel)
-        pageLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        addSubview(currentView)
-        currentView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(pageLabel)
-            make.bottom.equalTo(pageLabel.snp.bottom)
-            make.height.equalTo(3)
-        }
-    }
-    
     override var isSelected: Bool {
         didSet {
             DispatchQueue.main.async {
@@ -58,6 +44,20 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
                     self.layoutIfNeeded()
                 }
             }
+        }
+    }
+    
+    private func setupUI() {
+        addSubview(pageLabel)
+        pageLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        addSubview(currentView)
+        currentView.snp.makeConstraints { make in
+            make.top.equalTo(pageLabel.snp.bottom)
+            make.leading.trailing.equalTo(pageLabel)
+            make.height.equalTo(4)
         }
     }
 }

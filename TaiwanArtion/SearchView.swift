@@ -22,9 +22,9 @@ class SearchView: UIView {
     let tabCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .backgroundColor
         collectionView.register(TabButtonCollectionViewCell.self, forCellWithReuseIdentifier: TabButtonCollectionViewCell.identifier)
-        collectionView.backgroundColor = .white
         return collectionView
     }()
     
@@ -36,7 +36,7 @@ class SearchView: UIView {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .backgroundColor
         setupUI()
     }
     

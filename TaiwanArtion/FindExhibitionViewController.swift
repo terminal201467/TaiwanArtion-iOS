@@ -15,7 +15,7 @@ class FindExhibitionViewController: UIViewController {
     private let tableView = FindExhibitionTableView()
     private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuController())
     
-    let testList: [Int] = [1, 2, 3, 4, 5, 6]
+//    let testList: [Int] = [1, 2, 3, 4, 5, 6]
 
            
     //MARK: - Lifecycle
@@ -24,6 +24,7 @@ class FindExhibitionViewController: UIViewController {
         setupUI()
         setupSideMenu()
         setupNavigation()
+        tableView.buttonDelegate = self
     }
     
     //MARK: - Set SideMenu
@@ -48,10 +49,9 @@ class FindExhibitionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    
     //MARK: - SetupUI
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -71,4 +71,16 @@ class FindExhibitionViewController: UIViewController {
         let searchVC = SearchViewController()
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
+}
+
+extension FindExhibitionViewController: TableViewCellDelegate {
+    func didButtonPressed() {
+        let vc = SeeAllExhibitionViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+        
+//    func didButtonPressed() {
+//        let vc = SeeAllExhibitionViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
 }

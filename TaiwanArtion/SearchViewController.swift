@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     //MARK: - Properties
     private let searchView = SearchView()
     
-    let pages = ["不限區域", "單位名稱", "日期"]
+    let pages = ["縣市", "單位名稱", "日期"]
     
     let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
@@ -45,6 +45,7 @@ class SearchViewController: UIViewController {
     private func setupCollectionView() {
         searchView.tabCollectionView.dataSource = self
         searchView.tabCollectionView.delegate = self
+        searchView.tabCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     //MARK: - ConfigurePageVC
@@ -70,6 +71,8 @@ class SearchViewController: UIViewController {
         searchView.uiSearchController.searchResultsUpdater = self
         self.searchView.uiSearchController.searchBar.sizeToFit()
         searchView.uiSearchController.searchBar.delegate = self
+        searchView.uiSearchController.searchBar.showsCancelButton = true
+        
     }
     
     //MARK: - Methods
@@ -106,7 +109,7 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabButtonCollectionViewCell.identifier, for: indexPath) as! TabButtonCollectionViewCell
-        cell.backgroundColor = .white
+        cell.backgroundColor = .backgroundColor
         cell.pageLabel.text = pages[indexPath.row]
         return cell
     }
