@@ -10,35 +10,26 @@ import SnapKit
 
 class SeeAllExhibitionViewController: UIViewController {
     
+    //MARK: - UIs
+    private let tableView = FindExhibitionTableView()
     
     //MARK: - Lifecycle
-//    override func loadView() {
-//        super.loadView()
-//        view = blurView
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgroundColor
-//        target()
-//        tapToDismiss()
+        setupUI()
+        
+        
     }
     
     //MARK: - Methods
-//    func target() {
-//        blurView.cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-//    }
+    
+    
+    private func setupUI() {
+        view.backgroundColor = .backgroundColor
+        
+//        view.addSubview(tableView)
+//        tableView.snp.makeConstraints { make in
 //
-//    func tapToDismiss() {
-//        let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(tapToDismiss(_:)))
-//        blurView.blurBackView.addGestureRecognizer(tapToDismiss)
-//    }
-//
-//    @objc func cancel() {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    @objc func tapToDismiss(_ recognizer: UITapGestureRecognizer) {
-//        dismiss(animated: true, completion: nil)
-//    }
+//        }
+    }
 }

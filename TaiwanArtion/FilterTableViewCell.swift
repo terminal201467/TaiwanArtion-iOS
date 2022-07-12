@@ -19,7 +19,11 @@ class FilterTableViewCell: UITableViewCell {
     //MARK: Properties
     weak var buttonDelegate: TableViewCellDelegate?
     
+
     //MARK: - UIs
+    
+    let filterButton = FilterButton()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "近期展覽"
@@ -28,13 +32,15 @@ class FilterTableViewCell: UITableViewCell {
         return label
     }()
     
-    var filterButton: UIButton = {
+    var seeAllButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("See all", for: .normal)
         button.setTitleColor(.brown, for: .normal)
         return button
     }()
     
+    
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .backgroundColor
@@ -53,18 +59,27 @@ class FilterTableViewCell: UITableViewCell {
             make.leading.equalTo(16)
         }
         
-        contentView.addSubview(filterButton)
-        filterButton.addTarget(self, action: #selector(popup), for: .touchUpInside)
-        filterButton.snp.makeConstraints { make in
+        contentView.addSubview(seeAllButton)
+        seeAllButton.addTarget(self, action: #selector(push), for: .touchUpInside)
+        seeAllButton.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.width.equalTo(80)
             make.centerY.equalTo(titleLabel.snp.centerY)
             make.trailing.equalTo(-16)
         }
+        
+        contentView.addSubview(filterButton)
+        filterButton.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(-16)
+        }
     }
     
+    //MARK: - Methods
     @objc
-    func popup() {
+    func push() {
         buttonDelegate?.didButtonPressed()
     }
 }

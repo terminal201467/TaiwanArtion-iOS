@@ -10,7 +10,7 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     //MARK: - Properties
-    private let searchView = SearchView()
+//    private let searchView = SearchView()
     
     let pages = ["縣市", "單位名稱", "日期"]
     
@@ -21,31 +21,58 @@ class SearchViewController: UIViewController {
     var viewControllers: [UIViewController] = [AreaViewController(), CompanyNameViewController(), DateViewController()]
     
     
+    //MARK: - UIs
+    let uiSearchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController
+          .hidesNavigationBarDuringPresentation = true
+        searchController
+          .obscuresBackgroundDuringPresentation = false
+        return searchController
+    }()
+    
+    let tabCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .backgroundColor
+        collectionView.register(TabButtonCollectionViewCell.self, forCellWithReuseIdentifier: TabButtonCollectionViewCell.identifier)
+        collectionView.isScrollEnabled = false
+        return collectionView
+    }()
+    
+    let backView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    
     //MARK: - Lifecycle
-    override func loadView() {
-        super.loadView()
-        view = searchView
-    }
+//    override func loadView() {
+//        super.loadView()
+//        view = searchView
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationItem()
+        setupUI()
+        setupNavigation()
         setupCollectionView()
         setupSearchController()
         configurePageViewController()
     }
     
     //MARK: - SetNavigation
-    private func setupNavigationItem() {
+    private func setupNavigation() {
         navigationItem.title = "SearchTest"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
     }
     
     //MARK: - Setup CollectionView
     private func setupCollectionView() {
-        searchView.tabCollectionView.dataSource = self
-        searchView.tabCollectionView.delegate = self
-        searchView.tabCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        tabCollectionView.dataSource = self
+        tabCollectionView.delegate = self
+        tabCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     //MARK: - ConfigurePageVC
@@ -55,7 +82,7 @@ class SearchViewController: UIViewController {
         pageViewController.didMove(toParent: self)
         
         pageViewController.view.snp.makeConstraints { make in
-            make.edges.equalTo(searchView.backView)
+            make.edges.equalTo(backView)
         }
         
         pageViewController.dataSource = self
@@ -65,15 +92,33 @@ class SearchViewController: UIViewController {
     
     //MARK: - Set SearchController
     private func setupSearchController() {
-        navigationItem.searchController = searchView.uiSearchController
+        navigationItem.searchController = uiSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchView.uiSearchController.searchBar.searchBarStyle = .default
-        searchView.uiSearchController.searchResultsUpdater = self
-        self.searchView.uiSearchController.searchBar.sizeToFit()
-        searchView.uiSearchController.searchBar.delegate = self
-        searchView.uiSearchController.searchBar.showsCancelButton = true
+        uiSearchController.searchBar.searchBarStyle = .default
+        uiSearchController.searchResultsUpdater = self
+        uiSearchController.searchBar.sizeToFit()
+        uiSearchController.searchBar.delegate = self
         
     }
+    
+    //MARK: - SetupUI
+    private func setupUI() {
+        view.backgroundColor = .backgroundColor
+        
+        view.addSubview(tabCollectionView)
+        tabCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        view.addSubview(backView)
+        backView.snp.makeConstraints { make in
+            make.top.equalTo(tabCollectionView.snp.bottom)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+    }
+
     
     //MARK: - Methods
     func pageViewChange(index: Int) -> UIViewController? {
@@ -136,8 +181,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell
 //        let width = (collectionView.bounds.width - 5 * 3) / 4
 //        let height = width
-        let width = searchView.tabCollectionView.frame.width / 3
-        let height = searchView.tabCollectionView.frame.height - 4
+        let width = tabCollectionView.frame.width / 3
+        let height = tabCollectionView.frame.height - 4
         return CGSize(width: width, height: height)
     }
     
@@ -171,7 +216,7 @@ extension SearchViewController: UIPageViewControllerDelegate {
             if completed {
                 guard let vc = pageViewController.viewControllers?.first else { return }
                 pageViewIndex = vc.view.tag
-                searchView.tabCollectionView.selectItem(at: IndexPath(item: pageViewIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
+                tabCollectionView.selectItem(at: IndexPath(item: pageViewIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
             }
         }
     }

@@ -12,7 +12,7 @@ class DateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.tag = 2
-        view.backgroundColor = .gray
+        view.backgroundColor = .backgroundColor
     }
     
 

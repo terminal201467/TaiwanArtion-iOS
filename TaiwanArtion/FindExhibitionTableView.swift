@@ -14,6 +14,7 @@ class FindExhibitionTableView: UITableView {
     
     weak var buttonDelegate: TableViewCellDelegate?
     
+    //MARK: - Init
     convenience init() {
         self.init(frame: .zero, style: .plain)
         register(ScrollPhotoTableViewCell.self, forCellReuseIdentifier: ScrollPhotoTableViewCell.identifier)
@@ -81,7 +82,7 @@ extension FindExhibitionTableView: UITableViewDelegate {
         if indexPath.section == 0 {
             return 600
         } else if indexPath.section == 1 {
-            return 50
+            return 100
         } else {
             return 150
         }
