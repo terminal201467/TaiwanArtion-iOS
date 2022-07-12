@@ -69,8 +69,8 @@ extension FindExhibitionTableView: UITableViewDataSource {
 
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: FindExhibitionTableViewCell.identifier, for: indexPath) as! FindExhibitionTableViewCell
-            let image = UIImage(named: "3")
-            cell.recentExhibitionImageView.image = image!
+//            let image = UIImage(named: "3")
+//            cell.recentExhibitionImageView.image = image!
             return cell
         }
     }

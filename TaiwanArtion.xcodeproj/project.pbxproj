@@ -105,13 +105,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		62A3F93E287D17F50067B03C /* FliterButton */ = {
+		62A3F93E287D17F50067B03C /* FilterButton */ = {
 			isa = PBXGroup;
 			children = (
 				62A3F945287D28290067B03C /* FilterButton.swift */,
 				62A3F941287D262A0067B03C /* FilterButtonCell.swift */,
 			);
-			name = FliterButton;
+			name = FilterButton;
 			sourceTree = "<group>";
 		};
 		62B753BE2835F4D500286FFF /* AreaViewController */ = {
@@ -232,7 +232,7 @@
 		62DCAC1C287832AC004EC187 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				62A3F93E287D17F50067B03C /* FliterButton */,
+				62A3F93E287D17F50067B03C /* FilterButton */,
 			);
 			name = UI;
 			sourceTree = "<group>";

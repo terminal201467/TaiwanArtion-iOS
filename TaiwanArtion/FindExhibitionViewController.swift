@@ -56,6 +56,7 @@ class FindExhibitionViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

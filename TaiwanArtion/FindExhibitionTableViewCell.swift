@@ -24,7 +24,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
     }()
     
     let recentExhibitionImageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: UIImage(named: "3"))
         imageView.backgroundColor = .white
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
