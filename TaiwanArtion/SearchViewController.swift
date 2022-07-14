@@ -10,7 +10,6 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     //MARK: - Properties
-//    private let searchView = SearchView()
     
     let pages = ["縣市", "單位名稱", "日期"]
     
@@ -22,16 +21,33 @@ class SearchViewController: UIViewController {
     
     
     //MARK: - UIs
-    let uiSearchController: UISearchController = {
-        let searchController = UISearchController()
-        searchController
-          .hidesNavigationBarDuringPresentation = true
-        searchController
-          .obscuresBackgroundDuringPresentation = false
-        return searchController
-    }()
     
-    let tabCollectionView: UICollectionView = {
+    private let searchBarTableView = SearchBarTableView()
+    
+    private let searchBarTextField = SearchBarTextField()
+    private let whetherStartExhibitionView = WhetherStartExhibitionButton()
+
+//    private let searchTextField: UITextField = {
+//        let textField = UITextField()
+//        textField.addConstraint(textField.heightAnchor.constraint(equalToConstant: 40))
+//        textField.backgroundColor = .systemGray6
+//        textField.placeholder = "Search"
+//        textField.font = .boldSystemFont(ofSize: 20)
+//        textField.borderStyle = .none
+//        textField.clearButtonMode = .whileEditing
+//        textField.keyboardType = .default
+//        textField.layer.cornerRadius = 10
+//        let leftVeiwView = UIView(frame: CGRect(x: 10, y: 0, width: 40, height: 40))
+//        textField.leftView = leftVeiwView
+//        textField.leftViewMode = .always
+//        let iconImage = UIImageView(frame: CGRect(x: 10, y: 5, width: 30, height: 30))
+//        iconImage.image = UIImage(systemName: "magnifyingglass")
+//        iconImage.tintColor = .gray
+//        leftVeiwView.addSubview(iconImage)
+//        return textField
+//    }()
+    
+    private let tabCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -41,24 +57,21 @@ class SearchViewController: UIViewController {
         return collectionView
     }()
     
-    let backView: UIView = {
+    private let backView: UIView = {
         let view = UIView()
         return view
     }()
     
     
+    
+    
     //MARK: - Lifecycle
-//    override func loadView() {
-//        super.loadView()
-//        view = searchView
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupNavigation()
         setupCollectionView()
-        setupSearchController()
         configurePageViewController()
     }
     
@@ -90,24 +103,28 @@ class SearchViewController: UIViewController {
         pageViewController.setViewControllers([viewControllers[pageViewIndex]], direction: .forward, animated: true)
     }
     
-    //MARK: - Set SearchController
-    private func setupSearchController() {
-        navigationItem.searchController = uiSearchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        uiSearchController.searchBar.searchBarStyle = .default
-        uiSearchController.searchResultsUpdater = self
-        uiSearchController.searchBar.sizeToFit()
-        uiSearchController.searchBar.delegate = self
-        
-    }
-    
     //MARK: - SetupUI
     private func setupUI() {
         view.backgroundColor = .backgroundColor
         
+        view.addSubview(searchBarTextField)
+        searchBarTextField.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
+            make.leading.equalTo(16)
+            make.width.equalTo(270)
+        }
+        
+        view.addSubview(whetherStartExhibitionView)
+        whetherStartExhibitionView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
+            make.leading.equalTo(searchBarTextField.snp.trailing).offset(8)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(40)
+        }
+        
         view.addSubview(tabCollectionView)
         tabCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(searchBarTextField.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
         }
@@ -129,20 +146,6 @@ class SearchViewController: UIViewController {
         } else {
             return viewControllers[index]
         }
-    }
-}
-
-//MARK: - SearchBar Delegate
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-}
-
-//MARK: - SearchResults Updating
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        
     }
 }
 
@@ -179,19 +182,19 @@ extension SearchViewController: UICollectionViewDelegate {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell
-//        let width = (collectionView.bounds.width - 5 * 3) / 4
+        let width = (collectionView.bounds.width - 1 * 3) / 4
 //        let height = width
-        let width = tabCollectionView.frame.width / 3
+//        let width = tabCollectionView.frame.width / 3
         let height = tabCollectionView.frame.height - 4
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 1
     }
 }
 

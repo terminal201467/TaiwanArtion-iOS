@@ -15,7 +15,7 @@ class FilterButtonCell: UICollectionViewCell {
     //MARK: - UIs
     private let backView: UIView = {
         let view = UIView()
-//        view.backgroundColor = .brown
+        view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 5
         return view
     }()
@@ -42,7 +42,7 @@ class FilterButtonCell: UICollectionViewCell {
         didSet {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.1) {
-                    self.backView.backgroundColor = self.isSelected ? UIColor.brown : UIColor.clear
+                    self.backView.backgroundColor = self.isSelected ? UIColor.brown : UIColor.systemGray6
                     self.rangeLabel.textColor = self.isSelected ? UIColor.white : UIColor.gray
                     self.layoutIfNeeded()
                 }

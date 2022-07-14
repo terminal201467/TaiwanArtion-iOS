@@ -14,6 +14,7 @@ class SideMenuView: UIView {
     let sideMenuTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "sideMenuCell")
+        tableView.isScrollEnabled = false
         return tableView
     }()
 

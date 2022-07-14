@@ -151,6 +151,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
             make.leading.equalTo(15)
 //            make.trailing.equalTo(-15)
         }
+        
         contentView.addSubview(titleImageView)
         titleImageView.snp.makeConstraints { make in
 //            make.top.equalTo(20)
