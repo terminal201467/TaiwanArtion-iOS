@@ -21,31 +21,9 @@ class SearchViewController: UIViewController {
     
     
     //MARK: - UIs
-    
-    private let searchBarTableView = SearchBarTableView()
-    
     private let searchBarTextField = SearchBarTextField()
-    private let whetherStartExhibitionView = WhetherStartExhibitionButton()
-
-//    private let searchTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.addConstraint(textField.heightAnchor.constraint(equalToConstant: 40))
-//        textField.backgroundColor = .systemGray6
-//        textField.placeholder = "Search"
-//        textField.font = .boldSystemFont(ofSize: 20)
-//        textField.borderStyle = .none
-//        textField.clearButtonMode = .whileEditing
-//        textField.keyboardType = .default
-//        textField.layer.cornerRadius = 10
-//        let leftVeiwView = UIView(frame: CGRect(x: 10, y: 0, width: 40, height: 40))
-//        textField.leftView = leftVeiwView
-//        textField.leftViewMode = .always
-//        let iconImage = UIImageView(frame: CGRect(x: 10, y: 5, width: 30, height: 30))
-//        iconImage.image = UIImage(systemName: "magnifyingglass")
-//        iconImage.tintColor = .gray
-//        leftVeiwView.addSubview(iconImage)
-//        return textField
-//    }()
+    private let whetherStartExhibitionButton = WhetherStartExhibitionButton()
+    private let searchBarTableView = SearchBarTableView()
     
     private let tabCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -62,9 +40,6 @@ class SearchViewController: UIViewController {
         return view
     }()
     
-    
-    
-    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -73,12 +48,18 @@ class SearchViewController: UIViewController {
         setupNavigation()
         setupCollectionView()
         configurePageViewController()
+        whetherStartExhibitionViewTap()
     }
     
     //MARK: - SetNavigation
     private func setupNavigation() {
         navigationItem.title = "SearchTest"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        // left Button
+        let leftButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButton))
+        leftButton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = leftButton
     }
     
     //MARK: - Setup CollectionView
@@ -114,8 +95,8 @@ class SearchViewController: UIViewController {
             make.width.equalTo(270)
         }
         
-        view.addSubview(whetherStartExhibitionView)
-        whetherStartExhibitionView.snp.makeConstraints { make in
+        view.addSubview(whetherStartExhibitionButton)
+        whetherStartExhibitionButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
             make.leading.equalTo(searchBarTextField.snp.trailing).offset(8)
             make.trailing.equalTo(-16)
@@ -138,7 +119,7 @@ class SearchViewController: UIViewController {
 
     
     //MARK: - Methods
-    func pageViewChange(index: Int) -> UIViewController? {
+    private func pageViewChange(index: Int) -> UIViewController? {
         if index < 0 {
             return viewControllers.last
         } else if index > viewControllers.count - 1 {
@@ -146,6 +127,29 @@ class SearchViewController: UIViewController {
         } else {
             return viewControllers[index]
         }
+    }
+    
+    private func whetherStartExhibitionViewTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(touch))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        whetherStartExhibitionButton.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func touch() {
+        let vc = WhetherStartExhibitionViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .pageSheet
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        present(nav, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func backButton() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
