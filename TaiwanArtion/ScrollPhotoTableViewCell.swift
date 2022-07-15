@@ -185,11 +185,9 @@ class ScrollPhotoTableViewCell: UITableViewCell {
 
         photoScrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
             make.top.equalTo(photoScrollView.snp.top)
             make.leading.equalTo(photoScrollView.snp.leading)
-//            make.height.equalTo(photoScrollView.snp.height)
-//            make.width.equalTo(1000)
+            make.height.equalTo(photoScrollView.snp.height)
             make.trailing.equalTo(photoScrollView.snp.trailing)
         }
 

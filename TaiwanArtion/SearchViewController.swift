@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
     private let searchBarTextField = SearchBarTextField()
     private let whetherStartExhibitionButton = WhetherStartExhibitionButton()
     private let searchBarTableView = SearchBarTableView()
+//    private let totalExhibitionTableView = TotalExhibitionTableView()
     
     private let tabCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -115,6 +116,13 @@ class SearchViewController: UIViewController {
             make.top.equalTo(tabCollectionView.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
         }
+        
+//        view.addSubview(totalExhibitionTableView)
+//        totalExhibitionTableView.snp.makeConstraints { make in
+//            make.top.equalTo(tabCollectionView.snp.bottom)
+//            make.leading.trailing.equalToSuperview()
+//            make.bottom.equalTo(0)
+//        }
     }
 
     
@@ -137,8 +145,8 @@ class SearchViewController: UIViewController {
     }
     
     @objc
-    private func touch() {
-        let vc = WhetherStartExhibitionViewController()
+    private func touch(_ sender: UIView) {
+        let vc = WhetherStartBottomSheetViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .pageSheet
         if let sheet = nav.sheetPresentationController {
@@ -186,7 +194,7 @@ extension SearchViewController: UICollectionViewDelegate {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell
-        let width = (collectionView.bounds.width - 1 * 3) / 4
+        let width = (collectionView.bounds.width - 1 * 3) / 5
 //        let height = width
 //        let width = tabCollectionView.frame.width / 3
         let height = tabCollectionView.frame.height - 4

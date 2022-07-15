@@ -10,13 +10,13 @@ import SnapKit
 
 class TabButtonCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "MainTabCollectionViewCell"
+    static let identifier = "TabButtonCollectionViewCell"
     
     //MARK: - UIs
     let pageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .gray
         return label
     }()

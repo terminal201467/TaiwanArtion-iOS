@@ -19,15 +19,13 @@ class AreaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        
     }
     
     //MARK: - Setup UI
     private func setupUI() {
         view.tag = 0
         view.backgroundColor = .backgroundColor
-        
+
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)

@@ -36,7 +36,7 @@ class WhetherStartExhibitionButton: UIView {
         return label
     }()
     
-    private let arrowImageView: UIImageView = {
+    let arrowImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "chevron.down")) //chevron.up
         imageView.tintColor = .systemGray4
         return imageView
