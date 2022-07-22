@@ -33,6 +33,4 @@ class AreaViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
         }
     }
-    
-
 }

@@ -154,7 +154,6 @@ class ScrollPhotoTableViewCell: UITableViewCell {
         
         contentView.addSubview(titleImageView)
         titleImageView.snp.makeConstraints { make in
-//            make.top.equalTo(20)
             make.leading.equalTo(titleLabel.snp.trailing).offset(11)
             make.centerY.equalTo(titleLabel.snp.centerY)
             make.height.equalTo(22)
@@ -187,21 +186,17 @@ class ScrollPhotoTableViewCell: UITableViewCell {
         scrollViewContainer.snp.makeConstraints { make in
             make.top.equalTo(photoScrollView.snp.top)
             make.leading.equalTo(photoScrollView.snp.leading)
-            make.height.equalTo(photoScrollView.snp.height)
             make.trailing.equalTo(photoScrollView.snp.trailing)
+            make.height.equalTo(photoScrollView.snp.height)
         }
 
         testImageView.snp.makeConstraints { make in
-//            make.height.equalTo(photoScrollView.snp.height)
-//            make.width.equalTo(photoScrollView.snp.width)
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)
         }
 
         test2ImageView.snp.makeConstraints { make in
-//            make.height.equalTo(photoScrollView.snp.height)
-//            make.width.equalTo(photoScrollView.snp.width)
             make.top.equalTo(photoScrollView.snp.top)
             make.bottom.equalTo(photoScrollView.snp.bottom)
             make.width.equalTo(photoScrollView.snp.width)

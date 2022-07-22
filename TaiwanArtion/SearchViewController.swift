@@ -11,7 +11,7 @@ import SnapKit
 class SearchViewController: UIViewController {
     //MARK: - Properties
     
-    let pages = ["縣市", "單位名稱", "日期"]
+    let pages = ["縣市", "展覽地點", "日期"]
     
     let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     

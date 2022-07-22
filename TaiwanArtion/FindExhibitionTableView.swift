@@ -80,7 +80,7 @@ extension FindExhibitionTableView: UITableViewDataSource {
 extension FindExhibitionTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 600
+            return 675
         } else if indexPath.section == 1 {
             return 100
         } else {

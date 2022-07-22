@@ -6,24 +6,45 @@
 //
 
 import UIKit
+import SnapKit
 
 class CompanyNameViewController: UIViewController {
+    
+    private let filterPositionButtons = FilterPositionButtons()
+    
+    private let confirmButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("確定", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = .brownColor
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.tag = 1
-        view.backgroundColor = .backgroundColor
+        setupUI()
     }
     
 
-    /*
-    // MARK: - Navigation
+    //MARK: - Setup UI
+    private func setupUI() {
+        view.tag = 1
+        view.backgroundColor = .backgroundColor
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        view.addSubview(filterPositionButtons)
+        filterPositionButtons.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(95)
+        }
+        
+        view.addSubview(confirmButton)
+        confirmButton.snp.makeConstraints { make in
+            make.top.equalTo(filterPositionButtons.snp.bottom).offset(24)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.height.equalTo(40)
+        }
     }
-    */
-
 }
