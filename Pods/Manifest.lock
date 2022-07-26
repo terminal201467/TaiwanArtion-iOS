@@ -1,9 +1,5 @@
 PODS:
-  - Reusable (4.1.2):
-    - Reusable/Storyboard (= 4.1.2)
-    - Reusable/View (= 4.1.2)
-  - Reusable/Storyboard (4.1.2)
-  - Reusable/View (4.1.2)
+  - JTAppleCalendar (7.1.7)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -14,7 +10,7 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - Reusable
+  - JTAppleCalendar
   - RxCocoa
   - RxSwift
   - SideMenu (~> 5.0)
@@ -22,7 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Reusable
+    - JTAppleCalendar
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -30,13 +26,13 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: f490f6c2426a32ef1a09da4f26827b91bb0d4368
+PODFILE CHECKSUM: bc2ec23da6f2392b9e6ccfb1fe3a1af7a1f5ca4f
 
 COCOAPODS: 1.11.2

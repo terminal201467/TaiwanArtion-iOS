@@ -7,13 +7,12 @@
 
 import UIKit
 import SnapKit
-import Reusable
 
 class SideMenuView: UIView {
     //MARK: UIs
     let sideMenuTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "sideMenuCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SideMenuView")
         tableView.isScrollEnabled = false
         return tableView
     }()
