@@ -12,7 +12,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
     
     static let identifier = "FindExhibitionTableViewCell"
     
-    //MARK: - UIs
+    // MARK: - UIs
     let backView: UIView = {
         let view = UIView()
         view.backgroundColor = .backgroundColor
@@ -85,7 +85,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return label
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .backgroundColor
@@ -97,7 +97,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - SetupUI
+    // MARK: - SetupUI
     private func setupUI() {
         contentView.addSubview(backView)
         backView.snp.makeConstraints { make in

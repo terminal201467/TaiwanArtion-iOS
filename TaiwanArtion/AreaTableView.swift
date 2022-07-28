@@ -139,6 +139,5 @@ extension AreaTableView: UITableViewDelegate {
         } else {
             return 300
         }
-        
     }
 }

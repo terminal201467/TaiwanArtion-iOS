@@ -10,18 +10,18 @@ import SnapKit
 
 class SeeAllExhibitionViewController: UIViewController {
     
-    //MARK: - UIs
+    // MARK: - UIs
     private let filterButton = FilterButton()
     private let tableView = SeeAllExhibitionTableView()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         setupUI()
     }
     
-    //MARK: - setup Navigation
+    // MARK: - setup Navigation
     private func setupNavigation() {
         navigationItem.title = "近期展覽"
         
@@ -31,7 +31,7 @@ class SeeAllExhibitionViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftButton
     }
     
-    //MARK: - setup UI
+    // MARK: - setup UI
     private func setupUI() {
         view.backgroundColor = .backgroundColor
         
@@ -50,6 +50,7 @@ class SeeAllExhibitionViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
     @objc
     private func backButton() {
         navigationController?.popViewController(animated: true)

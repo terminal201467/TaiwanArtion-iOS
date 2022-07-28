@@ -16,11 +16,11 @@ class FilterTableViewCell: UITableViewCell {
     
     static let identifier = "FilterTableViewCell"
 
-    //MARK: Properties
+    // MARK: Properties
     weak var buttonDelegate: TableViewCellDelegate?
     
 
-    //MARK: - UIs
+    // MARK: - UIs
     
     let filterButton = FilterButton()
     
@@ -40,7 +40,7 @@ class FilterTableViewCell: UITableViewCell {
     }()
     
     
-    //MARK: - Init
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .backgroundColor
@@ -51,8 +51,8 @@ class FilterTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - SetupUI
-    func setupUI() {
+    // MARK: - SetupUI
+    private func setupUI() {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(10)
@@ -77,7 +77,7 @@ class FilterTableViewCell: UITableViewCell {
         }
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     @objc
     func push() {
         buttonDelegate?.didButtonPressed()

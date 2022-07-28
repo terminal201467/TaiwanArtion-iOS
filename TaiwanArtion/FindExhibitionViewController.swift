@@ -11,14 +11,14 @@ import SideMenu
 
 class FindExhibitionViewController: UIViewController {
     
-    //MARK: Properties
+    // MARK: Properties
     private let tableView = FindExhibitionTableView()
-    private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuController())
+    private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuViewController())
     
 //    let testList: [Int] = [1, 2, 3, 4, 5, 6]
 
            
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -27,15 +27,15 @@ class FindExhibitionViewController: UIViewController {
         tableView.buttonDelegate = self
     }
     
-    //MARK: - Set SideMenu
+    // MARK: - Set SideMenu
     private func setupSideMenu() {
         sideMenu.leftSide = true
-        sideMenu.menuWidth = 150
+        sideMenu.menuWidth = 200
         SideMenuManager.default.menuLeftNavigationController = sideMenu
         SideMenuManager.default.menuAddPanGestureToPresent(toView: view)
     }
     
-    //MARK: - Set NavigationItem
+    // MARK: - Set NavigationItem
     private func setupNavigation() {
         navigationItem.title = "FindTest"
         //leftBarButtonItem
@@ -49,19 +49,18 @@ class FindExhibitionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    //MARK: - SetupUI
+    // MARK: - SetupUI
     private func setupUI() {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     @objc
     func leftButton(_ sender: UIBarButtonItem) {
         present(sideMenu, animated: true, completion: nil)

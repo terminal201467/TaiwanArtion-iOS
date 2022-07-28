@@ -9,7 +9,7 @@ import UIKit
 
 class SeeAllExhibitionTableView: UITableView {
 
-    //MARK: - Init
+    // MARK: - Init
     convenience init() {
         self.init(frame: .zero, style: .plain)
         register(FindExhibitionTableViewCell.self, forCellReuseIdentifier: FindExhibitionTableViewCell.identifier)
@@ -30,7 +30,7 @@ class SeeAllExhibitionTableView: UITableView {
     }
 }
 
-//MARK: - TableView DataSource
+// MARK: - TableView DataSource
 extension SeeAllExhibitionTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -43,7 +43,7 @@ extension SeeAllExhibitionTableView: UITableViewDataSource {
     }
 }
 
-//MARK: - TableView Delegate
+// MARK: - TableView Delegate
 extension SeeAllExhibitionTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150

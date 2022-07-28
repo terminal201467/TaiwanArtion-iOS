@@ -9,12 +9,12 @@ import UIKit
 
 class FindExhibitionTableView: UITableView {
     
-    //MARK: - Properties
-    let testList: [Int] = [1, 2, 3, 4, 5, 6]
+    // MARK: - Properties
+    let testList: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     weak var buttonDelegate: TableViewCellDelegate?
     
-    //MARK: - Init
+    // MARK: - Init
     convenience init() {
         self.init(frame: .zero, style: .plain)
         register(ScrollPhotoTableViewCell.self, forCellReuseIdentifier: ScrollPhotoTableViewCell.identifier)
@@ -38,7 +38,7 @@ class FindExhibitionTableView: UITableView {
     }
 }
 
-//MARK: - TableView DataSource
+// MARK: - TableView DataSource
 extension FindExhibitionTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -76,7 +76,7 @@ extension FindExhibitionTableView: UITableViewDataSource {
     }
 }
 
-//MARK: - TableView Delegate
+// MARK: - TableView Delegate
 extension FindExhibitionTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {

@@ -12,7 +12,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     
     static let identifier = "ScrollPhotoTableViewCell"
     
-    //MARK: - UIs
+    // MARK: - UIs
     lazy
     var titleImageStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, titleImageView])
@@ -125,7 +125,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
         return label
     }()
         
-    //MARK: - Init
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .backgroundColor
@@ -143,7 +143,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
         imagePageControl.setIndicatorImage(UIImage(named: "GrayPageControl"), forPage: startPage)
     }
     
-    //MARK: - SetupUI
+    // MARK: - SetupUI
     private func setupUI() {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -216,7 +216,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     }
 }
 
-//MARK: - Scroll Delegate
+// MARK: - Scroll Delegate
 extension ScrollPhotoTableViewCell: UIScrollViewDelegate {
 //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 //

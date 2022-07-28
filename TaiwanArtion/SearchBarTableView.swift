@@ -26,10 +26,9 @@ class SearchBarTableView: UITableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
-//MARK: - DataSource
+// MARK: - DataSource
 extension SearchBarTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
@@ -43,7 +42,7 @@ extension SearchBarTableView: UITableViewDataSource {
     }
 }
 
-//MARK: - Delegate
+// MARK: - Delegate
 extension SearchBarTableView: UITableViewDelegate {
     
 }

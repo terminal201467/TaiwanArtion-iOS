@@ -12,7 +12,7 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TabButtonCollectionViewCell"
     
-    //MARK: - UIs
+    // MARK: - UIs
     let pageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
@@ -26,7 +26,7 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    //MARK: - Init
+    //  MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

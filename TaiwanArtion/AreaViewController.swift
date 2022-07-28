@@ -10,18 +10,18 @@ import SnapKit
 
 class AreaViewController: UIViewController {
     
-    //MARK: - UIs
+    // MARK: - UIs
     
     let tableView = AreaTableView()
 
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    //MARK: - Setup UI
+    // MARK: - Setup UI
     private func setupUI() {
         view.tag = 0
         view.backgroundColor = .backgroundColor

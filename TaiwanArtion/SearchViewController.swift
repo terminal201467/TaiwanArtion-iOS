@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 
 class SearchViewController: UIViewController {
-    //MARK: - Properties
     
+    // MARK: - Properties
     let pages = ["縣市", "展覽地點", "日期"]
     
     let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     var viewControllers: [UIViewController] = [AreaViewController(), CompanyNameViewController(), DateViewController()]
     
     
-    //MARK: - UIs
+    // MARK: - UIs
     private let searchBarTextField = SearchBarTextField()
     private let whetherStartExhibitionButton = WhetherStartExhibitionButton()
     private let searchBarTableView = SearchBarTableView()
@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
         return view
     }()
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
         whetherStartExhibitionViewTap()
     }
     
-    //MARK: - SetNavigation
+    // MARK: - SetNavigation
     private func setupNavigation() {
         navigationItem.title = "SearchTest"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
