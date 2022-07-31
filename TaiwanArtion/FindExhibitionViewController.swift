@@ -25,6 +25,7 @@ class FindExhibitionViewController: UIViewController {
         setupSideMenu()
         setupNavigation()
         tableView.buttonDelegate = self
+        tableView.cellDelegate = self
     }
     
     // MARK: - Set SideMenu
@@ -78,9 +79,11 @@ extension FindExhibitionViewController: TableViewCellDelegate {
         let vc = SeeAllExhibitionViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-        
-//    func didButtonPressed() {
-//        let vc = SeeAllExhibitionViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+}
+
+extension FindExhibitionViewController: SearchResultCellDelegate {
+    func pushToExhibitionDetail() {
+        let vc = ExhibitionDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

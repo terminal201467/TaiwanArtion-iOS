@@ -19,6 +19,7 @@ class SeeAllExhibitionViewController: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         setupUI()
+        tableView.cellDelegate = self
     }
     
     // MARK: - setup Navigation
@@ -54,5 +55,12 @@ class SeeAllExhibitionViewController: UIViewController {
     @objc
     private func backButton() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension SeeAllExhibitionViewController: SearchResultCellDelegate {
+    func pushToExhibitionDetail() {
+        let vc = ExhibitionDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -85,7 +85,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .gray
-        pageControl.currentPageIndicatorTintColor = .brown
+        pageControl.currentPageIndicatorTintColor = .brownColor
         
         return pageControl
     }()
@@ -128,7 +128,6 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .backgroundColor
         setPageControl()
         setupUI()
     }
@@ -145,6 +144,10 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     
     // MARK: - SetupUI
     private func setupUI() {
+        selectionStyle = .none
+        
+        contentView.backgroundColor = .backgroundColor
+        
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(20)

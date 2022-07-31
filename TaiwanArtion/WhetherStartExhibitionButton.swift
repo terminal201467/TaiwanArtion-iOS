@@ -14,7 +14,7 @@ class WhetherStartExhibitionButton: UIView {
         self.init(frame: .zero)
         backgroundColor = .backgroundColor
         layer.borderWidth = 1
-        layer.borderColor = UIColor.systemGray4.cgColor
+        layer.borderColor = UIColor.systemGray3.cgColor
         layer.cornerRadius = 5
         setupUI()
     }
@@ -31,14 +31,14 @@ class WhetherStartExhibitionButton: UIView {
     private let whetherStartLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 13)
-        label.textColor = .systemGray4
+        label.textColor = .systemGray3
         label.text = "是否開展"
         return label
     }()
     
     let arrowImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "chevron.down")) //chevron.up
-        imageView.tintColor = .systemGray4
+        imageView.tintColor = .systemGray3
         return imageView
     }()
     

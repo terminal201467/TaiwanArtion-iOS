@@ -57,7 +57,7 @@ extension SouthAreaButtons: UICollectionViewDelegateFlowLayout {
         let width = (collectionView.bounds.width - 2 * 3) / 4
 //        let height = width
 //        let width = self.frame.width / 4
-        let height = self.frame.height - 60
+        let height = self.frame.height - 0
         
         return CGSize(width: width, height: height)
     }

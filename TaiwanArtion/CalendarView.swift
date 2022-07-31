@@ -15,7 +15,6 @@ class CalendarView: UIView {
         self.init(frame: .zero)
         backgroundColor = .backgroundColor
         layer.cornerRadius = 10
-        
         setupUI()
         setupJTAppleCalendar()
     }
@@ -29,67 +28,12 @@ class CalendarView: UIView {
     }
     
     // MARK: - UIs
-    private
-    lazy var weekStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mondayLabel, tuesdayLabel, wednesLabel, thursdayLabel, fridayLabel, saturdayLabel, sundayLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 0
-        return stackView
-    }()
-    
-    private let mondayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "一"
-        return label
-    }()
-    
-    private let tuesdayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "二"
-        return label
-    }()
-    
-    private let wednesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "三"
-        return label
-    }()
-    
-    private let thursdayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "四"
-        return label
-    }()
-    
-    private let fridayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "五"
-        return label
-    }()
-    
-    private let saturdayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "六"
-        return label
-    }()
-    
-    private let sundayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "日"
-        return label
-    }()
-    
-    private let headerLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
     private let calendar: JTAppleCalendarView = {
         let calendar = JTAppleCalendarView()
         calendar.register(DateCell.self, forCellWithReuseIdentifier: DateCell.identifier)
-        calendar.register(DateHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DateHeader.identifier)
+        calendar.register(DateHeader.self,
+                          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                          withReuseIdentifier: DateHeader.identifier)
         calendar.backgroundColor = .backgroundColor
         calendar.showsHorizontalScrollIndicator = false
         calendar.scrollingMode = .stopAtEachCalendarFrame
@@ -109,17 +53,9 @@ class CalendarView: UIView {
     
     // MARK: - Setup UI
     private func setupUI() {
-//        addSubview(weekStackView)
-//        weekStackView.snp.makeConstraints { make in
-//            make.top.equalTo(20)
-//            make.leading.equalTo(31)
-//            make.trailing.equalTo(-31)
-//            make.height.equalTo(15)
-//        }
-        
         addSubview(calendar)
         calendar.snp.makeConstraints { make in
-            make.top.equalTo(0) //(weekStackView.snp.bottom).offset(20)
+            make.top.equalTo(0)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.height.equalTo(300)
@@ -145,7 +81,7 @@ class CalendarView: UIView {
     private func handleCellSelected(cell: DateCell, cellState: CellState) {
         
         if cellState.isSelected {
-            cell.selectedView.layer.cornerRadius =  15
+//            cell.selectedView.layer.cornerRadius =  20
             cell.dateLabel.textColor = .white
             cell.selectedView.isHidden = false
         } else {
@@ -155,16 +91,16 @@ class CalendarView: UIView {
         cell.selectedView.isHidden = !cellState.isSelected
         switch cellState.selectedPosition() {
         case .left:
-            cell.selectedView.layer.cornerRadius = 15
+            cell.selectedView.layer.cornerRadius = 16
             cell.selectedView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         case .middle:
             cell.selectedView.layer.cornerRadius = 0
             cell.selectedView.layer.maskedCorners = []
         case .right:
-            cell.selectedView.layer.cornerRadius = 15
+            cell.selectedView.layer.cornerRadius = 16
             cell.selectedView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         case .full:
-            cell.selectedView.layer.cornerRadius = 15
+            cell.selectedView.layer.cornerRadius = 16
             cell.selectedView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         default: break
         }

@@ -13,7 +13,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
     static let identifier = "FindExhibitionTableViewCell"
     
     // MARK: - UIs
-    let backView: UIView = {
+    private let backView: UIView = {
         let view = UIView()
         view.backgroundColor = .backgroundColor
         view.layer.shadowRadius = 7
@@ -23,7 +23,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return view
     }()
     
-    let recentExhibitionImageView: UIImageView = {
+    private let recentExhibitionImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "3"))
         imageView.backgroundColor = .white
         imageView.layer.borderColor = UIColor.black.cgColor
@@ -33,8 +33,8 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    lazy
-    var nameAndDateStackView: UIStackView = {
+    private
+    lazy var nameAndDateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [exhibitionName, exhibitionDate])
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -42,7 +42,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let exhibitionName: UILabel = {
+    private let exhibitionName: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 25)
         label.textColor = .black
@@ -50,15 +50,15 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return label
     }()
     
-    let exhibitionDate: UILabel = {
+    private let exhibitionDate: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.text = "2020/3/21～04/20"
         return label
     }()
     
-    lazy
-    var priceAndCityStackView: UIStackView = {
+    private
+    lazy var priceAndCityStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [exhibitionCity, exhibitionPrice])
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -66,10 +66,11 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let exhibitionPrice: UILabel = {
+    private let exhibitionPrice: UILabel = {
         let label = UILabel()
         label.layer.borderColor = UIColor.black.cgColor
-        label.backgroundColor = .brown
+        label.backgroundColor = .brownColor
+        label.textAlignment = .center
         label.textColor = .white
         label.layer.borderWidth = 1
         label.layer.cornerRadius = 5
@@ -78,7 +79,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         return label
     }()
     
-    let exhibitionCity: UILabel = {
+    private let exhibitionCity: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.text = "台南市，仁德區"
@@ -88,8 +89,6 @@ class FindExhibitionTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .backgroundColor
-        selectionStyle = .none
         setupUI()
     }
     
@@ -97,14 +96,15 @@ class FindExhibitionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - SetupUI
+    // MARK: - Setup UI
     private func setupUI() {
+        selectionStyle = .none
+        contentView.backgroundColor = .backgroundColor
+        
         contentView.addSubview(backView)
         backView.snp.makeConstraints { make in
-            make.top.equalTo(10)
-            make.bottom.equalTo(-10)
-            make.leading.equalTo(10)
-            make.trailing.equalTo(-10)
+            make.top.leading.equalTo(10)
+            make.bottom.trailing.equalTo(-10)
         }
         
         backView.addSubview(recentExhibitionImageView)
@@ -119,13 +119,16 @@ class FindExhibitionTableViewCell: UITableViewCell {
         nameAndDateStackView.snp.makeConstraints { make in
             make.top.equalTo(16)
             make.leading.equalTo(recentExhibitionImageView.snp.trailing).offset(10)
-            
         }
 
         backView.addSubview(priceAndCityStackView)
         priceAndCityStackView.snp.makeConstraints { make in
             make.bottom.equalTo(-16)
             make.leading.equalTo(recentExhibitionImageView.snp.trailing).offset(10)
+        }
+        
+        exhibitionPrice.snp.makeConstraints { make in
+            make.width.equalTo(55)
         }
     }
 }

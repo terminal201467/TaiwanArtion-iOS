@@ -8,6 +8,8 @@
 import UIKit
 
 class SeeAllExhibitionTableView: UITableView {
+    
+    weak var cellDelegate: SearchResultCellDelegate?
 
     // MARK: - Init
     convenience init() {
@@ -16,7 +18,7 @@ class SeeAllExhibitionTableView: UITableView {
         backgroundColor = .backgroundColor
         separatorStyle = .none
         separatorColor = .clear
-        allowsSelection = false
+//        allowsSelection = false
         dataSource = self
         delegate = self
     }
@@ -45,6 +47,10 @@ extension SeeAllExhibitionTableView: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension SeeAllExhibitionTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellDelegate?.pushToExhibitionDetail()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }

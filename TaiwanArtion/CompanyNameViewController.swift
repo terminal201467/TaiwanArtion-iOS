@@ -10,6 +10,7 @@ import SnapKit
 
 class CompanyNameViewController: UIViewController {
     
+    // MARK: - UIs
     private let filterPositionButtons = FilterPositionButtons()
     
     private let confirmButton: UIButton = {
@@ -17,12 +18,22 @@ class CompanyNameViewController: UIViewController {
         button.setTitle("確定", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .brownColor
+        button.layer.cornerRadius = 10
         return button
     }()
-
+    
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        confirmButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+    }
+    
+    @objc func test() {
+        let vc = SearchResultViewController()
+//        let vc = ExhibitionDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 
@@ -44,7 +55,7 @@ class CompanyNameViewController: UIViewController {
             make.top.equalTo(filterPositionButtons.snp.bottom).offset(24)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
-            make.height.equalTo(40)
+            make.height.equalTo(35)
         }
     }
 }

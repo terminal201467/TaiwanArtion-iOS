@@ -44,8 +44,8 @@ class NorthAreaCell: UICollectionViewCell {
                 UIView.animate(withDuration: 0.1) {
 //                    self.backView.backgroundColor = self.isSelected ? UIColor.brown : UIColor.systemGray6
                     self.backView.layer.borderWidth = self.isSelected ? 1.5 : 0
-                    self.backView.layer.borderColor = self.isSelected ? UIColor.brown.cgColor : UIColor.clear.cgColor
-                    self.areaLabel.textColor = self.isSelected ? UIColor.brown : UIColor.gray
+                    self.backView.layer.borderColor = self.isSelected ? UIColor.brownColor.cgColor : UIColor.clear.cgColor
+                    self.areaLabel.textColor = self.isSelected ? UIColor.brownColor : UIColor.gray
                     self.layoutIfNeeded()
                 }
             }

@@ -34,10 +34,13 @@ class DateCell: JTAppleCell {
     }
     
     private func setupUI() {
+        
+        
         contentView.addSubview(selectedView)
         selectedView.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-            make.height.width.equalTo(30)
+//            make.centerX.centerY.equalToSuperview()
+//            make.height.width.equalTo(30)
+            make.edges.equalToSuperview()
         }
         
         contentView.addSubview(dateLabel)

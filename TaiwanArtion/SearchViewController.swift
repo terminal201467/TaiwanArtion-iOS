@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     // MARK: - Properties
     let pages = ["縣市", "展覽地點", "日期"]
     
-    let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    
     
     var pageViewIndex: Int = 0
     
@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - UIs
+    private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     private let searchBarTextField = SearchBarTextField()
     private let whetherStartExhibitionButton = WhetherStartExhibitionButton()
     private let searchBarTableView = SearchBarTableView()

@@ -43,7 +43,6 @@ class FilterTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .backgroundColor
         setupUI()
     }
     
@@ -53,6 +52,9 @@ class FilterTableViewCell: UITableViewCell {
     
     // MARK: - SetupUI
     private func setupUI() {
+        selectionStyle = .none
+        contentView.backgroundColor = .backgroundColor
+
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(10)

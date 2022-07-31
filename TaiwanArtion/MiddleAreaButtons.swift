@@ -57,7 +57,7 @@ extension MiddleAreaButtons: UICollectionViewDelegateFlowLayout {
         let width = (collectionView.bounds.width - 2 * 3) / 4
 //        let height = width
 //        let width = self.frame.width / 4
-        let height = self.frame.height - 70
+        let height = self.frame.height - 30
         
         return CGSize(width: width, height: height)
     }

@@ -31,6 +31,7 @@ class MonthCell: UICollectionViewCell {
         return view
     }()
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -48,6 +49,7 @@ class MonthCell: UICollectionViewCell {
                     self.chineseMonthLabel.textColor = self.isSelected ? UIColor.brownColor : UIColor.black
                     self.chineseMonthView.layer.borderWidth = self.isSelected ? 1 : 0
                     self.chineseMonthView.layer.borderColor = self.isSelected ? UIColor.brownColor.cgColor : UIColor.clear.cgColor
+                    self.layoutIfNeeded()
                 }
             }
         }
@@ -59,15 +61,11 @@ class MonthCell: UICollectionViewCell {
         englishMonthLabel.snp.makeConstraints { make in
             make.top.equalTo(5)
             make.centerX.equalTo(self.snp.centerX)
-//            make.top.leading.equalTo(5)
-//            make.trailing.equalTo(-5)
-//            make.height.equalTo(10)
         }
         
         addSubview(chineseMonthView)
         chineseMonthView.snp.makeConstraints { make in
             make.top.equalTo(englishMonthLabel.snp.bottom).offset(5)
-//            make.centerX.equalTo(self.snp.centerX)
             make.leading.equalTo(5)
             make.trailing.equalTo(-5)
             make.height.equalTo(35)
