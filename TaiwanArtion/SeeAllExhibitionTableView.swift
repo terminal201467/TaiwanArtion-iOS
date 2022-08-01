@@ -9,6 +9,8 @@ import UIKit
 
 class SeeAllExhibitionTableView: UITableView {
     
+    private var cellInfo = [CellInfo]()
+    
     weak var cellDelegate: SearchResultCellDelegate?
 
     // MARK: - Init
@@ -18,7 +20,7 @@ class SeeAllExhibitionTableView: UITableView {
         backgroundColor = .backgroundColor
         separatorStyle = .none
         separatorColor = .clear
-//        allowsSelection = false
+        allowsSelection = false
         dataSource = self
         delegate = self
     }
@@ -30,28 +32,28 @@ class SeeAllExhibitionTableView: UITableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setCellInfo(list: [CellInfo]) {
+        cellInfo = list
+        reloadData()
+    }
 }
 
 // MARK: - TableView DataSource
 extension SeeAllExhibitionTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return cellInfo.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FindExhibitionTableViewCell.identifier, for: indexPath) as! FindExhibitionTableViewCell
-        
+        cell.cellDelegate = cellDelegate
+        cell.bind(data: cellInfo[indexPath.row])
         return cell
     }
 }
 
 // MARK: - TableView Delegate
 extension SeeAllExhibitionTableView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellDelegate?.pushToExhibitionDetail()
-    }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
 }

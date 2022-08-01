@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6211AE3F289766E30092202B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6211AE3E289766E30092202B /* Colors.xcassets */; };
+		6211AE42289773BF0092202B /* ScrollPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6211AE41289773BF0092202B /* ScrollPhoto.swift */; };
+		6211AE442897B8F40092202B /* CellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6211AE432897B8F40092202B /* CellInfo.swift */; };
 		624605C328913A3D00E590E3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605C228913A3D00E590E3 /* CalendarView.swift */; };
 		624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605C528927F8800E590E3 /* SearchResultViewController.swift */; };
 		624605C92892836C00E590E3 /* ExhibitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605C82892836C00E590E3 /* ExhibitionDetailViewController.swift */; };
@@ -20,8 +23,8 @@
 		626B7B37288D7938002D6540 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B36288D7938002D6540 /* DateCell.swift */; };
 		626B7B39288D809D002D6540 /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B38288D809D002D6540 /* MonthCell.swift */; };
 		626B7B3B288FE484002D6540 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B3A288FE484002D6540 /* DateHeader.swift */; };
-		6274AA0928164AB7008D076D /* ScrollPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0828164AB7008D076D /* ScrollPhotoCell.swift */; };
-		6274AA0B2816D326008D076D /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0A2816D326008D076D /* FilterCell.swift */; };
+		6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */; };
+		6274AA0B2816D326008D076D /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0A2816D326008D076D /* FilterTableViewCell.swift */; };
 		627F4ACF287FEDD100D86B07 /* WhetherStartExhibitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F4ACE287FEDD100D86B07 /* WhetherStartExhibitionButton.swift */; };
 		627F4AD1288011EE00D86B07 /* WhetherStartBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627F4AD0288011EE00D86B07 /* WhetherStartBottomSheetViewController.swift */; };
 		62806AEC281A297900FD5AF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62806AEB281A297900FD5AF2 /* Color.swift */; };
@@ -58,7 +61,7 @@
 		62EAB028288131520001B9BF /* ExhibitionQuantityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB027288131520001B9BF /* ExhibitionQuantityCell.swift */; };
 		62EAB02D2881716B0001B9BF /* FilterPositionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB02C2881716B0001B9BF /* FilterPositionButtons.swift */; };
 		62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB02E2881720A0001B9BF /* FilterPositionCell.swift */; };
-		62EBB6D8280F999D00161036 /* FindExhibitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionCell.swift */; };
+		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
 		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
 		97F409B62813CA6800527646 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B52813CA6800527646 /* MapView.swift */; };
 		97F409B82813CA8000527646 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B72813CA8000527646 /* MapViewModel.swift */; };
@@ -72,6 +75,9 @@
 
 /* Begin PBXFileReference section */
 		0D3A771C6FD194AE3B906211 /* Pods-TaiwanArtion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaiwanArtion.release.xcconfig"; path = "Target Support Files/Pods-TaiwanArtion/Pods-TaiwanArtion.release.xcconfig"; sourceTree = "<group>"; };
+		6211AE3E289766E30092202B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		6211AE41289773BF0092202B /* ScrollPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPhoto.swift; sourceTree = "<group>"; };
+		6211AE432897B8F40092202B /* CellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInfo.swift; sourceTree = "<group>"; };
 		624605C228913A3D00E590E3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		624605C528927F8800E590E3 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		624605C82892836C00E590E3 /* ExhibitionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +91,8 @@
 		626B7B36288D7938002D6540 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		626B7B38288D809D002D6540 /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
 		626B7B3A288FE484002D6540 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
-		6274AA0828164AB7008D076D /* ScrollPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPhotoCell.swift; sourceTree = "<group>"; };
-		6274AA0A2816D326008D076D /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		6274AA0A2816D326008D076D /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		627F4ACE287FEDD100D86B07 /* WhetherStartExhibitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherStartExhibitionButton.swift; sourceTree = "<group>"; };
 		627F4AD0288011EE00D86B07 /* WhetherStartBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherStartBottomSheetViewController.swift; sourceTree = "<group>"; };
 		62806AEB281A297900FD5AF2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -123,7 +129,7 @@
 		62EAB027288131520001B9BF /* ExhibitionQuantityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionQuantityCell.swift; sourceTree = "<group>"; };
 		62EAB02C2881716B0001B9BF /* FilterPositionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPositionButtons.swift; sourceTree = "<group>"; };
 		62EAB02E2881720A0001B9BF /* FilterPositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPositionCell.swift; sourceTree = "<group>"; };
-		62EBB6D7280F999D00161036 /* FindExhibitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionCell.swift; sourceTree = "<group>"; };
+		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		97F409B52813CA6800527646 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		97F409B72813CA8000527646 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -291,9 +297,9 @@
 				62A558262872BB3C00EDCCB3 /* FindExhibitionViewModel.swift */,
 				62CD7695280D067200696DBC /* FindExhibitionViewController.swift */,
 				62CB5D0A2871FE5100BDE1FB /* FindExhibitionTableView.swift */,
-				6274AA0828164AB7008D076D /* ScrollPhotoCell.swift */,
-				6274AA0A2816D326008D076D /* FilterCell.swift */,
-				62EBB6D7280F999D00161036 /* FindExhibitionCell.swift */,
+				6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */,
+				6274AA0A2816D326008D076D /* FilterTableViewCell.swift */,
+				62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */,
 				62CD76AC280D87BF00696DBC /* SideMenu */,
 				62D51EAE2817DA0D00010C6A /* SeeAll */,
 				62CD76AA280D805900696DBC /* Search */,
@@ -452,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				97F409BA2813CAA700527646 /* Model.swift */,
+				6211AE41289773BF0092202B /* ScrollPhoto.swift */,
+				6211AE432897B8F40092202B /* CellInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -495,6 +503,7 @@
 				62CD76A4280D7AB000696DBC /* ShareExhibition */,
 				97F409B22813CA3B00527646 /* MapViewController */,
 				97F6AEA82809737F00B61974 /* Assets.xcassets */,
+				6211AE3E289766E30092202B /* Colors.xcassets */,
 				97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */,
 				97F6AEAD2809737F00B61974 /* Info.plist */,
 			);
@@ -569,6 +578,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6211AE3F289766E30092202B /* Colors.xcassets in Resources */,
 				97F6AEAC2809737F00B61974 /* LaunchScreen.storyboard in Resources */,
 				97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */,
 			);
@@ -652,10 +662,11 @@
 				62E6BE2B288945ED0050920F /* OuterIslandAreaButtons.swift in Sources */,
 				62A3F946287D28290067B03C /* FilterButton.swift in Sources */,
 				62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */,
-				6274AA0B2816D326008D076D /* FilterCell.swift in Sources */,
+				6274AA0B2816D326008D076D /* FilterTableViewCell.swift in Sources */,
 				627F4AD1288011EE00D86B07 /* WhetherStartBottomSheetViewController.swift in Sources */,
 				62E6BE29288945E10050920F /* EastAreaButtons.swift in Sources */,
 				62E6BE25288945C10050920F /* MiddleAreaButtons.swift in Sources */,
+				6211AE442897B8F40092202B /* CellInfo.swift in Sources */,
 				626B7B3B288FE484002D6540 /* DateHeader.swift in Sources */,
 				62806AEC281A297900FD5AF2 /* Color.swift in Sources */,
 				97F409B82813CA8000527646 /* MapViewModel.swift in Sources */,
@@ -667,7 +678,7 @@
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,
 				97F409BB2813CAA700527646 /* Model.swift in Sources */,
-				6274AA0928164AB7008D076D /* ScrollPhotoCell.swift in Sources */,
+				6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */,
 				624605C92892836C00E590E3 /* ExhibitionDetailViewController.swift in Sources */,
 				62B753B92835F47D00286FFF /* AreaViewController.swift in Sources */,
 				62E6BE2D288946DE0050920F /* MiddleAreaCell.swift in Sources */,
@@ -676,8 +687,9 @@
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
 				62E6BE27288945D30050920F /* SouthAreaButtons.swift in Sources */,
 				626B7B39288D809D002D6540 /* MonthCell.swift in Sources */,
+				6211AE42289773BF0092202B /* ScrollPhoto.swift in Sources */,
 				62E6BE23288945840050920F /* NorthAreaCell.swift in Sources */,
-				62EBB6D8280F999D00161036 /* FindExhibitionCell.swift in Sources */,
+				62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */,
 				62EAB02D2881716B0001B9BF /* FilterPositionButtons.swift in Sources */,
 				62A3F950287F00A00067B03C /* SearchBarTextField.swift in Sources */,
 				97F409B42813CA5600527646 /* MapViewController.swift in Sources */,

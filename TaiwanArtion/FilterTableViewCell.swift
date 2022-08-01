@@ -53,29 +53,35 @@ class FilterTableViewCell: UITableViewCell {
     // MARK: - SetupUI
     private func setupUI() {
         selectionStyle = .none
+//        sizeToFit()
         contentView.backgroundColor = .backgroundColor
 
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(10)
+            make.top.equalTo(16)
             make.leading.equalTo(16)
         }
         
         contentView.addSubview(seeAllButton)
         seeAllButton.addTarget(self, action: #selector(push), for: .touchUpInside)
         seeAllButton.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(80)
+//            make.height.equalTo(30)
+//            make.width.equalTo(50)
             make.centerY.equalTo(titleLabel.snp.centerY)
             make.trailing.equalTo(-16)
         }
         
+        let width = UIScreen.main.bounds.width - 34
+        let height = width / 356 * 30
+        
         contentView.addSubview(filterButton)
         filterButton.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.top.equalTo(seeAllButton.snp.bottom).offset(12)
             make.leading.equalTo(16)
-            make.trailing.equalTo(-16)
+//            make.trailing.equalTo(-16)
             make.bottom.equalTo(-16)
+            make.width.equalTo(width)
+            make.height.equalTo(height)
         }
     }
     

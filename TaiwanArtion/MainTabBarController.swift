@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().tintColor = .brown
         
-        let findVC = FindExhibitionViewController()
+        let findVC = FindExhibitionViewController(viewModel: FindExhibitionViewModel())
         let findController = UINavigationController(rootViewController: findVC)
         findController.tabBarItem.image = UIImage(named: "Find")
         findController.tabBarItem.title = "早找展覽"

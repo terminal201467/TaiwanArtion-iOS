@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import SideMenu
+import RxSwift
 
 class FindExhibitionViewController: UIViewController {
     
@@ -15,8 +16,18 @@ class FindExhibitionViewController: UIViewController {
     private let tableView = FindExhibitionTableView()
     private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuViewController())
     
-//    let testList: [Int] = [1, 2, 3, 4, 5, 6]
-
+    private let viewModel: FindExhibitionViewModelType
+    private let disposeBag = DisposeBag()
+    
+    
+    init(viewModel: FindExhibitionViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
            
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,6 +37,9 @@ class FindExhibitionViewController: UIViewController {
         setupNavigation()
         tableView.buttonDelegate = self
         tableView.cellDelegate = self
+        setupBinding()
+        viewModel.inputs.viewDidLoad.accept(())
+                
     }
     
     // MARK: - Set SideMenu
@@ -61,6 +75,22 @@ class FindExhibitionViewController: UIViewController {
         }
     }
     
+    private func setupBinding() {
+        viewModel.outputs
+            .scrollPhotoList
+            .emit(onNext: { [weak self] list in
+                self?.tableView.setScrollPhoto(list: list)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs
+            .cellInfoList
+            .emit(onNext: { [weak self] info in
+                self?.tableView.setCellInfo(list: info)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     // MARK: - Methods
     @objc
     func leftButton(_ sender: UIBarButtonItem) {
@@ -76,7 +106,7 @@ class FindExhibitionViewController: UIViewController {
 
 extension FindExhibitionViewController: TableViewCellDelegate {
     func didButtonPressed() {
-        let vc = SeeAllExhibitionViewController()
+        let vc = SeeAllExhibitionViewController(viewModel: SeeAllExhibitionViewModel())
         navigationController?.pushViewController(vc, animated: true)
     }
 }
