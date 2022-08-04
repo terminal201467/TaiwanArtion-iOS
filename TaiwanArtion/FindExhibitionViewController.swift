@@ -13,11 +13,13 @@ import RxSwift
 class FindExhibitionViewController: UIViewController {
     
     // MARK: Properties
-    private let tableView = FindExhibitionTableView()
-    private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuViewController())
-    
     private let viewModel: FindExhibitionViewModelType
     private let disposeBag = DisposeBag()
+    
+    
+    // MARK: - UIs
+    private let tableView = FindExhibitionTableView()
+    private let sideMenu = UISideMenuNavigationController(rootViewController: SideMenuViewController())
     
     
     init(viewModel: FindExhibitionViewModelType) {

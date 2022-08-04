@@ -35,7 +35,6 @@ class ExhibitionDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [rightShareButton, rightCalendarButton]
     }
     
-    
     // MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = .backgroundColor

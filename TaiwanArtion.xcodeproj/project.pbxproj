@@ -14,14 +14,17 @@
 		624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605C528927F8800E590E3 /* SearchResultViewController.swift */; };
 		624605C92892836C00E590E3 /* ExhibitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605C82892836C00E590E3 /* ExhibitionDetailViewController.swift */; };
 		624605CB2893C65800E590E3 /* SearchResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605CA2893C65800E590E3 /* SearchResultTableView.swift */; };
-		624605CD2893C66F00E590E3 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605CC2893C66F00E590E3 /* SearchResultCell.swift */; };
-		624605CF2893D2C000E590E3 /* TotalExhibitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605CE2893D2C000E590E3 /* TotalExhibitionCell.swift */; };
+		624605CD2893C66F00E590E3 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605CC2893C66F00E590E3 /* SearchResultTableViewCell.swift */; };
+		624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605CE2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift */; };
 		624605D42896868700E590E3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605D32896868700E590E3 /* InfoViewController.swift */; };
 		624605D6289686A300E590E3 /* FareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605D5289686A300E590E3 /* FareViewController.swift */; };
 		624605D8289686DD00E590E3 /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624605D7289686DD00E590E3 /* IntroduceViewController.swift */; };
+		625938FE289AC32600A900FD /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625938FD289AC32600A900FD /* SearchResultViewModel.swift */; };
+		62593902289C2CCB00A900FD /* SearchPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62593901289C2CCB00A900FD /* SearchPageTableView.swift */; };
+		62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62593903289C2EF700A900FD /* SearchRecordTableViewCell.swift */; };
 		626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B32288D4923002D6540 /* MonthCollectionView.swift */; };
 		626B7B37288D7938002D6540 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B36288D7938002D6540 /* DateCell.swift */; };
-		626B7B39288D809D002D6540 /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B38288D809D002D6540 /* MonthCell.swift */; };
+		626B7B39288D809D002D6540 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B38288D809D002D6540 /* MonthCollectionViewCell.swift */; };
 		626B7B3B288FE484002D6540 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626B7B3A288FE484002D6540 /* DateHeader.swift */; };
 		6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */; };
 		6274AA0B2816D326008D076D /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274AA0A2816D326008D076D /* FilterTableViewCell.swift */; };
@@ -36,7 +39,7 @@
 		62A558272872BB3C00EDCCB3 /* FindExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A558262872BB3C00EDCCB3 /* FindExhibitionViewModel.swift */; };
 		62B753B72835F3FE00286FFF /* TabButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753B62835F3FE00286FFF /* TabButtonCollectionViewCell.swift */; };
 		62B753B92835F47D00286FFF /* AreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753B82835F47D00286FFF /* AreaViewController.swift */; };
-		62B753BB2835F4A900286FFF /* CompanyNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753BA2835F4A900286FFF /* CompanyNameViewController.swift */; };
+		62B753BB2835F4A900286FFF /* ExhibitionPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753BA2835F4A900286FFF /* ExhibitionPlaceViewController.swift */; };
 		62B753BD2835F4BA00286FFF /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B753BC2835F4BA00286FFF /* DateViewController.swift */; };
 		62CB5D0B2871FE5100BDE1FB /* FindExhibitionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CB5D0A2871FE5100BDE1FB /* FindExhibitionTableView.swift */; };
 		62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD7695280D067200696DBC /* FindExhibitionViewController.swift */; };
@@ -58,14 +61,13 @@
 		62E6BE2F288946F10050920F /* SouthAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BE2E288946F10050920F /* SouthAreaCell.swift */; };
 		62E6BE31288947040050920F /* EastAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BE30288947040050920F /* EastAreaCell.swift */; };
 		62E6BE33288947150050920F /* OuterIslandAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BE32288947150050920F /* OuterIslandAreaCell.swift */; };
-		62EAB028288131520001B9BF /* ExhibitionQuantityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB027288131520001B9BF /* ExhibitionQuantityCell.swift */; };
+		62EAB028288131520001B9BF /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB027288131520001B9BF /* SearchResultsTableViewCell.swift */; };
 		62EAB02D2881716B0001B9BF /* FilterPositionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB02C2881716B0001B9BF /* FilterPositionButtons.swift */; };
 		62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EAB02E2881720A0001B9BF /* FilterPositionCell.swift */; };
 		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
 		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
 		97F409B62813CA6800527646 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B52813CA6800527646 /* MapView.swift */; };
 		97F409B82813CA8000527646 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B72813CA8000527646 /* MapViewModel.swift */; };
-		97F409BB2813CAA700527646 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409BA2813CAA700527646 /* Model.swift */; };
 		97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AE9F2809737E00B61974 /* AppDelegate.swift */; };
 		97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F6AEA12809737E00B61974 /* SceneDelegate.swift */; };
 		97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F6AEA82809737F00B61974 /* Assets.xcassets */; };
@@ -82,14 +84,17 @@
 		624605C528927F8800E590E3 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		624605C82892836C00E590E3 /* ExhibitionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailViewController.swift; sourceTree = "<group>"; };
 		624605CA2893C65800E590E3 /* SearchResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableView.swift; sourceTree = "<group>"; };
-		624605CC2893C66F00E590E3 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		624605CE2893D2C000E590E3 /* TotalExhibitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExhibitionCell.swift; sourceTree = "<group>"; };
+		624605CC2893C66F00E590E3 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		624605CE2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		624605D32896868700E590E3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		624605D5289686A300E590E3 /* FareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareViewController.swift; sourceTree = "<group>"; };
 		624605D7289686DD00E590E3 /* IntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceViewController.swift; sourceTree = "<group>"; };
+		625938FD289AC32600A900FD /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		62593901289C2CCB00A900FD /* SearchPageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageTableView.swift; sourceTree = "<group>"; };
+		62593903289C2EF700A900FD /* SearchRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordTableViewCell.swift; sourceTree = "<group>"; };
 		626B7B32288D4923002D6540 /* MonthCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionView.swift; sourceTree = "<group>"; };
 		626B7B36288D7938002D6540 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		626B7B38288D809D002D6540 /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		626B7B38288D809D002D6540 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
 		626B7B3A288FE484002D6540 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		6274AA0A2816D326008D076D /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,7 +109,7 @@
 		62A558262872BB3C00EDCCB3 /* FindExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionViewModel.swift; sourceTree = "<group>"; };
 		62B753B62835F3FE00286FFF /* TabButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		62B753B82835F47D00286FFF /* AreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewController.swift; sourceTree = "<group>"; };
-		62B753BA2835F4A900286FFF /* CompanyNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNameViewController.swift; sourceTree = "<group>"; };
+		62B753BA2835F4A900286FFF /* ExhibitionPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionPlaceViewController.swift; sourceTree = "<group>"; };
 		62B753BC2835F4BA00286FFF /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		62CB5D0A2871FE5100BDE1FB /* FindExhibitionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableView.swift; sourceTree = "<group>"; };
 		62CD7695280D067200696DBC /* FindExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionViewController.swift; sourceTree = "<group>"; };
@@ -126,14 +131,13 @@
 		62E6BE2E288946F10050920F /* SouthAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthAreaCell.swift; sourceTree = "<group>"; };
 		62E6BE30288947040050920F /* EastAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EastAreaCell.swift; sourceTree = "<group>"; };
 		62E6BE32288947150050920F /* OuterIslandAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterIslandAreaCell.swift; sourceTree = "<group>"; };
-		62EAB027288131520001B9BF /* ExhibitionQuantityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionQuantityCell.swift; sourceTree = "<group>"; };
+		62EAB027288131520001B9BF /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		62EAB02C2881716B0001B9BF /* FilterPositionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPositionButtons.swift; sourceTree = "<group>"; };
 		62EAB02E2881720A0001B9BF /* FilterPositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPositionCell.swift; sourceTree = "<group>"; };
 		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		97F409B52813CA6800527646 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		97F409B72813CA8000527646 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		97F409BA2813CAA700527646 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		97F6AE9C2809737E00B61974 /* TaiwanArtion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaiwanArtion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F6AE9F2809737E00B61974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97F6AEA12809737E00B61974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,10 +172,11 @@
 		624605C428927E7500E590E3 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				625938FD289AC32600A900FD /* SearchResultViewModel.swift */,
 				624605C528927F8800E590E3 /* SearchResultViewController.swift */,
 				624605CA2893C65800E590E3 /* SearchResultTableView.swift */,
-				624605CE2893D2C000E590E3 /* TotalExhibitionCell.swift */,
-				624605CC2893C66F00E590E3 /* SearchResultCell.swift */,
+				624605CE2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift */,
+				624605CC2893C66F00E590E3 /* SearchResultTableViewCell.swift */,
 			);
 			name = SearchResult;
 			sourceTree = "<group>";
@@ -248,20 +253,20 @@
 			name = SearchBar;
 			sourceTree = "<group>";
 		};
-		62B753BE2835F4D500286FFF /* AreaView */ = {
+		62B753BE2835F4D500286FFF /* Area */ = {
 			isa = PBXGroup;
 			children = (
 				62B753B82835F47D00286FFF /* AreaViewController.swift */,
 			);
-			name = AreaView;
+			name = Area;
 			sourceTree = "<group>";
 		};
-		62B753BF2835F4E400286FFF /* CompanyName */ = {
+		62B753BF2835F4E400286FFF /* ExhibitionPlace */ = {
 			isa = PBXGroup;
 			children = (
-				62B753BA2835F4A900286FFF /* CompanyNameViewController.swift */,
+				62B753BA2835F4A900286FFF /* ExhibitionPlaceViewController.swift */,
 			);
-			name = CompanyName;
+			name = ExhibitionPlace;
 			sourceTree = "<group>";
 		};
 		62B753C02835F4F300286FFF /* Date */ = {
@@ -269,7 +274,7 @@
 			children = (
 				62B753BC2835F4BA00286FFF /* DateViewController.swift */,
 				626B7B32288D4923002D6540 /* MonthCollectionView.swift */,
-				626B7B38288D809D002D6540 /* MonthCell.swift */,
+				626B7B38288D809D002D6540 /* MonthCollectionViewCell.swift */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -337,9 +342,11 @@
 				62CD76A5280D7EEF00696DBC /* SearchViewController.swift */,
 				627F4AD0288011EE00D86B07 /* WhetherStartBottomSheetViewController.swift */,
 				62B753B62835F3FE00286FFF /* TabButtonCollectionViewCell.swift */,
-				62EAB027288131520001B9BF /* ExhibitionQuantityCell.swift */,
-				62B753BE2835F4D500286FFF /* AreaView */,
-				62B753BF2835F4E400286FFF /* CompanyName */,
+				62593901289C2CCB00A900FD /* SearchPageTableView.swift */,
+				62EAB027288131520001B9BF /* SearchResultsTableViewCell.swift */,
+				62593903289C2EF700A900FD /* SearchRecordTableViewCell.swift */,
+				62B753BE2835F4D500286FFF /* Area */,
+				62B753BF2835F4E400286FFF /* ExhibitionPlace */,
 				62B753C02835F4F300286FFF /* Date */,
 				624605C428927E7500E590E3 /* SearchResult */,
 				624605C7289282B900E590E3 /* ExhibitionDetail */,
@@ -457,7 +464,6 @@
 		97F409B92813CA9500527646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				97F409BA2813CAA700527646 /* Model.swift */,
 				6211AE41289773BF0092202B /* ScrollPhoto.swift */,
 				6211AE432897B8F40092202B /* CellInfo.swift */,
 			);
@@ -638,13 +644,14 @@
 				62D51EB02817DA7D00010C6A /* SeeAllExhibitionViewController.swift in Sources */,
 				62E6BE31288947040050920F /* EastAreaCell.swift in Sources */,
 				624605D8289686DD00E590E3 /* IntroduceViewController.swift in Sources */,
-				62B753BB2835F4A900286FFF /* CompanyNameViewController.swift in Sources */,
+				62B753BB2835F4A900286FFF /* ExhibitionPlaceViewController.swift in Sources */,
 				62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */,
 				62DCAC1B28783061004EC187 /* SeeAllExhibitionTableView.swift in Sources */,
 				62CD76A0280D40A800696DBC /* SideMenuViewController.swift in Sources */,
-				624605CD2893C66F00E590E3 /* SearchResultCell.swift in Sources */,
+				624605CD2893C66F00E590E3 /* SearchResultTableViewCell.swift in Sources */,
 				62A3F94B287E9EA80067B03C /* SearchBarTableView.swift in Sources */,
 				62A3F942287D262A0067B03C /* FilterButtonCell.swift in Sources */,
+				625938FE289AC32600A900FD /* SearchResultViewModel.swift in Sources */,
 				62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */,
 				62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */,
 				624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */,
@@ -657,7 +664,7 @@
 				62E6BE2F288946F10050920F /* SouthAreaCell.swift in Sources */,
 				627F4ACF287FEDD100D86B07 /* WhetherStartExhibitionButton.swift in Sources */,
 				626B7B37288D7938002D6540 /* DateCell.swift in Sources */,
-				624605CF2893D2C000E590E3 /* TotalExhibitionCell.swift in Sources */,
+				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
 				624605D42896868700E590E3 /* InfoViewController.swift in Sources */,
 				62E6BE2B288945ED0050920F /* OuterIslandAreaButtons.swift in Sources */,
 				62A3F946287D28290067B03C /* FilterButton.swift in Sources */,
@@ -672,12 +679,12 @@
 				97F409B82813CA8000527646 /* MapViewModel.swift in Sources */,
 				97F409B62813CA6800527646 /* MapView.swift in Sources */,
 				624605C328913A3D00E590E3 /* CalendarView.swift in Sources */,
-				62EAB028288131520001B9BF /* ExhibitionQuantityCell.swift in Sources */,
+				62EAB028288131520001B9BF /* SearchResultsTableViewCell.swift in Sources */,
 				62DCAC132877CBC5004EC187 /* SeeAllExhibitionViewModel.swift in Sources */,
 				62A3F94D287E9EE30067B03C /* SearchBarCell.swift in Sources */,
+				62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */,
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,
-				97F409BB2813CAA700527646 /* Model.swift in Sources */,
 				6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */,
 				624605C92892836C00E590E3 /* ExhibitionDetailViewController.swift in Sources */,
 				62B753B92835F47D00286FFF /* AreaViewController.swift in Sources */,
@@ -686,9 +693,10 @@
 				62B753B72835F3FE00286FFF /* TabButtonCollectionViewCell.swift in Sources */,
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
 				62E6BE27288945D30050920F /* SouthAreaButtons.swift in Sources */,
-				626B7B39288D809D002D6540 /* MonthCell.swift in Sources */,
+				626B7B39288D809D002D6540 /* MonthCollectionViewCell.swift in Sources */,
 				6211AE42289773BF0092202B /* ScrollPhoto.swift in Sources */,
 				62E6BE23288945840050920F /* NorthAreaCell.swift in Sources */,
+				62593902289C2CCB00A900FD /* SearchPageTableView.swift in Sources */,
 				62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */,
 				62EAB02D2881716B0001B9BF /* FilterPositionButtons.swift in Sources */,
 				62A3F950287F00A00067B03C /* SearchBarTextField.swift in Sources */,

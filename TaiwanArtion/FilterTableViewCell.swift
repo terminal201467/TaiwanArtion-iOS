@@ -53,7 +53,6 @@ class FilterTableViewCell: UITableViewCell {
     // MARK: - SetupUI
     private func setupUI() {
         selectionStyle = .none
-//        sizeToFit()
         contentView.backgroundColor = .backgroundColor
 
         contentView.addSubview(titleLabel)

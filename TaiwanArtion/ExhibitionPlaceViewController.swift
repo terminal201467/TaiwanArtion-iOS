@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CompanyNameViewController: UIViewController {
+class ExhibitionPlaceViewController: UIViewController {
     
     // MARK: - UIs
     private let filterPositionButtons = FilterPositionButtons()
@@ -27,12 +27,12 @@ class CompanyNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        confirmButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirm), for: .touchUpInside)
     }
     
-    @objc func test() {
-        let vc = SearchResultViewController()
-//        let vc = ExhibitionDetailViewController()
+    @objc
+    private func confirm() {
+        let vc = SearchResultViewController(viewModel: SearchResultViewModel())
         navigationController?.pushViewController(vc, animated: true)
     }
     

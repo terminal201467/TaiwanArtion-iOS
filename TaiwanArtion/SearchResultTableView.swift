@@ -13,16 +13,19 @@ protocol SearchResultCellDelegate: AnyObject {
 
 class SearchResultTableView: UITableView {
     
-    let testList: [Int] = [1, 2, 3, 4, 5, 6]
-    
+    // MARK: - Properties
+    var cellInfo = [CellInfo]()
     weak var cellDelegate: SearchResultCellDelegate?
     
+    
+    // MARK: - Init
     convenience init() {
         self.init(frame: .zero, style: .plain)
-        register(TotalExhibitionCell.self, forCellReuseIdentifier: TotalExhibitionCell.identifier)
-        register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.identifier)
+        register(TotalExhibitionTableViewCell.self, forCellReuseIdentifier: TotalExhibitionTableViewCell.identifier)
+        register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
         separatorStyle = .none
         separatorColor = .clear
+        allowsSelection = false
         dataSource = self
         delegate = self
     }
@@ -33,6 +36,12 @@ class SearchResultTableView: UITableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Set CellInfo
+    func setCellInfo(list: [CellInfo]) {
+        cellInfo = list
+        reloadData()
     }
 }
 
@@ -46,18 +55,18 @@ extension SearchResultTableView: UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return testList.count
+            return cellInfo.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = dequeueReusableCell(withIdentifier: TotalExhibitionCell.identifier, for: indexPath) as! TotalExhibitionCell
+            let cell = dequeueReusableCell(withIdentifier: TotalExhibitionTableViewCell.identifier, for: indexPath) as! TotalExhibitionTableViewCell
             return cell
         } else {
-            let cell = dequeueReusableCell(withIdentifier: SearchResultCell.identifier, for: indexPath) as! SearchResultCell
-            
-            
+            let cell = dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as! SearchResultTableViewCell
+            cell.cellDelegate = cellDelegate
+            cell.bind(data: cellInfo[indexPath.row])
             return cell
         }
     }
@@ -65,15 +74,5 @@ extension SearchResultTableView: UITableViewDataSource {
 
 // MARK: - Delegate
 extension SearchResultTableView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellDelegate?.pushToExhibitionDetail()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 50
-        } else {
-            return 300
-        }
-    }
+
 }

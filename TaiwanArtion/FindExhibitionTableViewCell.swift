@@ -159,7 +159,7 @@ class FindExhibitionTableViewCell: UITableViewCell {
         recentExhibitionImageView.image = UIImage(named: data.url)
         exhibitionName.text = data.title
         exhibitionDate.text = "\(data.startDate) ~ \(data.endDate)"
-        exhibitionCity.text = "\(data.city) ~ \(data.township)"
+        exhibitionCity.text = "\(data.city)，\(data.township)"
         exhibitionPrice.text = data.price
     }
 }

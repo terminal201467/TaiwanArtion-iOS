@@ -13,11 +13,9 @@ class SearchViewController: UIViewController {
     // MARK: - Properties
     let pages = ["縣市", "展覽地點", "日期"]
     
-    
-    
     var pageViewIndex: Int = 0
     
-    var viewControllers: [UIViewController] = [AreaViewController(), CompanyNameViewController(), DateViewController()]
+    var viewControllers: [UIViewController] = [AreaViewController(), ExhibitionPlaceViewController(), DateViewController()]
     
     
     // MARK: - UIs

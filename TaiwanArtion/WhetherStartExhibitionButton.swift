@@ -14,7 +14,7 @@ class WhetherStartExhibitionButton: UIView {
         self.init(frame: .zero)
         backgroundColor = .backgroundColor
         layer.borderWidth = 1
-        layer.borderColor = UIColor(named: "WhetherStartGray")?.cgColor
+        layer.borderColor = UIColor.whetherStartBorderGray.cgColor
         layer.cornerRadius = 5
         setupUI()
     }
@@ -31,7 +31,7 @@ class WhetherStartExhibitionButton: UIView {
     private let whetherStartLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 13)
-        label.textColor = .systemGray3
+        label.textColor = .textGrayB0B0B0
         label.text = "是否開展"
         return label
     }()

@@ -20,7 +20,7 @@ class MonthCollectionView: UICollectionView {
         backgroundColor = .backgroundColor
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        register(MonthCell.self, forCellWithReuseIdentifier: MonthCell.identifier)
+        register(MonthCollectionViewCell.self, forCellWithReuseIdentifier: MonthCollectionViewCell.identifier)
         dataSource = self
         delegate = self
 //        isScrollEnabled = false
@@ -43,7 +43,7 @@ extension MonthCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MonthCell.identifier, for: indexPath) as! MonthCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MonthCollectionViewCell.identifier, for: indexPath) as! MonthCollectionViewCell
         cell.englishMonthLabel.text = englishMonthData[indexPath.row]
         cell.chineseMonthLabel.text = chineseMonthData[indexPath.row]
         return cell

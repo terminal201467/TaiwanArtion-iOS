@@ -38,7 +38,7 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     
     let imageBackView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "CardBackgroundGray")
+        view.backgroundColor = .cardBackgroundGray
         view.layer.cornerRadius = 20
         return view
     }()
@@ -46,15 +46,10 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     lazy var photoScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .black
-        // 是否顯示水平的滑動條
         scrollView.showsHorizontalScrollIndicator = false
-        // 是否顯示垂直的滑動條
         scrollView.showsVerticalScrollIndicator = false
-        // 是否可以按狀態列回到最上方
         scrollView.scrollsToTop = false
-        // 滑動超過範圍時是否使用彈回效果
         scrollView.bounces = true
-        // 以一頁為單位滑動
         scrollView.isPagingEnabled = true
         scrollView.layer.cornerRadius = 20
         scrollView.delegate = self
@@ -114,8 +109,6 @@ class ScrollPhotoTableViewCell: UITableViewCell {
     // MARK: - SetupUI
     private func setupUI() {
         selectionStyle = .none
-//        sizeToFit()
-        
         contentView.backgroundColor = .backgroundColor
         
         contentView.addSubview(titleLabel)

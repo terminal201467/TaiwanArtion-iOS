@@ -8,18 +8,20 @@
 import UIKit
 import SnapKit
 
-class TotalExhibitionCell: UITableViewCell {
+class TotalExhibitionTableViewCell: UITableViewCell {
 
     static let identifier = "TotalExhibitionCell"
     
     // MARK: - UIs
     private let totalExhibitionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textColor = .textGrayB0B0B0
         label.text = "共 500 件展覽"
         return label
     }()
     
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -32,12 +34,14 @@ class TotalExhibitionCell: UITableViewCell {
     // MARK: - Setup UI
     private func setupUI() {
         selectionStyle = .none
-        isUserInteractionEnabled = false
         
         contentView.addSubview(totalExhibitionLabel)
         totalExhibitionLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY)
+//            make.centerY.equalTo(self.snp.centerY)
+            make.top.equalTo(24)
+            make.bottom.equalTo(-16)
             make.leading.equalTo(16)
+            make.height.equalTo(20)
         }
     }
 }

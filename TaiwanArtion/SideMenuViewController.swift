@@ -25,13 +25,13 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTableView()
-        sideMenuTableView.reloadData()
     }
     
     // MARK: Setup TableView
     private func setupTableView() {
         sideMenuTableView.dataSource = self
         sideMenuTableView.delegate = self
+        sideMenuTableView.reloadData()
     }
     
     // MARK: - SetupUI

@@ -11,7 +11,21 @@ import SnapKit
 class AreaViewController: UIViewController {
     
     // MARK: - UIs
-//    private let tableView = AreaTableView()
+    private let areaScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.scrollsToTop = true
+        scrollView.bounces = true
+        scrollView.isPagingEnabled = false
+        scrollView.isScrollEnabled = true
+        return scrollView
+    }()
+    
+    private let containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     private let currentMarkButton: UIButton = {
         let button = UIButton()
@@ -52,7 +66,7 @@ class AreaViewController: UIViewController {
     private let northAreaLabel: UILabel = {
         let label = UILabel()
         label.text = "北部地區"
-        label.font = .boldSystemFont(ofSize: 17)
+        label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
@@ -145,12 +159,15 @@ class AreaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        confirmButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirm), for: .touchUpInside)
+        
+//        areaScrollView.contentInsetAdjustmentBehavior = .never
+        areaScrollView.delegate = self
     }
     
-    @objc func test() {
-        let vc = SearchResultViewController()
-//        let vc = ExhibitionDetailViewController()
+    @objc
+    private func confirm() {
+        let vc = SearchResultViewController(viewModel: SearchResultViewModel())
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -159,138 +176,155 @@ class AreaViewController: UIViewController {
         view.tag = 0
         view.backgroundColor = .backgroundColor
         
-        view.addSubview(currentMarkButton)
-        currentMarkButton.snp.makeConstraints { make in
-            make.top.equalTo(10)
-            make.leading.equalTo(16)
-            make.height.width.equalTo(30)
+        view.addSubview(areaScrollView)
+        areaScrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        view.addSubview(currentTextButton)
+        areaScrollView.addSubview(containerView)
+        containerView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(areaScrollView)
+            make.bottom.equalTo(areaScrollView.snp.bottom)
+            make.width.equalToSuperview()
+            make.height.equalTo(800)
+        }
+        
+        containerView.addSubview(currentMarkButton)
+        currentMarkButton.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(24)
+            make.leading.equalTo(16)
+            make.height.width.equalTo(44)
+        }
+        
+        containerView.addSubview(currentTextButton)
         currentTextButton.snp.makeConstraints { make in
             make.centerY.equalTo(currentMarkButton.snp.centerY)
             make.leading.equalTo(currentMarkButton.snp.trailing).offset(8)
         }
         
-        view.addSubview(unlimitedMarkButton)
+        containerView.addSubview(unlimitedMarkButton)
         unlimitedMarkButton.snp.makeConstraints { make in
-            make.top.equalTo(currentMarkButton.snp.bottom).offset(10)
+            make.top.equalTo(currentMarkButton.snp.bottom).offset(16)
             make.leading.equalTo(16)
-            make.height.width.equalTo(30)
+            make.height.width.equalTo(44)
         }
         
-        view.addSubview(unlimitedTextButton)
+        containerView.addSubview(unlimitedTextButton)
         unlimitedTextButton.snp.makeConstraints { make in
             make.centerY.equalTo(unlimitedMarkButton.snp.centerY)
             make.leading.equalTo(unlimitedMarkButton.snp.trailing).offset(8)
         }
         
-        view.addSubview(northAreaLabel)
+        containerView.addSubview(northAreaLabel)
         northAreaLabel.snp.makeConstraints { make in
-            make.top.equalTo(unlimitedMarkButton.snp.bottom).offset(10)
+            make.top.equalTo(unlimitedMarkButton.snp.bottom).offset(27)
             make.leading.equalTo(16)
         }
         
-        view.addSubview(northSelectAllButton)
+        containerView.addSubview(northSelectAllButton)
         northSelectAllButton.snp.makeConstraints { make in
             make.centerY.equalTo(northAreaLabel.snp.centerY)
-            make.trailing.equalTo(-16)
+            make.trailing.equalTo(-26)
         }
         
-        view.addSubview(northAreaButtons)
+        containerView.addSubview(northAreaButtons)
         northAreaButtons.snp.makeConstraints { make in
-            make.top.equalTo(northAreaLabel.snp.bottom).offset(10)
+            make.top.equalTo(northAreaLabel.snp.bottom).offset(16)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.height.equalTo(55)
         }
         
-        view.addSubview(middleAreaLabel)
+        containerView.addSubview(middleAreaLabel)
         middleAreaLabel.snp.makeConstraints { make in
-            make.top.equalTo(northAreaButtons.snp.bottom).offset(10)
+            make.top.equalTo(northAreaButtons.snp.bottom).offset(27)
             make.leading.equalTo(16)
         }
         
-        view.addSubview(middleSelectAllButton)
+        containerView.addSubview(middleSelectAllButton)
         middleSelectAllButton.snp.makeConstraints { make in
             make.centerY.equalTo(middleAreaLabel.snp.centerY)
-            make.trailing.equalTo(-16)
+            make.trailing.equalTo(-26)
         }
         
-        view.addSubview(middleAreaButtons)
+        containerView.addSubview(middleAreaButtons)
         middleAreaButtons.snp.makeConstraints { make in
-            make.top.equalTo(middleAreaLabel.snp.bottom).offset(10)
+            make.top.equalTo(middleAreaLabel.snp.bottom).offset(16)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.height.equalTo(55)
         }
         
-        view.addSubview(southAreaLabel)
+        containerView.addSubview(southAreaLabel)
         southAreaLabel.snp.makeConstraints { make in
-            make.top.equalTo(middleAreaButtons.snp.bottom).offset(10)
+            make.top.equalTo(middleAreaButtons.snp.bottom).offset(27)
             make.leading.equalTo(16)
         }
         
-        view.addSubview(southSelectAllButton)
+        containerView.addSubview(southSelectAllButton)
         southSelectAllButton.snp.makeConstraints { make in
             make.centerY.equalTo(southAreaLabel.snp.centerY)
-            make.trailing.equalTo(-16)
+            make.trailing.equalTo(-26)
         }
         
-        view.addSubview(southAreaButtons)
+        containerView.addSubview(southAreaButtons)
         southAreaButtons.snp.makeConstraints { make in
-            make.top.equalTo(southAreaLabel.snp.bottom).offset(10)
+            make.top.equalTo(southAreaLabel.snp.bottom).offset(16)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.height.equalTo(25)
         }
         
-        view.addSubview(eastAreaLabel)
+        containerView.addSubview(eastAreaLabel)
         eastAreaLabel.snp.makeConstraints { make in
-            make.top.equalTo(southAreaButtons.snp.bottom).offset(10)
+            make.top.equalTo(southAreaButtons.snp.bottom).offset(27)
             make.leading.equalTo(16)
         }
         
-        view.addSubview(eastSelectAllButton)
+        containerView.addSubview(eastSelectAllButton)
         eastSelectAllButton.snp.makeConstraints { make in
             make.centerY.equalTo(eastAreaLabel.snp.centerY)
-            make.trailing.equalTo(-16)
+            make.trailing.equalTo(-26)
         }
         
-        view.addSubview(eastAreaButtons)
+        containerView.addSubview(eastAreaButtons)
         eastAreaButtons.snp.makeConstraints { make in
-            make.top.equalTo(eastAreaLabel.snp.bottom).offset(10)
+            make.top.equalTo(eastAreaLabel.snp.bottom).offset(16)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.height.equalTo(25)
         }
         
-        view.addSubview(outerIslandAreaLabel)
+        containerView.addSubview(outerIslandAreaLabel)
         outerIslandAreaLabel.snp.makeConstraints { make in
-            make.top.equalTo(eastAreaButtons.snp.bottom).offset(10)
+            make.top.equalTo(eastAreaButtons.snp.bottom).offset(27)
             make.leading.equalTo(16)
         }
         
-        view.addSubview(outerIslandSelectAllButton)
+        containerView.addSubview(outerIslandSelectAllButton)
         outerIslandSelectAllButton.snp.makeConstraints { make in
             make.centerY.equalTo(outerIslandAreaLabel.snp.centerY)
-            make.trailing.equalTo(-16)
+            make.trailing.equalTo(-26)
         }
         
-        view.addSubview(outerIslandAreaButtons)
+        containerView.addSubview(outerIslandAreaButtons)
         outerIslandAreaButtons.snp.makeConstraints { make in
-            make.top.equalTo(outerIslandAreaLabel.snp.bottom).offset(10)
+            make.top.equalTo(outerIslandAreaLabel.snp.bottom).offset(16)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.height.equalTo(55)
         }
         
-        view.addSubview(confirmButton)
+        containerView.addSubview(confirmButton)
         confirmButton.snp.makeConstraints { make in
-            make.top.equalTo(outerIslandAreaButtons.snp.bottom).offset(10)
+            make.top.equalTo(outerIslandAreaButtons.snp.bottom).offset(29)
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
-            make.height.equalTo(30)
+            make.height.equalTo(36)
         }
     }
+}
+
+extension AreaViewController: UIScrollViewDelegate {
+    
 }

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MonthCell: UICollectionViewCell {
+class MonthCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "MonthCell"
     

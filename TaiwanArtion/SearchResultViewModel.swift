@@ -1,44 +1,45 @@
 //
-//  FindExhibitionViewModel.swift
+//  SearchResultViewModel.swift
 //  TaiwanArtion
 //
-//  Created by 羅承志 on 2022/7/4.
+//  Created by 羅承志 on 2022/8/3.
 //
 
 import Foundation
 import RxCocoa
 import RxSwift
 import RxRelay
+import UIKit
 
-protocol FindExhibitionViewModelInputs {
+protocol SearchResultViewModelInputs {
     var viewDidLoad: PublishRelay<()> { get }
 }
 
-protocol FindExhibitionViewModelOutputs {
-    var scrollPhotoList: Signal<[ScrollPhoto]> { get }
+protocol SearchResultViewModelOutputs {
     var cellInfoList: Signal<[CellInfo]> { get }
 }
 
-protocol FindExhibitionViewModelType {
-    var inputs: FindExhibitionViewModelInputs { get }
-    var outputs: FindExhibitionViewModelOutputs { get }
+protocol SearchResultViewModelType {
+    var inputs: SearchResultViewModelInputs { get }
+    var outputs: SearchResultViewModelOutputs { get }
 }
 
-final class FindExhibitionViewModel:
-    FindExhibitionViewModelInputs,
-    FindExhibitionViewModelOutputs,
-    FindExhibitionViewModelType
+final class SearchResultViewModel:
+    SearchResultViewModelInputs,
+    SearchResultViewModelOutputs,
+    SearchResultViewModelType
 {
-    // MARK: - inputs
-    public var viewDidLoad: PublishRelay<()>
     
+    // MARK: inputs
+    public var viewDidLoad: PublishRelay<()>
+
     
     // MARK: - outputs
-    public var scrollPhotoList: Signal<[ScrollPhoto]>
     public var cellInfoList: Signal<[CellInfo]>
     
-    public var inputs: FindExhibitionViewModelInputs { self }
-    public var outputs: FindExhibitionViewModelOutputs { self }
+    
+    public var inputs: SearchResultViewModelInputs { self }
+    public var outputs: SearchResultViewModelOutputs { self }
     
     private let disposeBag = DisposeBag()
     
@@ -46,48 +47,14 @@ final class FindExhibitionViewModel:
         let viewDidLoad = PublishRelay<()>()
         self.viewDidLoad = viewDidLoad
         
-        let scrollPhotoList = PublishRelay<[ScrollPhoto]>()
-        self.scrollPhotoList = scrollPhotoList.asSignal()
-        
         let cellInfoList = PublishRelay<[CellInfo]>()
         self.cellInfoList = cellInfoList.asSignal()
         
         viewDidLoad
             .subscribe(onNext: { [weak self] in
-                self?.loadScrollPhoto(scrollPhotoList: scrollPhotoList)
                 self?.loadCellInfo(cellInfoList: cellInfoList)
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func loadScrollPhoto(scrollPhotoList: PublishRelay<[ScrollPhoto]>) {
-        let mock = [
-            ScrollPhoto(
-                url: "1",
-                title: "Photo 1",
-                startDate: "7/1",
-                endDate: "7/3"
-            ),
-            ScrollPhoto(
-                url: "2",
-                title: "Photo 2",
-                startDate: "7/4",
-                endDate: "7/6"
-            ),
-            ScrollPhoto(
-                url: "1",
-                title: "Photo 3",
-                startDate: "7/7",
-                endDate: "7/9"
-            ),
-            ScrollPhoto(
-                url: "2",
-                title: "Photo 4",
-                startDate: "7/10",
-                endDate: "7/12"
-            )
-        ]
-        scrollPhotoList.accept(mock)
     }
     
     private func loadCellInfo(cellInfoList: PublishRelay<[CellInfo]>) {

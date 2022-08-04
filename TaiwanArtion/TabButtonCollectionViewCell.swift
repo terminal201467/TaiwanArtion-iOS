@@ -16,8 +16,8 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
     let pageLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
-        label.font = .boldSystemFont(ofSize: 17)
-        label.textColor = .gray
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = .textGrayB0B0B0
         return label
     }()
     
@@ -40,13 +40,15 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
         didSet {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3) {
-                    self.currentView.backgroundColor = self.isSelected ? UIColor.brown : UIColor.clear
+                    self.currentView.backgroundColor = self.isSelected ? UIColor.brownColor : UIColor.clear
+                    self.pageLabel.textColor = self.isSelected ? UIColor.brownColor : UIColor.textGrayB0B0B0
                     self.layoutIfNeeded()
                 }
             }
         }
     }
     
+    // MARK: - Setup UI
     private func setupUI() {
         addSubview(pageLabel)
         pageLabel.snp.makeConstraints { make in
@@ -56,7 +58,8 @@ class TabButtonCollectionViewCell: UICollectionViewCell {
         addSubview(currentView)
         currentView.snp.makeConstraints { make in
             make.top.equalTo(pageLabel.snp.bottom)
-            make.leading.trailing.equalTo(pageLabel)
+            make.width.equalTo(60)
+            make.centerX.equalTo(pageLabel.snp.centerX)
             make.height.equalTo(4)
         }
     }

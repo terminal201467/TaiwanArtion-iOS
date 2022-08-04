@@ -29,15 +29,15 @@ class SeeAllExhibitionViewModel:
     SeeAllExhibitionViewModelType
 {
     // MARK: - inputs
-    var viewDidLoad: PublishRelay<()>
+    public var viewDidLoad: PublishRelay<()>
     
     
     // MARK: - outputs
-    var cellInfoList: Signal<[CellInfo]>
+    public var cellInfoList: Signal<[CellInfo]>
 
     
-    var inputs: SeeAllExhibitionViewModelInputs { self }
-    var outputs: SeeAllExhibitionViewModelOutputs { self }
+    public var inputs: SeeAllExhibitionViewModelInputs { self }
+    public var outputs: SeeAllExhibitionViewModelOutputs { self }
     
     private let disposeBag = DisposeBag()
     
@@ -69,7 +69,7 @@ class SeeAllExhibitionViewModel:
             CellInfo(
                 url: "2",
                 title: "會動的文藝復興 2",
-                startDate: "2020/03/21",
+                startDate: "2020/03/22",
                 endDate: "04/20",
                 city: "台南市",
                 township: "仁德區",
@@ -78,7 +78,7 @@ class SeeAllExhibitionViewModel:
             CellInfo(
                 url: "3",
                 title: "會動的文藝復興 3",
-                startDate: "2020/03/21",
+                startDate: "2020/03/23",
                 endDate: "04/20",
                 city: "台南市",
                 township: "仁德區",
@@ -87,7 +87,7 @@ class SeeAllExhibitionViewModel:
             CellInfo(
                 url: "1",
                 title: "會動的文藝復興 4",
-                startDate: "2020/03/21",
+                startDate: "2020/03/24",
                 endDate: "04/20",
                 city: "台南市",
                 township: "仁德區",
@@ -96,7 +96,7 @@ class SeeAllExhibitionViewModel:
             CellInfo(
                 url: "2",
                 title: "會動的文藝復興 5",
-                startDate: "2020/03/21",
+                startDate: "2020/03/25",
                 endDate: "04/20",
                 city: "台南市",
                 township: "仁德區",
@@ -105,7 +105,7 @@ class SeeAllExhibitionViewModel:
             CellInfo(
                 url: "3",
                 title: "會動的文藝復興 6",
-                startDate: "2020/03/21",
+                startDate: "2020/03/26",
                 endDate: "04/20",
                 city: "台南市",
                 township: "仁德區",

@@ -11,4 +11,3 @@ struct ScrollPhoto {
     let startDate: String
     let endDate: String
 }
-
