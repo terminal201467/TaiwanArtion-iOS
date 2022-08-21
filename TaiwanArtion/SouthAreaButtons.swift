@@ -16,7 +16,7 @@ final public class SouthAreaButtons: UICollectionView {
         layout.scrollDirection = .vertical
         self.init(frame: .zero, collectionViewLayout: layout)
         backgroundColor = .backgroundColor
-        register(MiddleAreaCell.self, forCellWithReuseIdentifier: MiddleAreaCell.identifier)
+        register(SouthAreaCell.self, forCellWithReuseIdentifier: SouthAreaCell.identifier)
         isScrollEnabled = false
         dataSource = self
         delegate = self
@@ -39,7 +39,7 @@ extension SouthAreaButtons: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MiddleAreaCell.identifier, for: indexPath) as! MiddleAreaCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SouthAreaCell.identifier, for: indexPath) as! SouthAreaCell
         cell.areaLabel.text = southArea[indexPath.row]
         return cell
     }
@@ -50,7 +50,7 @@ extension SouthAreaButtons: UICollectionViewDelegate {
     
 }
 
-//MARK: - CollectionViewDelegateFlowLayout
+//MARK: - FlowLayout
 extension SouthAreaButtons: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell

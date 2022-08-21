@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchResultTableViewCell: UITableViewCell {
+class SearchResultListTableViewCell: UITableViewCell {
 
     static let identifier = "SearchResultCell"
     

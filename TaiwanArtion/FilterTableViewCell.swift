@@ -22,7 +22,7 @@ class FilterTableViewCell: UITableViewCell {
 
     // MARK: - UIs
     
-    let filterButton = FilterButton()
+    let filterButton = FilterExhibitionButton()
     
     let titleLabel: UILabel = {
         let label = UILabel()

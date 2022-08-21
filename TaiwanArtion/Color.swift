@@ -22,6 +22,10 @@ extension UIColor {
     static var textGrayB0B0B0: UIColor = UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)
     
     static var textBlack464646: UIColor = UIColor(red: 69/255, green: 69/255, blue: 69/255, alpha: 1)
+    
+    static var textBlack636363: UIColor = UIColor(red: 99/255, green: 99/255, blue: 99/255, alpha: 1)
+    
+    static var onSale7D3E35: UIColor = UIColor(red: 125/255, green: 63/255, blue: 54/255, alpha: 1)
 }
 
 

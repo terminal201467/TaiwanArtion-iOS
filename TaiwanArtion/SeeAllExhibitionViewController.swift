@@ -15,7 +15,7 @@ class SeeAllExhibitionViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     // MARK: - UIs
-    private let filterButton = FilterButton()
+    private let filterButton = FilterExhibitionButton()
     private let tableView = SeeAllExhibitionTableView()
     
     init(viewModel: SeeAllExhibitionViewModel) {

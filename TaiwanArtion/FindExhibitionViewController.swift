@@ -34,14 +34,13 @@ class FindExhibitionViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.buttonDelegate = self
+        tableView.cellDelegate = self
         setupUI()
         setupSideMenu()
         setupNavigation()
-        tableView.buttonDelegate = self
-        tableView.cellDelegate = self
         setupBinding()
         viewModel.inputs.viewDidLoad.accept(())
-                
     }
     
     // MARK: - Set SideMenu
@@ -54,7 +53,7 @@ class FindExhibitionViewController: UIViewController {
     
     // MARK: - Set NavigationItem
     private func setupNavigation() {
-        navigationItem.title = "FindTest"
+        navigationItem.title = "Main"
         //leftBarButtonItem
         let leftButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(leftButton))
         leftButton.tintColor = .black

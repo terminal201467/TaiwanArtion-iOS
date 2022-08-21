@@ -22,7 +22,7 @@ class SearchResultTableView: UITableView {
     convenience init() {
         self.init(frame: .zero, style: .plain)
         register(TotalExhibitionTableViewCell.self, forCellReuseIdentifier: TotalExhibitionTableViewCell.identifier)
-        register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+        register(SearchResultListTableViewCell.self, forCellReuseIdentifier: SearchResultListTableViewCell.identifier)
         separatorStyle = .none
         separatorColor = .clear
         allowsSelection = false
@@ -64,7 +64,7 @@ extension SearchResultTableView: UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: TotalExhibitionTableViewCell.identifier, for: indexPath) as! TotalExhibitionTableViewCell
             return cell
         } else {
-            let cell = dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as! SearchResultTableViewCell
+            let cell = dequeueReusableCell(withIdentifier: SearchResultListTableViewCell.identifier, for: indexPath) as! SearchResultListTableViewCell
             cell.cellDelegate = cellDelegate
             cell.bind(data: cellInfo[indexPath.row])
             return cell

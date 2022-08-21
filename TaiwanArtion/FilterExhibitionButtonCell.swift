@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FilterButtonCell: UICollectionViewCell {
+class FilterExhibitionButtonCell: UICollectionViewCell {
     
     static let identifier = "FilterButtonCollectionViewCell"
     

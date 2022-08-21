@@ -81,7 +81,6 @@ class CalendarView: UIView {
     private func handleCellSelected(cell: DateCell, cellState: CellState) {
         
         if cellState.isSelected {
-//            cell.selectedView.layer.cornerRadius =  20
             cell.dateLabel.textColor = .white
             cell.selectedView.isHidden = false
         } else {
@@ -138,7 +137,8 @@ extension CalendarView: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: DateCell.identifier, for: indexPath) as! DateCell
         cell.dateLabel.text = cellState.text
-        self.calendar(calendar, willDisplay: cell,
+        self.calendar(calendar,
+                      willDisplay: cell,
                       forItemAt: date,
                       cellState: cellState,
                       indexPath: indexPath)

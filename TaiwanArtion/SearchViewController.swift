@@ -11,19 +11,36 @@ import SnapKit
 class SearchViewController: UIViewController {
     
     // MARK: - Properties
-    let pages = ["縣市", "展覽地點", "日期"]
+    private let pages = ["縣市", "展覽地點", "日期"]
     
-    var pageViewIndex: Int = 0
+    private var pageViewIndex: Int = 0
     
-    var viewControllers: [UIViewController] = [AreaViewController(), ExhibitionPlaceViewController(), DateViewController()]
+    private var viewControllers: [UIViewController] = [AreaViewController(), ExhibitionPlaceViewController(), DateViewController()]
     
     
     // MARK: - UIs
     private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-    private let searchBarTextField = SearchBarTextField()
     private let whetherStartExhibitionButton = WhetherStartExhibitionButton()
-    private let searchBarTableView = SearchBarTableView()
-//    private let totalExhibitionTableView = TotalExhibitionTableView()
+    
+    private let searchBarView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .cardBackgroundGray
+        return view
+    }()
+    
+    private let magnifierImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "magnifier"))
+        return imageView
+    }()
+    
+    private let searchLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Search"
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
     
     private let tabCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -41,7 +58,6 @@ class SearchViewController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -49,11 +65,12 @@ class SearchViewController: UIViewController {
         setupCollectionView()
         configurePageViewController()
         whetherStartExhibitionViewTap()
+        searchBarViewTap()
     }
     
-    // MARK: - SetNavigation
+    // MARK: - Set Navigation
     private func setupNavigation() {
-        navigationItem.title = "SearchTest"
+        navigationItem.title = "Search"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         
         // left Button
@@ -84,28 +101,42 @@ class SearchViewController: UIViewController {
         pageViewController.setViewControllers([viewControllers[pageViewIndex]], direction: .forward, animated: true)
     }
     
-    //MARK: - SetupUI
+    //MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = .backgroundColor
-        
-        view.addSubview(searchBarTextField)
-        searchBarTextField.snp.makeConstraints { make in
+                
+        view.addSubview(searchBarView)
+        searchBarView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
             make.leading.equalTo(16)
             make.width.equalTo(270)
+            make.height.equalTo(40)
+        }
+        
+        searchBarView.addSubview(magnifierImageView)
+        magnifierImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(16)
+            make.centerY.equalTo(searchBarView.snp.centerY)
+            make.leading.equalTo(20)
+        }
+        
+        searchBarView.addSubview(searchLabel)
+        searchLabel.snp.makeConstraints { make in
+            make.leading.equalTo(magnifierImageView.snp.trailing).offset(8)
+            make.centerY.equalTo(searchBarView.snp.centerY)
         }
         
         view.addSubview(whetherStartExhibitionButton)
         whetherStartExhibitionButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
-            make.leading.equalTo(searchBarTextField.snp.trailing).offset(8)
+            make.leading.equalTo(searchBarView.snp.trailing).offset(8)
             make.trailing.equalTo(-16)
             make.height.equalTo(40)
         }
         
         view.addSubview(tabCollectionView)
         tabCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBarTextField.snp.bottom).offset(16)
+            make.top.equalTo(searchBarView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
         }
@@ -115,13 +146,6 @@ class SearchViewController: UIViewController {
             make.top.equalTo(tabCollectionView.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
         }
-        
-//        view.addSubview(totalExhibitionTableView)
-//        totalExhibitionTableView.snp.makeConstraints { make in
-//            make.top.equalTo(tabCollectionView.snp.bottom)
-//            make.leading.trailing.equalToSuperview()
-//            make.bottom.equalTo(0)
-//        }
     }
 
     
@@ -136,15 +160,30 @@ class SearchViewController: UIViewController {
         }
     }
     
+    private func searchBarViewTap() {
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(searchViewTouch))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        searchBarView.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func searchViewTouch() {
+        let vc = SearchPageViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func whetherStartExhibitionViewTap() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(touch))
+        let tap = UITapGestureRecognizer(target: self,
+                                         action: #selector(whetherStartTouch))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
         whetherStartExhibitionButton.addGestureRecognizer(tap)
     }
     
     @objc
-    private func touch(_ sender: UIView) {
+    private func whetherStartTouch(_ sender: UIView) {
         let vc = WhetherStartBottomSheetViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .pageSheet
@@ -160,7 +199,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-//MARK: - CollectionViewDataSource
+//MARK: - CollectionView DataSource
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pages.count
@@ -174,7 +213,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - CollectionViewDelegate
+//MARK: - CollectionView Delegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item > pageViewIndex {
@@ -189,7 +228,7 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - CollectionViewDelegateFlowLayout
+//MARK: - CollectionView FlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell

@@ -183,8 +183,8 @@ class AreaViewController: UIViewController {
         
         areaScrollView.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(areaScrollView)
-            make.bottom.equalTo(areaScrollView.snp.bottom)
+            make.top.leading.trailing.bottom.equalTo(areaScrollView)
+//            make.bottom.equalTo(areaScrollView.snp.bottom)
             make.width.equalToSuperview()
             make.height.equalTo(800)
         }

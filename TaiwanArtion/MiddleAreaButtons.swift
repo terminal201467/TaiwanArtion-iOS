@@ -50,7 +50,7 @@ extension MiddleAreaButtons: UICollectionViewDelegate {
     
 }
 
-//MARK: - CollectionViewDelegateFlowLayout
+//MARK: - FlowLayout
 extension MiddleAreaButtons: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell

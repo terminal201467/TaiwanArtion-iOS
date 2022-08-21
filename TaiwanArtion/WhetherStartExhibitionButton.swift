@@ -15,7 +15,7 @@ class WhetherStartExhibitionButton: UIView {
         backgroundColor = .backgroundColor
         layer.borderWidth = 1
         layer.borderColor = UIColor.whetherStartBorderGray.cgColor
-        layer.cornerRadius = 5
+        layer.cornerRadius = 7
         setupUI()
     }
 

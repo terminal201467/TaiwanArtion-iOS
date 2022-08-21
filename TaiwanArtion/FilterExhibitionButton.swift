@@ -7,7 +7,7 @@
 
 import UIKit
 
-final public class FilterButton: UICollectionView {
+final public class FilterExhibitionButton: UICollectionView {
     
     let filterDate: [String] = ["不限", "一週", "一個月", "三個月"]
     
@@ -16,7 +16,7 @@ final public class FilterButton: UICollectionView {
         layout.scrollDirection = .horizontal
         self.init(frame: .zero, collectionViewLayout: layout)
         backgroundColor = .backgroundColor
-        register(FilterButtonCell.self, forCellWithReuseIdentifier: FilterButtonCell.identifier)
+        register(FilterExhibitionButtonCell.self, forCellWithReuseIdentifier: FilterExhibitionButtonCell.identifier)
         isScrollEnabled = false
         dataSource = self
         delegate = self
@@ -33,25 +33,25 @@ final public class FilterButton: UICollectionView {
 }
 
 //MARK: - Data Source
-extension FilterButton: UICollectionViewDataSource {
+extension FilterExhibitionButton: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterDate.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterButtonCell.identifier, for: indexPath) as! FilterButtonCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterExhibitionButtonCell.identifier, for: indexPath) as! FilterExhibitionButtonCell
         cell.rangeLabel.text = filterDate[indexPath.row]
         return cell
     }
 }
 
 //MARK: - Delegate
-extension FilterButton: UICollectionViewDelegate {
+extension FilterExhibitionButton: UICollectionViewDelegate {
     
 }
 
-//MARK: - CollectionViewDelegateFlowLayout
-extension FilterButton: UICollectionViewDelegateFlowLayout {
+//MARK: - FlowLayout
+extension FilterExhibitionButton: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // (collectionView.邊界.寬 - 間距大小 * cell有幾幾個間距) / 想要幾個cell
         let width = (collectionView.bounds.width - 2 * 3) / 4
