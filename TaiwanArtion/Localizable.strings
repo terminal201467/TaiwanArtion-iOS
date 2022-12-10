@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  TaiwanArtion
+
+  Created by Jhen Mu on 2022/11/5.
+  
+*/
+
+"nearExhibition" = "附近展覽";
+"shareExhibition" = "分享展覽";
+"findExhibition" = "尋找展覽";
+"findPlace" = "尋找地點";
+"showList" = "顯示列表";
+"beginNavigate" = "開始導航";
