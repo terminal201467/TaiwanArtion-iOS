@@ -67,6 +67,9 @@
 		97672CCB2916246A002BE893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97672CCA2916246A002BE893 /* Localizable.strings */; };
 		97672CCD29164142002BE893 /* NearbyExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */; };
 		97B3F6DD29417F7E004BBC67 /* NearByExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */; };
+		97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */; };
+		97B3F6E12948236D004BBC67 /* NearByListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E02948236C004BBC67 /* NearByListView.swift */; };
+		97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */; };
 		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
 		97F409B62813CA6800527646 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B52813CA6800527646 /* MapView.swift */; };
 		97F409B82813CA8000527646 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B72813CA8000527646 /* MapViewModel.swift */; };
@@ -139,6 +142,9 @@
 		97672CCA2916246A002BE893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionView.swift; sourceTree = "<group>"; };
+		97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBinder.swift; sourceTree = "<group>"; };
+		97B3F6E02948236C004BBC67 /* NearByListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByListView.swift; sourceTree = "<group>"; };
+		97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionListTableViewTableViewCell.swift; sourceTree = "<group>"; };
 		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		97F409B52813CA6800527646 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		97F409B72813CA8000527646 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				62806AEB281A297900FD5AF2 /* Color.swift */,
+				97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -332,6 +339,8 @@
 				62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */,
 				97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */,
 				97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */,
+				97B3F6E02948236C004BBC67 /* NearByListView.swift */,
+				97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */,
 			);
 			name = NearbyExhibition;
 			sourceTree = "<group>";
@@ -658,6 +667,7 @@
 				624605CD2893C66F00E590E3 /* SearchResultListTableViewCell.swift in Sources */,
 				62A3F942287D262A0067B03C /* FilterExhibitionButtonCell.swift in Sources */,
 				625938FE289AC32600A900FD /* SearchResultViewModel.swift in Sources */,
+				97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */,
 				62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */,
 				62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */,
 				624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */,
@@ -673,6 +683,7 @@
 				627F4ACF287FEDD100D86B07 /* WhetherStartExhibitionButton.swift in Sources */,
 				626B7B37288D7938002D6540 /* DateCell.swift in Sources */,
 				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
+				97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */,
 				624605D42896868700E590E3 /* InfoViewController.swift in Sources */,
 				62E6BE2B288945ED0050920F /* OuterIslandAreaButtons.swift in Sources */,
 				62A3F946287D28290067B03C /* FilterExhibitionButton.swift in Sources */,
@@ -692,6 +703,7 @@
 				626C319F289E17EE005A3190 /* PhotosCollectionViewCell.swift in Sources */,
 				62EAB028288131520001B9BF /* SearchResultsTableViewCell.swift in Sources */,
 				62DCAC132877CBC5004EC187 /* SeeAllExhibitionViewModel.swift in Sources */,
+				97B3F6E12948236D004BBC67 /* NearByListView.swift in Sources */,
 				62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */,
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,

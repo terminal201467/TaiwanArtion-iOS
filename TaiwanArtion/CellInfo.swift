@@ -15,3 +15,11 @@ struct CellInfo {
     let price: String
 }
 
+struct ExhibitionLocationInfo {
+    let exhibitionTitle: String
+    let exhibitionImage: String
+    let buisinessType: Bool
+    let buisinessTime: String
+    let location: String
+    let distance: String
+}

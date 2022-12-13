@@ -12,7 +12,7 @@ import MapKit
 
 class NearbyExhibitionViewController: UIViewController {
     
-    let nearByExhibitionView = NearByExhibitionView()
+    private let nearByExhibitionView = NearByExhibitionView()
     
     private var searchMode: Bool = false
     
@@ -28,7 +28,13 @@ class NearbyExhibitionViewController: UIViewController {
         view.backgroundColor = .backgroundColor
         setMapView()
         setNavigationMode()
+        setSearchBarDelegate()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     private func setNavigationMode() {
         let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
@@ -57,6 +63,10 @@ class NearbyExhibitionViewController: UIViewController {
         nearByExhibitionView.searchContainerView.isHidden = false
     }
     
+    private func setSearchBarDelegate() {
+        nearByExhibitionView.searchBar.searchTextField.delegate = self
+    }
+    
     private func setMapView() {
         let location = CLLocationCoordinate2D(latitude: 22.999696, longitude: 120.212768)
         let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -72,4 +82,9 @@ class NearbyExhibitionViewController: UIViewController {
     @objc private func menuButtonPress() {
         
     }
+}
+
+extension NearbyExhibitionViewController: UITextFieldDelegate {
+    
+    
 }

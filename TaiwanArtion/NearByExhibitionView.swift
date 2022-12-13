@@ -65,6 +65,7 @@ class NearByExhibitionView: UIView {
     let searchContainerView: UIView = {
        let view = UIView()
         view.backgroundColor = .white
+        view.isHidden = true
         return view
     }()
     
