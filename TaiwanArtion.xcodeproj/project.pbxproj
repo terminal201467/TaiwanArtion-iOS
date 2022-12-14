@@ -68,7 +68,7 @@
 		97672CCD29164142002BE893 /* NearbyExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */; };
 		97B3F6DD29417F7E004BBC67 /* NearByExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */; };
 		97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */; };
-		97B3F6E12948236D004BBC67 /* NearByListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E02948236C004BBC67 /* NearByListView.swift */; };
+		97B3F6E12948236D004BBC67 /* NearByExhibitionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */; };
 		97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */; };
 		97F409B42813CA5600527646 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B32813CA5600527646 /* MapViewController.swift */; };
 		97F409B62813CA6800527646 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F409B52813CA6800527646 /* MapView.swift */; };
@@ -143,7 +143,7 @@
 		97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionView.swift; sourceTree = "<group>"; };
 		97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBinder.swift; sourceTree = "<group>"; };
-		97B3F6E02948236C004BBC67 /* NearByListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByListView.swift; sourceTree = "<group>"; };
+		97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionListView.swift; sourceTree = "<group>"; };
 		97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionListTableViewTableViewCell.swift; sourceTree = "<group>"; };
 		97F409B32813CA5600527646 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		97F409B52813CA6800527646 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 				62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */,
 				97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */,
 				97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */,
-				97B3F6E02948236C004BBC67 /* NearByListView.swift */,
+				97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */,
 				97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */,
 			);
 			name = NearbyExhibition;
@@ -703,7 +703,7 @@
 				626C319F289E17EE005A3190 /* PhotosCollectionViewCell.swift in Sources */,
 				62EAB028288131520001B9BF /* SearchResultsTableViewCell.swift in Sources */,
 				62DCAC132877CBC5004EC187 /* SeeAllExhibitionViewModel.swift in Sources */,
-				97B3F6E12948236D004BBC67 /* NearByListView.swift in Sources */,
+				97B3F6E12948236D004BBC67 /* NearByExhibitionListView.swift in Sources */,
 				62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */,
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,
@@ -862,7 +862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7LV6N67KJ;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaiwanArtion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -890,7 +890,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G7LV6N67KJ;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaiwanArtion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

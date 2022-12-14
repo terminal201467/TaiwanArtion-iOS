@@ -109,10 +109,20 @@ class NearByExhibitionView: UIView {
         mapView.mapType = .standard
         return mapView
     }()
+    
+    let listView: NearByExhibtionListView = {
+       let view = NearByExhibtionListView()
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMinYCorner]
+        view.layer.cornerRadius = 20
+        view.backgroundColor = .backgroundColor
+        view.isUserInteractionEnabled = true
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setMapViewLayout()
+        setListViewLayout()
         setNavigationModeLayout()
         setSearchContainerView()
     }
@@ -177,5 +187,16 @@ class NearByExhibitionView: UIView {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+    
+    private func setListViewLayout() {
+        addSubview(listView)
+        listView.snp.makeConstraints { make in
+            make.height.equalTo(88)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+        }
+//        listView.setViewInBottomAutoLayout()
     }
 }
