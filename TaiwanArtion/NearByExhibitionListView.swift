@@ -7,19 +7,36 @@
 
 import UIKit
 
-enum ListViewType: Int {
-    case baseBottom = 0, slideUp, detailInfo
+enum ListViewType: Int, CaseIterable{
+    case baseBottom = 0, slideUp
+    var type: CGFloat {
+        switch self {
+        case .baseBottom: return 1000
+        case .slideUp: return 500
+        }
+    }
 }
 
-enum TitleType: Int {
+enum TitleType: Int, CaseIterable {
     case anyType = 0, cultureCreationArea, artGallery, museum, exhibitionHall
+    var typeText: String {
+        switch self {
+        case .anyType: return "不限"
+        case .cultureCreationArea: return "文創園區"
+        case .artGallery: return "美術館"
+        case .museum: return "博物館"
+        case .exhibitionHall: return "展覽館"
+        }
+    }
 }
 
 class NearByExhibtionListView: UIView {
     
-    var panUp: (() -> Void)?
+    var slideUp: (() -> Void)?
     
-    var panDown: (() -> Void)?
+    var slideDown: (() -> Void)?
+    
+    var moveMentY: CGFloat = 550
     
     let blackLine: UIView = {
        let view = UIView()
@@ -38,38 +55,33 @@ class NearByExhibtionListView: UIView {
        let tableView = UITableView()
         tableView.register(ExhibitionListTableViewTableViewCell.self, forCellReuseIdentifier: ExhibitionListTableViewTableViewCell.identifier)
         tableView.separatorStyle = .none
+        tableView.isHidden = true
         return tableView
     }()
     
     let collectionItems: UICollectionView = {
        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 6, height: 4)
-        flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        flowLayout.estimatedItemSize = CGSize(width: 100, height: 60)
+        flowLayout.itemSize = CGSize(width: 80, height: 60)
+        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 30
+        flowLayout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: flowLayout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(ItemsCollectionCell.self, forCellWithReuseIdentifier: ItemsCollectionCell.identifier)
+        collectionView.isScrollEnabled = false
+        collectionView.allowsSelection = true
+        collectionView.delegate = nil
+        collectionView.dataSource = nil
+        collectionView.isHidden = true
         return collectionView
     }()
-    
-    let panUpGesture: UIPanGestureRecognizer = {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panUpAction(_:)))
-        pan.maximumNumberOfTouches = 1
-        pan.isEnabled = true
-        return pan
-    }()
-    
-    let panDownGesture: UIPanGestureRecognizer = {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panDownAction(_:)))
-        pan.maximumNumberOfTouches = 1
-        pan.isEnabled = true
-        return pan
-    }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViewInBottomAutoLayout()
-        addGestureRecognizer(panUpGesture)
-        addGestureRecognizer(panDownGesture)
+        setPanGesture()
+        setItemsAutoLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -92,14 +104,25 @@ class NearByExhibtionListView: UIView {
         }
     }
     
+    func setPanGesture() {
+        let panUpGesture: UIPanGestureRecognizer = {
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(panUpAction(_:)))
+            pan.maximumNumberOfTouches = 1
+            pan.minimumNumberOfTouches = 1
+            pan.isEnabled = true
+            return pan
+        }()
+        addGestureRecognizer(panUpGesture)
+    }
+    
     func setItemsAutoLayout() {
         addSubview(collectionItems)
         addSubview(exhibitionList)
         collectionItems.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(60)
         }
         exhibitionList.snp.makeConstraints { make in
             make.top.equalTo(collectionItems.snp.bottom)
@@ -110,12 +133,21 @@ class NearByExhibtionListView: UIView {
     }
     
     @objc func panUpAction(_ recognizer: UIPanGestureRecognizer) {
-        print("panUp")
-        panUp?()
-    }
-    
-    @objc func panDownAction(_ recognizer: UIPanGestureRecognizer) {
-        print("panDown")
-        panDown?()
+        switch recognizer.state {
+        case .began:
+            self.moveMentY = self.frame.origin.y
+        case .changed:
+            print("change")
+        case .ended:
+            let transitionY = recognizer.translation(in: self).y
+            self.frame.origin.y = moveMentY + transitionY
+            if  transitionY > 10 {
+                slideDown?()
+            } else if transitionY < 40 {
+                slideUp?()
+            }
+        default:
+            print("default")
+        }
     }
 }

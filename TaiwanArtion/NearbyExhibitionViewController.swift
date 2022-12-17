@@ -8,6 +8,8 @@
 import UIKit
 import SideMenu
 import RxSwift
+import RxCocoa
+import RxRelay
 import MapKit
 
 class NearbyExhibitionViewController: UIViewController {
@@ -15,6 +17,10 @@ class NearbyExhibitionViewController: UIViewController {
     private let nearByExhibitionView = NearByExhibitionView()
     
     private var searchMode: Bool = false
+    
+    private let items = Observable.just(TitleType.allCases)
+    
+    private let disposeBag = DisposeBag()
     
     //MARK: - Lifecycle
     
@@ -28,6 +34,7 @@ class NearbyExhibitionViewController: UIViewController {
         view.backgroundColor = .backgroundColor
         setMapView()
         setListView()
+        setItems()
         setNavigationMode()
         setSearchBarDelegate()
     }
@@ -75,43 +82,52 @@ class NearbyExhibitionViewController: UIViewController {
     }
     
     private func setListView() {
-        nearByExhibitionView.listView.panUp = {
-            print("panUp")
+        nearByExhibitionView.listView.slideUp = {
+            let safeAreaInsetsTop = self.nearByExhibitionView.safeAreaInsets.top
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 1, delay: 1, options: .curveEaseInOut) {
-                    self.nearByExhibitionView.listView.snp.makeConstraints { make in
-                        make.height.equalToSuperview().multipliedBy(1/2)
-                    }
-                } completion: {_ in
-                    self.nearByExhibitionView.listView.snp.makeConstraints { make in
-                        make.top.equalTo(self.nearByExhibitionView.safeAreaLayoutGuide.snp.top)
-                        make.leading.equalToSuperview()
-                        make.trailing.equalToSuperview()
-                        make.bottom.equalToSuperview()
-                    }
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut) {
+                    self.nearByExhibitionView.listView.frame.origin.y = safeAreaInsetsTop
+                    self.nearByExhibitionView.listView.blackLine.alpha = 0.5
+                    self.nearByExhibitionView.listView.showListTitle.alpha = 0.5
+                } completion: { _ in
+                    self.nearByExhibitionView.listView.blackLine.isHidden = true
+                    self.nearByExhibitionView.listView.showListTitle.isHidden = true
+                    self.nearByExhibitionView.listView.collectionItems.isHidden = false
+                    self.nearByExhibitionView.listView.exhibitionList.isHidden = false
                 }
             }
         }
         
-        nearByExhibitionView.listView.panDown = {
-            print("panDown")
+        nearByExhibitionView.listView.slideDown = {
+            let initListViewOriginY = self.nearByExhibitionView.safeAreaInsets.top + 550
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 1, delay: 1, options: .curveEaseInOut) {
-                    self.nearByExhibitionView.listView.snp.makeConstraints { make in
-                        make.height.equalToSuperview().multipliedBy(1/2)
-                    }
-                } completion: {_ in
-                    self.nearByExhibitionView.listView.snp.makeConstraints { make in
-                        make.height.equalTo(50)
-                        make.leading.equalToSuperview()
-                        make.trailing.equalToSuperview()
-                        make.bottom.equalToSuperview()
-                    }
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut) {
+                    self.nearByExhibitionView.listView.frame.origin.y = initListViewOriginY
+                    self.nearByExhibitionView.listView.blackLine.alpha = 0.5
+                    self.nearByExhibitionView.listView.showListTitle.alpha = 0.5
+                } completion: { _ in
+                    self.nearByExhibitionView.listView.collectionItems.isHidden = true
+                    self.nearByExhibitionView.listView.showListTitle.isHidden = true
+                    self.nearByExhibitionView.listView.blackLine.alpha = 1
+                    self.nearByExhibitionView.listView.showListTitle.alpha = 1
+                    self.nearByExhibitionView.listView.blackLine.isHidden = false
+                    self.nearByExhibitionView.listView.showListTitle.isHidden = false
                 }
             }
         }
     }
-
+    
+    private func setItems() {
+        items
+            .bind(to: self.nearByExhibitionView.listView.collectionItems.rx.items) { (collectionView, row, element) in
+                let indexPath = IndexPath(row: row, section: 0)
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemsCollectionCell.identifier, for: indexPath) as! ItemsCollectionCell
+                cell.label.text = element.typeText
+                return cell
+            }
+            .disposed(by: disposeBag)
+    }
+    
     @objc private func searchButtonPress() {
         searchMode.toggle()
         searchMode ? setSearchMode() : setNavigationMode()

@@ -112,8 +112,8 @@ class NearByExhibitionView: UIView {
     
     let listView: NearByExhibtionListView = {
        let view = NearByExhibtionListView()
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMinYCorner]
-        view.layer.cornerRadius = 20
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.cornerRadius = 15
         view.backgroundColor = .backgroundColor
         view.isUserInteractionEnabled = true
         return view
@@ -189,14 +189,14 @@ class NearByExhibitionView: UIView {
         }
     }
     
-    private func setListViewLayout() {
+    func setListViewLayout() {
         addSubview(listView)
         listView.snp.makeConstraints { make in
-            make.height.equalTo(88)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(listView.moveMentY)
+            make.height.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
-//        listView.setViewInBottomAutoLayout()
     }
 }
