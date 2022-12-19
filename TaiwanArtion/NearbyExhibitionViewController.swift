@@ -12,15 +12,26 @@ import RxCocoa
 import RxRelay
 import MapKit
 
-class NearbyExhibitionViewController: UIViewController {
+class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
     
     private let nearByExhibitionView = NearByExhibitionView()
+    
+    private let viewModel: NearbyExhibitionViewModel
     
     private var searchMode: Bool = false
     
     private let items = Observable.just(TitleType.allCases)
     
     private let disposeBag = DisposeBag()
+    
+    init(viewModel: NearbyExhibitionViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - Lifecycle
     
@@ -37,6 +48,7 @@ class NearbyExhibitionViewController: UIViewController {
         setItems()
         setNavigationMode()
         setSearchBarDelegate()
+        setExhibitionListBinding()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,6 +106,7 @@ class NearbyExhibitionViewController: UIViewController {
                     self.nearByExhibitionView.listView.showListTitle.isHidden = true
                     self.nearByExhibitionView.listView.collectionItems.isHidden = false
                     self.nearByExhibitionView.listView.exhibitionList.isHidden = false
+                    self.nearByExhibitionView.listView.brownDeshLine.isHidden = false
                 }
             }
         }
@@ -108,10 +121,12 @@ class NearbyExhibitionViewController: UIViewController {
                 } completion: { _ in
                     self.nearByExhibitionView.listView.collectionItems.isHidden = true
                     self.nearByExhibitionView.listView.showListTitle.isHidden = true
-                    self.nearByExhibitionView.listView.blackLine.alpha = 1
-                    self.nearByExhibitionView.listView.showListTitle.alpha = 1
+                    self.nearByExhibitionView.listView.brownDeshLine.isHidden = true
+                    self.nearByExhibitionView.listView.exhibitionList.isHidden = true
                     self.nearByExhibitionView.listView.blackLine.isHidden = false
                     self.nearByExhibitionView.listView.showListTitle.isHidden = false
+                    self.nearByExhibitionView.listView.blackLine.alpha = 1
+                    self.nearByExhibitionView.listView.showListTitle.alpha = 1
                 }
             }
         }
@@ -126,6 +141,25 @@ class NearbyExhibitionViewController: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+        
+        nearByExhibitionView.listView.collectionItems.rx.itemSelected.subscribe { indexPath in
+            if let row = indexPath.element?.row {
+                print("row:\(row)")
+            }
+        }
+        .disposed(by: disposeBag)
+
+    }
+    
+    private func setExhibitionListBinding() {
+        nearByExhibitionView.listView.exhibitionList.rx.setDelegate(self).disposed(by: disposeBag)
+        viewModel.items
+            .bind(to: nearByExhibitionView.listView.exhibitionList.rx.items) { (tableView, row, element) in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionListTableViewTableViewCell.identifier) as? ExhibitionListTableViewTableViewCell else { return UITableViewCell() }
+                cell.configure(info: element)
+                return cell
+        }
+        .disposed(by: disposeBag)
     }
     
     @objc private func searchButtonPress() {

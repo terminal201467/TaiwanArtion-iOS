@@ -14,7 +14,7 @@ protocol NearByExhibitionViewModelInput {
 }
 
 protocol NearByExhibitionViewModelOutput {
-    var searchModeIsHidden: Signal<Bool> { get }
+    var exhibitionInfo: Signal<[ExhibitionLocationInfo]> { get }
 }
 
 protocol NearByExhibitionViewModelType {
@@ -23,14 +23,57 @@ protocol NearByExhibitionViewModelType {
 }
 
 class NearbyExhibitionViewModel: NearByExhibitionViewModelInput, NearByExhibitionViewModelOutput, NearByExhibitionViewModelType {
+    var exhibitionInfo: Signal<[ExhibitionLocationInfo]>
     
     public var viewDidLoad: PublishRelay<()>
-    
-    public var searchModeIsHidden: Signal<Bool>
     
     public var inputs: NearByExhibitionViewModelInput { self }
     
     public var outputs: NearByExhibitionViewModelOutput { self }
+    
+    let locationInfos = [
+        ExhibitionLocationInfo(
+            exhibitionTitle: "會動的文藝復興",
+            exhibitionImage: "1",
+            buisinessType: true,
+            buisinessTime: "11:30",
+            location: "臺灣,台南市",
+            distance: "2.3")
+        ,
+        ExhibitionLocationInfo(
+            exhibitionTitle: "會動的文藝復興",
+            exhibitionImage: "1",
+            buisinessType: true,
+            buisinessTime: "11:30",
+            location: "臺灣,台南市",
+            distance: "2.3")
+        ,
+        ExhibitionLocationInfo(
+            exhibitionTitle: "會動的文藝復興",
+            exhibitionImage: "1",
+            buisinessType: true,
+            buisinessTime: "11:30",
+            location: "臺灣,台南市",
+            distance: "2.3")
+        ,
+        ExhibitionLocationInfo(
+            exhibitionTitle: "會動的文藝復興",
+            exhibitionImage: "1",
+            buisinessType: true,
+            buisinessTime: "11:30",
+            location: "臺灣,台南市",
+            distance: "2.3")
+        ,
+        ExhibitionLocationInfo(
+            exhibitionTitle: "會動的文藝復興",
+            exhibitionImage: "1",
+            buisinessType: true,
+            buisinessTime: "11:30",
+            location: "臺灣,台南市",
+            distance: "2.3")
+    ]
+    
+    lazy var items = Observable.just(self.locationInfos)
     
     private let disposedBag = DisposeBag()
     
@@ -38,14 +81,17 @@ class NearbyExhibitionViewModel: NearByExhibitionViewModelInput, NearByExhibitio
         let viewDidLoad = PublishRelay<()>()
         self.viewDidLoad = viewDidLoad
         
-        let searchModeIsHidden = PublishRelay<Bool>()
-        self.searchModeIsHidden = searchModeIsHidden.asSignal()
+        let exhibitionInfo = PublishRelay<[ExhibitionLocationInfo]>()
+        self.exhibitionInfo = exhibitionInfo.asSignal()
         
-        viewDidLoad
-            .subscribe(onNext: { [weak self] in
-//                self?.searchModeIsHidden
-            })
-            .disposed(by: disposedBag)
+//        viewDidLoad
+//            .subscribe(onNext: { [weak self] in
+//                self?.loadNearByExhibitionInfo(info: exhibitionInfo)
+//            })
+//            .disposed(by: disposedBag)
     }
     
+//    func loadNearByExhibitionInfo(info: PublishRelay<[ExhibitionLocationInfo]>) {
+//        info.accept(locationInfos)
+//    }
 }

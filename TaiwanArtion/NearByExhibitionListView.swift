@@ -7,16 +7,6 @@
 
 import UIKit
 
-enum ListViewType: Int, CaseIterable{
-    case baseBottom = 0, slideUp
-    var type: CGFloat {
-        switch self {
-        case .baseBottom: return 1000
-        case .slideUp: return 500
-        }
-    }
-}
-
 enum TitleType: Int, CaseIterable {
     case anyType = 0, cultureCreationArea, artGallery, museum, exhibitionHall
     var typeText: String {
@@ -50,12 +40,23 @@ class NearByExhibtionListView: UIView {
         label.text = "顯示列表"
         return label
     }()
+    
+    let brownDeshLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .brownColor
+        view.layer.cornerRadius = 2
+        view.isHidden = true
+        return view
+    }()
 
     let exhibitionList: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView(frame: .zero)
         tableView.register(ExhibitionListTableViewTableViewCell.self, forCellReuseIdentifier: ExhibitionListTableViewTableViewCell.identifier)
         tableView.separatorStyle = .none
+        tableView.rowHeight = 120
+        tableView.estimatedRowHeight = 200
         tableView.isHidden = true
+        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -63,7 +64,7 @@ class NearByExhibtionListView: UIView {
        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = CGSize(width: 100, height: 60)
         flowLayout.itemSize = CGSize(width: 80, height: 60)
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
+        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumInteritemSpacing = 30
         flowLayout.minimumLineSpacing = 20
@@ -118,6 +119,7 @@ class NearByExhibtionListView: UIView {
     func setItemsAutoLayout() {
         addSubview(collectionItems)
         addSubview(exhibitionList)
+        addSubview(brownDeshLine)
         collectionItems.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
@@ -125,10 +127,16 @@ class NearByExhibtionListView: UIView {
             make.height.equalTo(60)
         }
         exhibitionList.snp.makeConstraints { make in
-            make.top.equalTo(collectionItems.snp.bottom)
+            make.top.equalTo(collectionItems.snp.bottom).offset(10)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
+        }
+        
+        brownDeshLine.snp.makeConstraints { make in
+            make.width.equalTo(60)
+            make.height.equalTo(3)
+            make.bottom.equalTo(collectionItems.snp.bottom).offset(-5)
         }
     }
     

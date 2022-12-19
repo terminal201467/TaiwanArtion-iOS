@@ -27,7 +27,7 @@ class MainTabBarController: UITabBarController {
         findController.tabBarItem.image = UIImage(named: "Find")
         findController.tabBarItem.title = "早找展覽"
         
-        let nearbyVC = NearbyExhibitionViewController()
+        let nearbyVC = NearbyExhibitionViewController(viewModel: NearbyExhibitionViewModel())
         let nearbyController = UINavigationController(rootViewController: nearbyVC)
         nearbyController.tabBarItem.image = UIImage(named: "Map")
         nearbyController.tabBarItem.title = "附近展覽"

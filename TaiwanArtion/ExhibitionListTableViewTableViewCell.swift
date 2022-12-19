@@ -15,6 +15,7 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
     private let exhibitionImage: UIImageView = {
        let image = UIImageView()
         image.layer.cornerRadius = 10
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -91,12 +92,14 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
         addSubview(locationTitle)
         addSubview(buisinessInfo)
         addSubview(locationArea)
+        addSubview(locationInfo)
         addSubview(distance)
         
         exhibitionImage.snp.makeConstraints { make in
-            make.leading.equalTo(16)
-            make.top.equalTo(16)
-            make.bottom.equalTo(16)
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(16)
+            make.width.equalTo(150)
         }
         
         locationTitle.snp.makeConstraints { make in
@@ -115,9 +118,8 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
         }
         
         distance.snp.makeConstraints { make in
-            make.top.equalTo(47)
-            make.trailing.equalTo(8)
-            make.bottom.equalTo(52)
+            make.centerY.equalTo(buisinessInfo.snp.centerY)
+            make.trailing.equalToSuperview().offset(-8)
         }
     }
     
