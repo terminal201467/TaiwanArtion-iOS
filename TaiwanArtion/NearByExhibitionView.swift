@@ -118,6 +118,15 @@ class NearByExhibitionView: UIView {
         view.isUserInteractionEnabled = true
         return view
     }()
+    
+    let navigatorDetailView: NavigateLocationView = {
+       let view = NavigateLocationView()
+        view.isHidden = true
+        view.backgroundColor = .white
+        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+        view.layer.cornerRadius = 10
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -125,6 +134,7 @@ class NearByExhibitionView: UIView {
         setListViewLayout()
         setNavigationModeLayout()
         setSearchContainerView()
+        setNavigatorDetailView()
     }
     
     required init?(coder: NSCoder) {
@@ -197,6 +207,17 @@ class NearByExhibitionView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
+    func setNavigatorDetailView() {
+        addSubview(navigatorDetailView)
+        navigatorDetailView.snp.makeConstraints { make in
+            make.height.equalTo(175)
+            make.width.equalTo(358)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
         }
     }
 }

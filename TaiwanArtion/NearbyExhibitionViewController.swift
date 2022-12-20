@@ -148,6 +148,14 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         .disposed(by: disposeBag)
+        
+//        nearByExhibitionView.listView.collectionItems.rx.itemHighlighted
+//            .subscribe { indexPath in
+//                let cell = self.nearByExhibitionView.listView.collectionItems.cellForItem(at: indexPath) as? ItemsCollectionCell
+//                cell?.label.textColor = .brownColor
+//            }
+//            .disposed(by: disposeBag)
+
 
     }
     
@@ -160,6 +168,26 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                 return cell
         }
         .disposed(by: disposeBag)
+        
+        nearByExhibitionView.listView.exhibitionList.rx.itemSelected.subscribe { indexPath in
+            let maxY = self.nearByExhibitionView.frame.maxY
+            UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut) {
+                self.nearByExhibitionView.listView.frame.origin.y = maxY
+            } completion: { _ in
+                self.nearByExhibitionView.listView.isHidden = true
+                UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut) {
+                    self.nearByExhibitionView.navigatorDetailView.isHidden = false
+//                    self.nearByExhibitionView.navigatorDetailView.transform = CGAffineTransform(translationX: 0, y: -175)
+                    
+                    self.nearByExhibitionView.navigatorDetailView.configure(info: ExhibitionLocationInfo(exhibitionTitle: "會動的文藝復興", exhibitionImage: "1", buisinessType: true, buisinessTime: "11:30-13:30", location: "臺灣,台南市", distance: "23"))
+
+//                    self.nearByExhibitionView.navigatorDetailView.configure(info: )
+                }
+            }
+            print("indexPath:\(indexPath)")
+        }
+        .disposed(by: disposeBag)
+
     }
     
     @objc private func searchButtonPress() {

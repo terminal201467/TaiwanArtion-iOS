@@ -53,10 +53,12 @@ class NearByExhibtionListView: UIView {
         let tableView = UITableView(frame: .zero)
         tableView.register(ExhibitionListTableViewTableViewCell.self, forCellReuseIdentifier: ExhibitionListTableViewTableViewCell.identifier)
         tableView.separatorStyle = .none
-        tableView.rowHeight = 120
+        tableView.rowHeight = 180
         tableView.estimatedRowHeight = 200
         tableView.isHidden = true
-        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.separatorInset = UIEdgeInsets(top: 4, left: 2, bottom: 4, right: 2)
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     

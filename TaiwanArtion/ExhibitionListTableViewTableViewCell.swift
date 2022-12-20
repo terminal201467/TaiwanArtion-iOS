@@ -12,6 +12,15 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
     
     static let identifier = "ExhibitionListCell"
     
+    private let containerView: UIView = {
+       let view = UIView()
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .white
+        view.layer.shadowOffset = CGSize(width: 3, height: 1)
+        view.layer.shadowOpacity = 0.3
+        return view
+    }()
+    
     private let exhibitionImage: UIImageView = {
        let image = UIImageView()
         image.layer.cornerRadius = 10
@@ -88,6 +97,7 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
     
     
     private func autoLayout() {
+        addSubview(containerView)
         addSubview(exhibitionImage)
         addSubview(locationTitle)
         addSubview(buisinessInfo)
@@ -95,15 +105,22 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
         addSubview(locationInfo)
         addSubview(distance)
         
+        containerView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.leading.equalToSuperview().offset(5)
+            make.trailing.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-5)
+        }
+        
         exhibitionImage.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(16)
+            make.leading.equalTo(containerView.snp.leading).offset(8)
+            make.top.equalTo(containerView.snp.top).offset(3)
+            make.bottom.equalTo(containerView.snp.bottom).offset(3)
             make.width.equalTo(150)
         }
         
         locationTitle.snp.makeConstraints { make in
-            make.top.equalTo(exhibitionImage.snp.top)
+            make.top.equalTo(exhibitionImage.snp.top).offset(8)
             make.leading.equalTo(exhibitionImage.snp.trailing).offset(16)
         }
         
@@ -113,13 +130,13 @@ class ExhibitionListTableViewTableViewCell: UITableViewCell {
         }
         
         locationInfo.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(8)
+            make.bottom.equalTo(containerView.snp.bottom).offset(-8)
             make.leading.equalTo(buisinessInfo.snp.leading)
         }
         
         distance.snp.makeConstraints { make in
             make.centerY.equalTo(buisinessInfo.snp.centerY)
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalTo(containerView.snp.trailing).offset(-8)
         }
     }
     
