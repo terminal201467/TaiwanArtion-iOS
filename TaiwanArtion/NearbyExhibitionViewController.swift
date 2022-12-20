@@ -47,7 +47,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         setListView()
         setItems()
         setNavigationMode()
-        setSearchBarDelegate()
+//        setSearchBarDelegate()
         setExhibitionListBinding()
     }
     
@@ -83,9 +83,9 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         nearByExhibitionView.searchContainerView.isHidden = false
     }
     
-    private func setSearchBarDelegate() {
-        nearByExhibitionView.searchBar.searchTextField.delegate = self
-    }
+//    private func setSearchBarDelegate() {
+//        nearByExhibitionView.searchBar.searchTextField.delegate = self
+//    }
     
     private func setMapView() {
         let location = CLLocationCoordinate2D(latitude: 22.999696, longitude: 120.212768)
@@ -106,7 +106,6 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                     self.nearByExhibitionView.listView.showListTitle.isHidden = true
                     self.nearByExhibitionView.listView.collectionItems.isHidden = false
                     self.nearByExhibitionView.listView.exhibitionList.isHidden = false
-                    self.nearByExhibitionView.listView.brownDeshLine.isHidden = false
                 }
             }
         }
@@ -121,7 +120,6 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                 } completion: { _ in
                     self.nearByExhibitionView.listView.collectionItems.isHidden = true
                     self.nearByExhibitionView.listView.showListTitle.isHidden = true
-                    self.nearByExhibitionView.listView.brownDeshLine.isHidden = true
                     self.nearByExhibitionView.listView.exhibitionList.isHidden = true
                     self.nearByExhibitionView.listView.blackLine.isHidden = false
                     self.nearByExhibitionView.listView.showListTitle.isHidden = false
@@ -136,8 +134,9 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         items
             .bind(to: self.nearByExhibitionView.listView.collectionItems.rx.items) { (collectionView, row, element) in
                 let indexPath = IndexPath(row: row, section: 0)
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemsCollectionCell.identifier, for: indexPath) as! ItemsCollectionCell
-                cell.label.text = element.typeText
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabButtonCollectionViewCell.identifier, for: indexPath) as! TabButtonCollectionViewCell
+                cell.pageLabel.text = element.typeText
+                cell.pageLabel.font = .systemFont(ofSize: 16)
                 return cell
             }
             .disposed(by: disposeBag)
@@ -149,6 +148,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         }
         .disposed(by: disposeBag)
         
+        nearByExhibitionView.listView.collectionItems.delegate = self
 //        nearByExhibitionView.listView.collectionItems.rx.itemHighlighted
 //            .subscribe { indexPath in
 //                let cell = self.nearByExhibitionView.listView.collectionItems.cellForItem(at: indexPath) as? ItemsCollectionCell
@@ -201,7 +201,20 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
-extension NearbyExhibitionViewController: UITextFieldDelegate {
+extension NearbyExhibitionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width - 1 * 3) / 5
+        let height = collectionView.frame.height - 10
+        return CGSize(width: width, height: height)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
     
 }
+

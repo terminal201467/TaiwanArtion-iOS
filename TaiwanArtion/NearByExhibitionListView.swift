@@ -40,14 +40,6 @@ class NearByExhibtionListView: UIView {
         label.text = "顯示列表"
         return label
     }()
-    
-    let brownDeshLine: UIView = {
-        let view = UIView()
-        view.backgroundColor = .brownColor
-        view.layer.cornerRadius = 2
-        view.isHidden = true
-        return view
-    }()
 
     let exhibitionList: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -64,14 +56,9 @@ class NearByExhibtionListView: UIView {
     
     let collectionItems: UICollectionView = {
        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = CGSize(width: 100, height: 60)
-        flowLayout.itemSize = CGSize(width: 80, height: 60)
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 30
-        flowLayout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: flowLayout)
-        collectionView.register(ItemsCollectionCell.self, forCellWithReuseIdentifier: ItemsCollectionCell.identifier)
+        collectionView.register(TabButtonCollectionViewCell.self, forCellWithReuseIdentifier: TabButtonCollectionViewCell.identifier)
         collectionView.isScrollEnabled = false
         collectionView.allowsSelection = true
         collectionView.delegate = nil
@@ -121,7 +108,6 @@ class NearByExhibtionListView: UIView {
     func setItemsAutoLayout() {
         addSubview(collectionItems)
         addSubview(exhibitionList)
-        addSubview(brownDeshLine)
         collectionItems.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
@@ -133,12 +119,6 @@ class NearByExhibtionListView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-        }
-        
-        brownDeshLine.snp.makeConstraints { make in
-            make.width.equalTo(60)
-            make.height.equalTo(3)
-            make.bottom.equalTo(collectionItems.snp.bottom).offset(-5)
         }
     }
     

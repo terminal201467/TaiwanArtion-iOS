@@ -98,7 +98,7 @@ class NavigateLocationView: UIView {
         addSubview(startButton)
         
         imageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(18)
             make.top.equalToSuperview().offset(10)
             make.width.equalTo(106)
             make.height.equalTo(87)
@@ -113,7 +113,7 @@ class NavigateLocationView: UIView {
         
         distance.snp.makeConstraints { make in
             make.centerY.equalTo(imageView.snp.centerY)
-            make.trailing.equalToSuperview().offset(-5)
+            make.trailing.equalToSuperview().offset(-26)
         }
         
         startButton.snp.makeConstraints { make in
