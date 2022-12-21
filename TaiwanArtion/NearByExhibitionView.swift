@@ -16,6 +16,10 @@ class NearByExhibitionView: UIView {
         }
     }
     
+    var cityFilter: (() -> Void)?
+    
+    var dateFilter: (() -> Void)?
+    
     //FindButtons
     let findExhibitionButton:UIButton = {
         let button = UIButton()
@@ -83,6 +87,7 @@ class NearByExhibitionView: UIView {
         button.backgroundColor = .brownColor
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(cityFilterAction), for: .allTouchEvents)
         return button
     }()
     
@@ -92,6 +97,7 @@ class NearByExhibitionView: UIView {
         button.backgroundColor = .brownColor
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(dateFilterAction), for: .allTouchEvents)
         return button
     }()
     
@@ -219,5 +225,13 @@ class NearByExhibitionView: UIView {
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
         }
+    }
+    
+    @objc func cityFilterAction() {
+        cityFilter?()
+    }
+    
+    @objc func dateFilterAction() {
+        dateFilter?()
     }
 }

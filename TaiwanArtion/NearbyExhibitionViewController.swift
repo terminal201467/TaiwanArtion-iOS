@@ -199,6 +199,20 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
     @objc private func menuButtonPress() {
         
     }
+    
+    private func setfilter() {
+        nearByExhibitionView.cityFilter = {
+            DispatchQueue.main.async {
+                print("cityfilter")
+            }
+        }
+        
+        nearByExhibitionView.dateFilter = {
+            DispatchQueue.main.async {
+                print("dateFilter")
+            }
+        }
+    }
 }
 
 extension NearbyExhibitionViewController: UICollectionViewDelegateFlowLayout {

@@ -66,6 +66,13 @@
 		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
 		97287A9F294C27410003B184 /* ItemsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287A9E294C27410003B184 /* ItemsCollectionCell.swift */; };
 		97287AA1295084280003B184 /* NavigateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA0295084280003B184 /* NavigateLocationView.swift */; };
+		97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA22951E11B0003B184 /* FilterViewController.swift */; };
+		97287AA52951E16B0003B184 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA42951E16B0003B184 /* FilterView.swift */; };
+		97287AA72951E20B0003B184 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA62951E20B0003B184 /* FilterViewModel.swift */; };
+		97287AB829529AA10003B184 /* TaiwanArtionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AB729529AA10003B184 /* TaiwanArtionUITests.swift */; };
+		97287ABA29529AA10003B184 /* TaiwanArtionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AB929529AA10003B184 /* TaiwanArtionUITestsLaunchTests.swift */; };
+		97287AC129529AD80003B184 /* TaiwanArtionUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AC029529AD80003B184 /* TaiwanArtionUnitTest.swift */; };
+		97287AC929529B030003B184 /* TaiwanArtionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AC829529B030003B184 /* TaiwanArtionTests.swift */; };
 		97672CCB2916246A002BE893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97672CCA2916246A002BE893 /* Localizable.strings */; };
 		97672CCD29164142002BE893 /* NearbyExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */; };
 		97B3F6DD29417F7E004BBC67 /* NearByExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */; };
@@ -81,6 +88,23 @@
 		97F6AEAC2809737F00B61974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */; };
 		D6D683D73A80F1D6CE1F31DB /* Pods_TaiwanArtion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E43A92E0B252512E0BBBED /* Pods_TaiwanArtion.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97287ABB29529AA10003B184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97F6AE942809737E00B61974 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97F6AE9B2809737E00B61974;
+			remoteInfo = TaiwanArtion;
+		};
+		97287ACA29529B030003B184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97F6AE942809737E00B61974 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97F6AE9B2809737E00B61974;
+			remoteInfo = TaiwanArtion;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0D3A771C6FD194AE3B906211 /* Pods-TaiwanArtion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaiwanArtion.release.xcconfig"; path = "Target Support Files/Pods-TaiwanArtion/Pods-TaiwanArtion.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +167,15 @@
 		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		97287A9E294C27410003B184 /* ItemsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionCell.swift; sourceTree = "<group>"; };
 		97287AA0295084280003B184 /* NavigateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateLocationView.swift; sourceTree = "<group>"; };
+		97287AA22951E11B0003B184 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		97287AA42951E16B0003B184 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		97287AA62951E20B0003B184 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		97287AB529529AA00003B184 /* TaiwanArtionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaiwanArtionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97287AB729529AA10003B184 /* TaiwanArtionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArtionUITests.swift; sourceTree = "<group>"; };
+		97287AB929529AA10003B184 /* TaiwanArtionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArtionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		97287AC029529AD80003B184 /* TaiwanArtionUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArtionUnitTest.swift; sourceTree = "<group>"; };
+		97287AC629529B030003B184 /* TaiwanArtionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaiwanArtionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97287AC829529B030003B184 /* TaiwanArtionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArtionTests.swift; sourceTree = "<group>"; };
 		97672CCA2916246A002BE893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionView.swift; sourceTree = "<group>"; };
@@ -163,6 +196,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		97287AB229529AA00003B184 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97287AC329529B030003B184 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97F6AE992809737E00B61974 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +394,9 @@
 				97287AA0295084280003B184 /* NavigateLocationView.swift */,
 				97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */,
 				97287A9E294C27410003B184 /* ItemsCollectionCell.swift */,
+				97287AA22951E11B0003B184 /* FilterViewController.swift */,
+				97287AA62951E20B0003B184 /* FilterViewModel.swift */,
+				97287AA42951E16B0003B184 /* FilterView.swift */,
 			);
 			name = NearbyExhibition;
 			sourceTree = "<group>";
@@ -471,6 +521,24 @@
 			name = FilterButtons;
 			sourceTree = "<group>";
 		};
+		97287AB629529AA10003B184 /* TaiwanArtionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				97287AC029529AD80003B184 /* TaiwanArtionUnitTest.swift */,
+				97287AB729529AA10003B184 /* TaiwanArtionUITests.swift */,
+				97287AB929529AA10003B184 /* TaiwanArtionUITestsLaunchTests.swift */,
+			);
+			path = TaiwanArtionUITests;
+			sourceTree = "<group>";
+		};
+		97287AC729529B030003B184 /* TaiwanArtionTests */ = {
+			isa = PBXGroup;
+			children = (
+				97287AC829529B030003B184 /* TaiwanArtionTests.swift */,
+			);
+			path = TaiwanArtionTests;
+			sourceTree = "<group>";
+		};
 		97F409B22813CA3B00527646 /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +570,8 @@
 			isa = PBXGroup;
 			children = (
 				97F6AE9E2809737E00B61974 /* TaiwanArtion */,
+				97287AB629529AA10003B184 /* TaiwanArtionUITests */,
+				97287AC729529B030003B184 /* TaiwanArtionTests */,
 				97F6AE9D2809737E00B61974 /* Products */,
 				1FBB2786B5458FCAE4163CF0 /* Pods */,
 				FC2577B9F32D1F8119565376 /* Frameworks */,
@@ -512,6 +582,8 @@
 			isa = PBXGroup;
 			children = (
 				97F6AE9C2809737E00B61974 /* TaiwanArtion.app */,
+				97287AB529529AA00003B184 /* TaiwanArtionUITests.xctest */,
+				97287AC629529B030003B184 /* TaiwanArtionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -548,6 +620,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		97287AB429529AA00003B184 /* TaiwanArtionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97287ABD29529AA10003B184 /* Build configuration list for PBXNativeTarget "TaiwanArtionUITests" */;
+			buildPhases = (
+				97287AB129529AA00003B184 /* Sources */,
+				97287AB229529AA00003B184 /* Frameworks */,
+				97287AB329529AA00003B184 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97287ABC29529AA10003B184 /* PBXTargetDependency */,
+			);
+			name = TaiwanArtionUITests;
+			productName = TaiwanArtionUITests;
+			productReference = 97287AB529529AA00003B184 /* TaiwanArtionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		97287AC529529B030003B184 /* TaiwanArtionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97287ACC29529B030003B184 /* Build configuration list for PBXNativeTarget "TaiwanArtionTests" */;
+			buildPhases = (
+				97287AC229529B030003B184 /* Sources */,
+				97287AC329529B030003B184 /* Frameworks */,
+				97287AC429529B030003B184 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97287ACB29529B030003B184 /* PBXTargetDependency */,
+			);
+			name = TaiwanArtionTests;
+			productName = TaiwanArtionTests;
+			productReference = 97287AC629529B030003B184 /* TaiwanArtionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		97F6AE9B2809737E00B61974 /* TaiwanArtion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97F6AEB02809737F00B61974 /* Build configuration list for PBXNativeTarget "TaiwanArtion" */;
@@ -577,6 +685,14 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					97287AB429529AA00003B184 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 97F6AE9B2809737E00B61974;
+					};
+					97287AC529529B030003B184 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 97F6AE9B2809737E00B61974;
+					};
 					97F6AE9B2809737E00B61974 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -596,11 +712,27 @@
 			projectRoot = "";
 			targets = (
 				97F6AE9B2809737E00B61974 /* TaiwanArtion */,
+				97287AB429529AA00003B184 /* TaiwanArtionUITests */,
+				97287AC529529B030003B184 /* TaiwanArtionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		97287AB329529AA00003B184 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97287AC429529B030003B184 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97F6AE9A2809737E00B61974 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,6 +789,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		97287AB129529AA00003B184 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97287AB829529AA10003B184 /* TaiwanArtionUITests.swift in Sources */,
+				97287ABA29529AA10003B184 /* TaiwanArtionUITestsLaunchTests.swift in Sources */,
+				97287AC129529AD80003B184 /* TaiwanArtionUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97287AC229529B030003B184 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97287AC929529B030003B184 /* TaiwanArtionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97F6AE982809737E00B61974 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -689,8 +839,10 @@
 				62E6BE2F288946F10050920F /* SouthAreaCell.swift in Sources */,
 				627F4ACF287FEDD100D86B07 /* WhetherStartExhibitionButton.swift in Sources */,
 				626B7B37288D7938002D6540 /* DateCell.swift in Sources */,
+				97287AA52951E16B0003B184 /* FilterView.swift in Sources */,
 				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
 				97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */,
+				97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */,
 				624605D42896868700E590E3 /* InfoViewController.swift in Sources */,
 				62E6BE2B288945ED0050920F /* OuterIslandAreaButtons.swift in Sources */,
 				97287AA1295084280003B184 /* NavigateLocationView.swift in Sources */,
@@ -714,6 +866,7 @@
 				97B3F6E12948236D004BBC67 /* NearByExhibitionListView.swift in Sources */,
 				62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */,
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
+				97287AA72951E20B0003B184 /* FilterViewModel.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,
 				6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */,
 				624605C92892836C00E590E3 /* ExhibitionDetailViewController.swift in Sources */,
@@ -734,6 +887,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		97287ABC29529AA10003B184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97F6AE9B2809737E00B61974 /* TaiwanArtion */;
+			targetProxy = 97287ABB29529AA10003B184 /* PBXContainerItemProxy */;
+		};
+		97287ACB29529B030003B184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97F6AE9B2809737E00B61974 /* TaiwanArtion */;
+			targetProxy = 97287ACA29529B030003B184 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -746,6 +912,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		97287ABE29529AA10003B184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testing.TaiwanArtionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TaiwanArtion;
+			};
+			name = Debug;
+		};
+		97287ABF29529AA10003B184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testing.TaiwanArtionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TaiwanArtion;
+			};
+			name = Release;
+		};
+		97287ACD29529B030003B184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testing.TaiwanArtionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaiwanArtion.app/TaiwanArtion";
+			};
+			name = Debug;
+		};
+		97287ACE29529B030003B184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRA5DG5SAD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testing.TaiwanArtionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaiwanArtion.app/TaiwanArtion";
+			};
+			name = Release;
+		};
 		97F6AEAE2809737F00B61974 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -921,6 +1157,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		97287ABD29529AA10003B184 /* Build configuration list for PBXNativeTarget "TaiwanArtionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97287ABE29529AA10003B184 /* Debug */,
+				97287ABF29529AA10003B184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97287ACC29529B030003B184 /* Build configuration list for PBXNativeTarget "TaiwanArtionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97287ACD29529B030003B184 /* Debug */,
+				97287ACE29529B030003B184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		97F6AE972809737E00B61974 /* Build configuration list for PBXProject "TaiwanArtion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
