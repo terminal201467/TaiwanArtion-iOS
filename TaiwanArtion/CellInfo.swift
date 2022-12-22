@@ -23,3 +23,8 @@ struct ExhibitionLocationInfo {
     let location: String
     let distance: String
 }
+
+struct AreaModel {
+    let area: String
+    let locations: [String]
+}

@@ -49,6 +49,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         setNavigationMode()
 //        setSearchBarDelegate()
         setExhibitionListBinding()
+        setfilter()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -204,6 +205,8 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         nearByExhibitionView.cityFilter = {
             DispatchQueue.main.async {
                 print("cityfilter")
+                let cityFilterController = FilterViewController(viewModel: FilterViewModel())
+                self.navigationController?.pushViewController(cityFilterController, animated: true)
             }
         }
         

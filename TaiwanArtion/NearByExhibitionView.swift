@@ -87,7 +87,7 @@ class NearByExhibitionView: UIView {
         button.backgroundColor = .brownColor
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(cityFilterAction), for: .allTouchEvents)
+        button.addTarget(self, action: #selector(cityFilterAction), for: .touchDown)
         return button
     }()
     
@@ -97,7 +97,7 @@ class NearByExhibitionView: UIView {
         button.backgroundColor = .brownColor
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(dateFilterAction), for: .allTouchEvents)
+        button.addTarget(self, action: #selector(dateFilterAction), for: .touchDown)
         return button
     }()
     

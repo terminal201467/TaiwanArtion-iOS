@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import RxRelay
+
 
 class FilterViewController: UIViewController {
     
     private let filterView = FilterView()
-
+    
+    private var viewModel: FilterViewModel
+    
+    private let disposeBag = DisposeBag()
+    
     init(viewModel: FilterViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -28,12 +36,20 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        setCollectionView()
+        setCorrectAction()
     }
     
+    private func setCollectionView() {
+        let dataSource = RxCollectionViewSe
+        
+    }
     
-
+    private func setCorrectAction() {
+        filterView.correctActions = {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 
