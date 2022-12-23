@@ -8,19 +8,67 @@
 import UIKit
 
 class FilterView: UIView {
+    
+    let scrollContainer: UIScrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false
+        view.bounces = true
+        view.isPagingEnabled = false
+        view.isScrollEnabled = true
+        view.contentSize = CGSize(width: 0, height: 800)
+        return view
+    }()
+    
+    let container: UIView = {
+       let view = UIView()
+        return view
+    }()
+    
+    var backLocationAction: (() -> Void)?
+    
+    private let locationIcon: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "Map"), for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.brown.cgColor
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(backLocation), for: .touchDown)
+        return button
+    }()
+    
+    private let currentLoactionText: UIButton = {
+        let button = UIButton()
+        button.setTitle("目前所在位置", for: .normal)
+        button.setTitleColor(UIColor.brown, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        return button
+    }()
 
-    private let areaView: UICollectionView = {
+    let areaView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        view.isScrollEnabled = false
         view.backgroundColor = .backgroundColor
         view.register(NorthAreaCell.self, forCellWithReuseIdentifier: NorthAreaCell.identifier)
-        view.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.identifier)
-        view.register(SectionFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SectionFooter.identifier)
+        view.register(SectionTitle.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionTitle.identifier)
         return view
+    }()
+    
+    var correctActions: (() -> Void)?
+    
+    private let correctButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .brownColor
+        button.setTitle("確定", for: .normal)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(correctAction), for: .touchDown)
+        return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .backgroundColor
         autoLayout()
     }
     
@@ -29,72 +77,79 @@ class FilterView: UIView {
     }
     
     private func autoLayout() {
-        addSubview(areaView)
-       areaView.snp.makeConstraints { make in
-           make.edges.equalToSuperview()
+        addSubview(scrollContainer)
+        scrollContainer.addSubview(container)
+        container.addSubview(areaView)
+        scrollContainer.addSubview(locationIcon)
+        scrollContainer.addSubview(currentLoactionText)
+        scrollContainer.addSubview(correctButton)
+        
+        scrollContainer.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
+        
+        locationIcon.snp.makeConstraints { make in
+            make.top.equalTo(scrollContainer.snp.top).offset(20)
+            make.leading.equalTo(scrollContainer.snp.leading).offset(20)
+            make.width.height.equalTo(44)
+        }
+
+        currentLoactionText.snp.makeConstraints { make in
+            make.leading.equalTo(locationIcon.snp.trailing).offset(10)
+            make.centerY.equalTo(locationIcon.snp.centerY)
+        }
+        
+        container.snp.makeConstraints { make in
+            make.top.equalTo(locationIcon.snp.bottom).offset(20)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
+            make.height.equalTo(safeAreaLayoutGuide.snp.height)
+        }
+
+        areaView.snp.makeConstraints { make in
+            make.edges.equalTo(container.snp.edges)
+        }
+        
+        correctButton.snp.makeConstraints { make in
+            make.top.equalTo(container.snp.bottom)
+            make.leading.equalTo(container.snp.leading).offset(10)
+            make.trailing.equalTo(container.snp.trailing).offset(-10)
+            make.height.equalTo(40)
+        }
+    }
+    
+    @objc func correctAction() {
+        correctActions?()
+    }
+    
+    @objc func backLocation() {
+        backLocationAction?()
     }
     
 }
 
-class SectionHeader: UICollectionReusableView {
+class SectionTitle: UICollectionReusableView {
     
-    static let identifier: String = "Header"
+    static let identifier: String = "SectionTitle"
     
-    private let locationIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "Map")
-        imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    var selectAll: (() -> Void)?
     
-    private let currentLoactionText: UILabel = {
+    let areaLabel:UILabel = {
         let label = UILabel()
-        label.textColor = .brownColor
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.text = "目前所在位置"
+        label.textColor = .textBlack636363
+        label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
     
-    private lazy var currentLoactions: UIStackView = {
-       let view = UIStackView(arrangedSubviews: [locationIcon, currentLoactionText])
-        view.distribution = .fillProportionally
-        view.alignment = .fill
-        view.spacing = 2
-        view.axis = .horizontal
-        return view
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func autoLayout() {
-        currentLoactions.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
-    }
-    
-}
-
-class SectionFooter: UICollectionReusableView {
-    
-    static let identifier: String = "Footer"
-    
-    var correctActions: (() -> Void)?
-    
-    private let correctButton: UIButton = {
+    private let selectAllButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .brownColor
-        button.setTitle("確定", for: .normal)
-        button.addTarget(self, action: #selector(correctAction), for: .touchDown)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.setTitleColor(.brownColor, for: .normal)
+        button.setTitle("全選", for: .normal)
+        button.addTarget(self, action: #selector(selectAllActioin), for: .touchDown)
         return button
     }()
     
@@ -108,16 +163,23 @@ class SectionFooter: UICollectionReusableView {
     }
     
     private func autoLayout() {
-        addSubview(correctButton)
-        correctButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-            make.bottom.equalToSuperview()
-            make.top.equalToSuperview()
+        addSubview(areaLabel)
+        addSubview(selectAllButton)
+        areaLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+        }
+        
+        selectAllButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
     
-    @objc func correctAction() {
-        correctActions?()
+    @objc func selectAllActioin() {
+        selectAll?()
     }
+    
 }

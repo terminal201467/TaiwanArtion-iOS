@@ -9,9 +9,10 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxRelay
+import RxDataSources
 
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController, UIScrollViewDelegate {
     
     private let filterView = FilterView()
     
@@ -37,19 +38,61 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
-        setCorrectAction()
-    }
-    
-    private func setCollectionView() {
-        let dataSource = RxCollectionViewSe
+        setFilterViewAction()
         
     }
     
-    private func setCorrectAction() {
+    private func setCollectionView() {
+        filterView.areaView.rx.setDelegate(self)
+        let dataSource = RxCollectionViewSectionedReloadDataSource<AreaModel>(
+            configureCell: { (dataSource, collectionView, indexPath, element) in
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NorthAreaCell.identifier, for: indexPath) as! NorthAreaCell
+                cell.areaLabel.text = "\(element)"
+                return cell },
+            configureSupplementaryView: {(ds, cv, kind, ip) in
+                let sectionTitle = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionTitle.identifier, for: ip) as! SectionTitle
+                sectionTitle.areaLabel.text = "\(ds[ip.section].area)"
+                return sectionTitle
+            })
+        
+        viewModel.areas
+            .bind(to: filterView.areaView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+    
+    
+    private func setFilterViewAction() {
         filterView.correctActions = {
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        filterView.backLocationAction = {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
+
+extension FilterViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width - 1 * 3) / 5
+        let height = filterView.areaView.frame.height / 20
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+}
+
+
 
 

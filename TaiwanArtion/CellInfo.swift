@@ -5,6 +5,10 @@
 //  Created by 羅承志 on 2022/8/1.
 //
 
+import RxDataSources
+import RxSwift
+import RxCocoa
+
 struct CellInfo {
     let url: String
     let title: String
@@ -25,6 +29,21 @@ struct ExhibitionLocationInfo {
 }
 
 struct AreaModel {
-    let area: String
-    let locations: [String]
+    var area: String
+    var locations: [String]
+}
+
+extension AreaModel: AnimatableSectionModelType {
+    var identity: String {
+        return area
+    }
+    
+    var items: [String] {
+        return locations
+    }
+    
+    init(original: AreaModel, items: [String]) {
+        self = original
+        self.locations = items
+    }
 }
