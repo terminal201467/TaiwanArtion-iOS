@@ -21,7 +21,7 @@ class NearByExhibitionView: UIView {
     var dateFilter: (() -> Void)?
     
     //FindButtons
-    let findExhibitionButton:UIButton = {
+    let findExhibitionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .brownColor
         button.tintColor = .tintColor
@@ -32,7 +32,7 @@ class NearByExhibitionView: UIView {
         return button
     }()
     
-    let findLocationButton:UIButton = {
+    let findLocationButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .brownColor
         button.tintColor = .tintColor

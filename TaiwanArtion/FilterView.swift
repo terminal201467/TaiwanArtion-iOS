@@ -28,7 +28,7 @@ class FilterView: UIView {
     
     private let locationIcon: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "Map"), for: .normal)
+        button.setImage(UIImage(named: "Vector"), for: .normal)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.brown.cgColor
         button.layer.cornerRadius = 5

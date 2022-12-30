@@ -32,7 +32,7 @@ class MainTabBarController: UITabBarController {
         nearbyController.tabBarItem.image = UIImage(named: "Map")
         nearbyController.tabBarItem.title = "附近展覽"
         
-        let shareVC = ShareExhibitionViewController()
+        let shareVC = ShareExhibitionViewController(viewModel: ShareExhibitionViewModel())
         let shareController = UINavigationController(rootViewController: shareVC)
         shareController.tabBarItem.image = UIImage(named: "Share")
         shareController.tabBarItem.title = "分享展覽"

@@ -39,6 +39,7 @@ class FilterViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setCollectionView()
         setFilterViewAction()
+        setNavigationBar()
         
     }
     
@@ -60,6 +61,9 @@ class FilterViewController: UIViewController, UIScrollViewDelegate {
             .disposed(by: disposeBag)
     }
     
+    private func setNavigationBar() {
+        navigationItem.title = "選擇縣市"
+    }
     
     private func setFilterViewAction() {
         filterView.correctActions = {

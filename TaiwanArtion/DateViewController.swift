@@ -30,6 +30,11 @@ class DateViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         confirmButton.addTarget(self, action: #selector(confirm), for: .touchUpInside)
+        setNavigationBar()
+    }
+    
+    private func setNavigationBar() {
+        navigationItem.title = "選擇日期"
     }
     
     @objc

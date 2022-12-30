@@ -47,9 +47,14 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         setListView()
         setItems()
         setNavigationMode()
-//        setSearchBarDelegate()
         setExhibitionListBinding()
         setfilter()
+        setStartNavigator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        backToOrigin()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,10 +89,6 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         nearByExhibitionView.searchContainerView.isHidden = false
     }
     
-//    private func setSearchBarDelegate() {
-//        nearByExhibitionView.searchBar.searchTextField.delegate = self
-//    }
-    
     private func setMapView() {
         let location = CLLocationCoordinate2D(latitude: 22.999696, longitude: 120.212768)
         let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -119,16 +120,20 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                     self.nearByExhibitionView.listView.blackLine.alpha = 0.5
                     self.nearByExhibitionView.listView.showListTitle.alpha = 0.5
                 } completion: { _ in
-                    self.nearByExhibitionView.listView.collectionItems.isHidden = true
-                    self.nearByExhibitionView.listView.showListTitle.isHidden = true
-                    self.nearByExhibitionView.listView.exhibitionList.isHidden = true
-                    self.nearByExhibitionView.listView.blackLine.isHidden = false
-                    self.nearByExhibitionView.listView.showListTitle.isHidden = false
-                    self.nearByExhibitionView.listView.blackLine.alpha = 1
-                    self.nearByExhibitionView.listView.showListTitle.alpha = 1
+                    self.backToOrigin()
                 }
             }
         }
+    }
+    
+    private func backToOrigin() {
+        self.nearByExhibitionView.listView.collectionItems.isHidden = true
+        self.nearByExhibitionView.listView.showListTitle.isHidden = true
+        self.nearByExhibitionView.listView.exhibitionList.isHidden = true
+        self.nearByExhibitionView.listView.blackLine.isHidden = false
+        self.nearByExhibitionView.listView.showListTitle.isHidden = false
+        self.nearByExhibitionView.listView.blackLine.alpha = 1
+        self.nearByExhibitionView.listView.showListTitle.alpha = 1
     }
     
     private func setItems() {
@@ -212,8 +217,22 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         
         nearByExhibitionView.dateFilter = {
             DispatchQueue.main.async {
-                print("dateFilter")
+                let dateViewController = DateViewController()
+                self.navigationController?.pushViewController(dateViewController, animated: true)
+                self.navigationController?.navigationBar.tintColor = .brownColor
             }
+        }
+    }
+    
+    private func setStartNavigator() {
+        nearByExhibitionView.navigatorDetailView.startNavigator = {
+            UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut) {
+                self.nearByExhibitionView.navigatorDetailView.alpha = 0.5
+            } completion: { _ in
+                self.nearByExhibitionView.navigatorDetailView.isHidden = true
+            }
+            //先檢查手機有沒有GoogleMap
+            //如果有，就跳轉到GoogleMap
         }
     }
 }
