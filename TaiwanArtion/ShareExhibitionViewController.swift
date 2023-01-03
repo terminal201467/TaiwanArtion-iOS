@@ -52,9 +52,12 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
-        setNavigationBar()
         setTable()
         setAddPhoto()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar()
     }
     
     //MARK: - UI SetUp
@@ -67,6 +70,7 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
         let dataSource = RxTableViewSectionedReloadDataSource<ExhibitionDetailModel> { (dataSource, tv, ip, element) in
             let section = Sections(rawValue: ip.section)
             let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
+            cell.selectionStyle = .none
             cell.exhibitionName.text = "\(element)"
             switch section {
             case .name: print("name")
@@ -81,6 +85,10 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].sectionName
         }
+        shareView.table.rx.itemSelected.subscribe { [weak self] indexPath in
+            print("indexPath:\(indexPath)")
+        }
+        .disposed(by: disposeBag)
         
         viewModel.tableItems.bind(to: shareView.table.rx.items(dataSource:dataSource))
             .disposed(by: disposeBag)
@@ -88,9 +96,9 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     
     private func setAddPhoto() {
         shareView.addAction = {
-            let addPhotoViewController = AddPhotoViewController()
+            let addPhotoViewController = AddPhotoViewController(viewModel: AddPhotoViewModel())
             self.navigationController?.pushViewController(addPhotoViewController, animated: true)
-            
+            self.navigationController?.navigationBar.tintColor = .brownColor
         }
     }
 }

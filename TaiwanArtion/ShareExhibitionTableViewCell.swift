@@ -20,7 +20,7 @@ class ShareExhibitionTableViewCell: UITableViewCell {
     
     var exhibitionName: UILabel = {
         let label = UILabel()
-        label.textColor = .textBlack636363
+        label.textColor = .whetherStartBorderGray
         return label
     }()
     

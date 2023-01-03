@@ -75,6 +75,7 @@
 		97287AC929529B030003B184 /* TaiwanArtionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AC829529B030003B184 /* TaiwanArtionTests.swift */; };
 		9756CA60295E88C300DFCD61 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756CA5F295E88C300DFCD61 /* AddPhotoViewController.swift */; };
 		9756CA62295E88D600DFCD61 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756CA61295E88D600DFCD61 /* AddPhotoView.swift */; };
+		9756CA64295E96FB00DFCD61 /* AddPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756CA63295E96FB00DFCD61 /* AddPhotoViewModel.swift */; };
 		97672CCB2916246A002BE893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97672CCA2916246A002BE893 /* Localizable.strings */; };
 		97672CCD29164142002BE893 /* NearbyExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */; };
 		979B5A4F295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */; };
@@ -186,6 +187,7 @@
 		97287AC829529B030003B184 /* TaiwanArtionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanArtionTests.swift; sourceTree = "<group>"; };
 		9756CA5F295E88C300DFCD61 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		9756CA61295E88D600DFCD61 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		9756CA63295E96FB00DFCD61 /* AddPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewModel.swift; sourceTree = "<group>"; };
 		97672CCA2916246A002BE893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewModel.swift; sourceTree = "<group>"; };
 		979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionTableViewCell.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 				979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */,
 				9756CA5F295E88C300DFCD61 /* AddPhotoViewController.swift */,
 				9756CA61295E88D600DFCD61 /* AddPhotoView.swift */,
+				9756CA63295E96FB00DFCD61 /* AddPhotoViewModel.swift */,
 			);
 			name = ShareExhibition;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */,
 				62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */,
 				62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */,
+				9756CA64295E96FB00DFCD61 /* AddPhotoViewModel.swift in Sources */,
 				624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */,
 				62CD769C280D08A600696DBC /* MainTabBarController.swift in Sources */,
 				624605CB2893C65800E590E3 /* SearchResultTableView.swift in Sources */,

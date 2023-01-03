@@ -8,12 +8,8 @@
 import UIKit
 
 class ShareExhibitionFooterView: UIView {
-    
-    var previewActions: (() -> Void)?
-    
-    var releaseActions: (() -> Void)?
 
-    private let previewButton: UIButton = {
+    let previewButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .backgroundColor
         button.layer.borderWidth = 1
@@ -21,16 +17,14 @@ class ShareExhibitionFooterView: UIView {
         button.layer.cornerRadius = 5
         button.setTitle("預覽", for: .normal)
         button.setTitleColor(.brownColor, for: .normal)
-        button.addTarget(self, action: #selector(previewAction), for: .touchDown)
         return button
     }()
     
-    private let releaseButton: UIButton = {
+    let releaseButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .brownColor
         button.layer.cornerRadius = 5
         button.setTitle("發布", for: .normal)
-        button.addTarget(self, action: #selector(releaseAction), for: .touchDown)
         return button
     }()
     
@@ -61,13 +55,5 @@ class ShareExhibitionFooterView: UIView {
             make.bottom.equalToSuperview().offset(-15)
             make.top.equalToSuperview()
         }
-    }
-    
-    @objc func previewAction() {
-        previewActions?()
-    }
-    
-    @objc func releaseAction() {
-        releaseActions?()
     }
 }

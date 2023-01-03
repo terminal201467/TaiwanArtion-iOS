@@ -11,14 +11,15 @@ class AddPhotoView: UIView {
 
     let photoGallery: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        
-        let view = UICollectionView()
+        flowLayout.itemSize = CGSize(width: 114, height: 103)
+        let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        backgroundColor = .backgroundColor
+        autoLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -26,7 +27,10 @@ class AddPhotoView: UIView {
     }
     
     private func autoLayout() {
-        
+        addSubview(photoGallery)
+        photoGallery.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
 }

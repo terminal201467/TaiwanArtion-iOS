@@ -171,6 +171,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
             .bind(to: nearByExhibitionView.listView.exhibitionList.rx.items) { (tableView, row, element) in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionListTableViewTableViewCell.identifier) as? ExhibitionListTableViewTableViewCell else { return UITableViewCell() }
                 cell.configure(info: element)
+                cell.selectionStyle = .none
                 return cell
         }
         .disposed(by: disposeBag)

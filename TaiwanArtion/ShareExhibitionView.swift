@@ -11,21 +11,27 @@ class ShareExhibitionView: UIView {
     
     var addAction: (() -> Void)?
     
-    let scrollHeader: UIView = {
+    var previewActions: (() -> Void)?
+    
+    var releaseActions: (() -> Void)?
+    
+    private let scrollHeader: UIView = {
        let view = ShareExhibitionHeaderView()
-        view.addImageButton.addTarget(self, action: #selector(add), for: .allTouchEvents)
+        view.addImageButton.addTarget(self, action: #selector(add), for: .touchDown)
         return view
     }()
     
-    let scrollFooter: UIView = {
+    private let scrollFooter: UIView = {
        let view = ShareExhibitionFooterView()
+        view.previewButton.addTarget(self, action: #selector(previewAction), for: .touchDown)
+        view.releaseButton.addTarget(self, action: #selector(releaseAction), for: .touchDown)
         return view
     }()
     
     private let scrollView: UIScrollView = {
        let view = UIScrollView()
         view.isScrollEnabled = true
-        view.showsVerticalScrollIndicator = true
+        view.showsVerticalScrollIndicator = false
         view.bounces = true
         view.isPagingEnabled = false
         view.contentSize = CGSize(width: 0, height: 1200)
@@ -39,7 +45,6 @@ class ShareExhibitionView: UIView {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -93,5 +98,13 @@ class ShareExhibitionView: UIView {
     
     @objc func add() {
         addAction?()
+    }
+    
+    @objc func previewAction() {
+        previewActions?()
+    }
+    
+    @objc func releaseAction() {
+        releaseActions?()
     }
 }
