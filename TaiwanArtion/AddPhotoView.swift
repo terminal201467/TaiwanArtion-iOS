@@ -13,6 +13,9 @@ class AddPhotoView: UIView {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: 114, height: 103)
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        view.register(PhotoGalleryCollectionViewCell.self, forCellWithReuseIdentifier: PhotoGalleryCollectionViewCell.identifier)
+        view.showsVerticalScrollIndicator = false
+        view.allowsSelection = true
         return view
     }()
     
@@ -29,7 +32,10 @@ class AddPhotoView: UIView {
     private func autoLayout() {
         addSubview(photoGallery)
         photoGallery.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
     

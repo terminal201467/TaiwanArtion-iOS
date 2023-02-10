@@ -26,7 +26,7 @@ class ShareExhibitionHeaderView: UIView {
     
     let addImageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "AddImage"), for: .normal)
+        button.setImage(UIImage(named: "addImage"), for: .normal)
         return button
     }()
     

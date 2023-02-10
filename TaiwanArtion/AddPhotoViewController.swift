@@ -13,6 +13,8 @@ class AddPhotoViewController: UIViewController {
     
     let viewModel: AddPhotoViewModel
     
+    private var isCellSelected: Bool = false
+    
     init(viewModel: AddPhotoViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -31,6 +33,7 @@ class AddPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        setPhotoGallery()
     }
     
 
@@ -42,11 +45,38 @@ class AddPhotoViewController: UIViewController {
     }
     
     private func setPhotoGallery() {
-        
+        addPhotoView.photoGallery.delegate = self
+        addPhotoView.photoGallery.dataSource = self
     }
     
     @objc func takePhoto() {
         //跳出照相機頁面
     }
 
+}
+
+extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfItemsInSection(section: section)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
+        cell.configure(imageName: viewModel.cellForItemAt(indexPath: indexPath),
+                       isSelected: viewModel.cellForSelectedItemAt(indexPath: indexPath),
+                       countNumber: viewModel.cellForCountNumber(indexPath: indexPath))
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
+        viewModel.didSelectItemAt(indexPath: indexPath)
+        //add
+        if viewModel.cellForSelectedItemAt(indexPath: indexPath) {
+            collectionView.reloadItems(at: [indexPath])
+        } else {
+            collectionView.reloadData()
+        }
+    }
+    
 }
