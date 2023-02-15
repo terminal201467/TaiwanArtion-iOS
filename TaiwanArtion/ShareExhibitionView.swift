@@ -69,7 +69,7 @@ class ShareExhibitionView: UIView {
 
         scrollView.addSubview(scrollHeader)
         scrollHeader.snp.makeConstraints { make in
-            make.height.equalTo(300)
+            make.height.equalTo(400)
             make.width.equalTo(safeAreaLayoutGuide.snp.width)
             make.top.equalTo(scrollView.snp.top)
             make.leading.equalTo(scrollView.snp.leading)

@@ -71,12 +71,10 @@ extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
         viewModel.didSelectItemAt(indexPath: indexPath)
-        //add
         if viewModel.cellForSelectedItemAt(indexPath: indexPath) {
             collectionView.reloadItems(at: [indexPath])
         } else {
             collectionView.reloadData()
         }
     }
-    
 }

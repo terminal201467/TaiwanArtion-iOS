@@ -90,6 +90,8 @@
 		97B3F6E12948236D004BBC67 /* NearByExhibitionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */; };
 		97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */; };
 		97E0991D298FBFC300C2731F /* PhotoGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0991C298FBFC300C2731F /* PhotoGalleryCollectionViewCell.swift */; };
+		97E0991F299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0991E299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift */; };
+		97E09923299C903A00C2731F /* DisplayPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E09922299C903A00C2731F /* DisplayPhotosView.swift */; };
 		97EC71312955DBBE009A2B14 /* ShareExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */; };
 		97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */; };
 		97EC713529593161009A2B14 /* ExhibitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */; };
@@ -209,6 +211,8 @@
 		97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionListView.swift; sourceTree = "<group>"; };
 		97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionListTableViewTableViewCell.swift; sourceTree = "<group>"; };
 		97E0991C298FBFC300C2731F /* PhotoGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		97E0991E299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosedPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		97E09922299C903A00C2731F /* DisplayPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPhotosView.swift; sourceTree = "<group>"; };
 		97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionView.swift; sourceTree = "<group>"; };
 		97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailModel.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */,
 				97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */,
 				97EC713629593BE4009A2B14 /* ShareExhibitionHeader.swift */,
+				97E09922299C903A00C2731F /* DisplayPhotosView.swift */,
+				97E0991E299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift */,
 				97EC713829593C02009A2B14 /* ShareExhibitionFooter.swift */,
 				979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */,
 				9756CA5F295E88C300DFCD61 /* AddPhotoViewController.swift */,
@@ -896,10 +902,12 @@
 				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
 				97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */,
 				97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */,
+				97E0991F299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift in Sources */,
 				624605D42896868700E590E3 /* InfoViewController.swift in Sources */,
 				62E6BE2B288945ED0050920F /* OuterIslandAreaButtons.swift in Sources */,
 				979B5A4F295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift in Sources */,
 				97287AA1295084280003B184 /* NavigateLocationView.swift in Sources */,
+				97E09923299C903A00C2731F /* DisplayPhotosView.swift in Sources */,
 				62A3F946287D28290067B03C /* FilterExhibitionButton.swift in Sources */,
 				62CD7698280D070300696DBC /* NearbyExhibitionViewController.swift in Sources */,
 				97B3F6DD29417F7E004BBC67 /* NearByExhibitionView.swift in Sources */,

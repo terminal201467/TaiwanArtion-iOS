@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct SelectedItem {
+    
+    var name: String
+    var indexRow: Int
+}
+
 
 class AddPhotoViewModel {
     
@@ -19,7 +25,9 @@ class AddPhotoViewModel {
                             ,"1","2","3"
                             ,"1","2","3"]
     
-    var selectedItems = Set<Int>()
+    var selectedItems:[String] = []
+
+    var selectedOrders:[Int:Int] = [:]
     
     //MARK: - collectionView setting
     func numberOfItemsInSection(section: Int) -> Int{
@@ -31,20 +39,30 @@ class AddPhotoViewModel {
     }
     
     func cellForSelectedItemAt(indexPath: IndexPath) -> Bool {
-        selectedItems.contains(indexPath.row)
+        selectedItems.contains(photos[indexPath.row])
     }
     
     func didSelectItemAt(indexPath: IndexPath) {
-        if selectedItems.contains(indexPath.row) {
-            selectedItems.remove(indexPath.row)
-        } else {
-            selectedItems.insert(indexPath.row)
-        }
+//        if selectedOrders.isEmpty {
+//            selectedItems.append(photos[indexPath.row])
+//            selectedOrders[indexPath.row] = selectedItems.count
+//        } else {
+//            //如果不是空的字典
+//            //先判斷selectedOrders裡面是不是有選過的indexPath.row
+//            for order in selectedOrders {
+//                //如果排序的indexPath跟選單的目錄重複
+//            }
+//        }
+//        print("selectedItems:\(selectedItems)")
+//        print("selectedOrders:\(selectedOrders)")
     }
     
     func cellForCountNumber(indexPath: IndexPath) -> Int {
-        selectedItems.count
+        if let order = selectedOrders[indexPath.row] {
+            return order
+        } else {
+            return 0
+        }
     }
-    
     
 }
