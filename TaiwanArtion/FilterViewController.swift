@@ -63,6 +63,7 @@ class FilterViewController: UIViewController, UIScrollViewDelegate {
     
     private func setNavigationBar() {
         navigationItem.title = "選擇縣市"
+        self.navigationController?.navigationBar.tintColor = .brownColor
     }
     
     private func setFilterViewAction() {

@@ -28,7 +28,7 @@ class ShareExhibitionView: UIView {
         return view
     }()
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
        let view = UIScrollView()
         view.isScrollEnabled = true
         view.showsVerticalScrollIndicator = false
@@ -41,6 +41,7 @@ class ShareExhibitionView: UIView {
     let table: UITableView = {
         let tableView = UITableView()
         tableView.register(ShareExhibitionTableViewCell.self, forCellReuseIdentifier: ShareExhibitionTableViewCell.identifier)
+        tableView.register(ShareExhibitionTextFieldTableViewCell.self, forCellReuseIdentifier: ShareExhibitionTextFieldTableViewCell.identifier)
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false

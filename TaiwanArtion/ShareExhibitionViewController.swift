@@ -52,8 +52,10 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
+        view.isUserInteractionEnabled = true
         setTable()
         setAddPhoto()
+        setTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,32 +68,85 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func setIsFramePush(trigger: Bool) {
+        if trigger {
+            self.view.frame.origin.y = -200
+        } else {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     private func setTable() {
         let dataSource = RxTableViewSectionedReloadDataSource<ExhibitionDetailModel> { (dataSource, tv, ip, element) in
             let section = Sections(rawValue: ip.section)
-            let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
-            cell.selectionStyle = .none
-            cell.exhibitionName.text = "\(element)"
             switch section {
-            case .name: print("name")
-            case .city: cell.downButton.isHidden = false
-            case .place: cell.downButton.isHidden = false
-            case .webSite: print("webSite")
-            case .none: print("none")
+            case .name:
+                let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTextFieldTableViewCell.identifier, for: ip) as! ShareExhibitionTextFieldTableViewCell
+                cell.textField.placeholder = "輸入展覽名稱"
+                cell.textField.tag = 0
+                cell.textFieldTrigger = { self.setIsFramePush(trigger: $0) }
+                return cell
+            case .city:
+                let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
+                cell.downButton.isHidden = false
+                cell.exhibitionName.text = "\(element)"
+                cell.selectionStyle = .none
+                return cell
+            case .place:
+                let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
+                cell.downButton.isHidden = false
+                cell.exhibitionName.text = "\(element)"
+                cell.selectionStyle = .none
+                return cell
+            case .webSite:
+                let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTextFieldTableViewCell.identifier, for: ip) as! ShareExhibitionTextFieldTableViewCell
+                cell.textField.placeholder = "輸入網址"
+                cell.textField.tag = 1
+                cell.textFieldTrigger = { self.setIsFramePush(trigger: $0) }
+                return cell
+            case .none:
+                print("none")
             }
-            return cell
+            return UITableViewCell()
         }
         
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].sectionName
         }
         shareView.table.rx.itemSelected.subscribe { [weak self] indexPath in
-            print("indexPath:\(indexPath)")
+            guard let section = indexPath.element?.section else { return }
+            switch Sections(rawValue: section) {
+            case .name:
+                print("name")
+            case .city:
+                //推到城市選擇頁面
+                let filterViewController = FilterViewController(viewModel: FilterViewModel())
+                self?.navigationController?.pushViewController(filterViewController, animated: true)
+            case .place:
+                //推到單位選擇頁面
+                let placeChooseController = PlaceChooseViewController()
+                self?.navigationController?.pushViewController(placeChooseController, animated: true)
+            case .webSite:
+                print("webSite")
+            case .none:
+                print("")
+            }
         }
         .disposed(by: disposeBag)
         
         viewModel.tableItems.bind(to: shareView.table.rx.items(dataSource:dataSource))
             .disposed(by: disposeBag)
+    }
+    
+    private func setTapGesture() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(touch))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.numberOfTouchesRequired = 1
+        view.addGestureRecognizer(recognizer)
+    }
+
+    @objc private func touch() {
+        self.view.endEditing(true)
     }
     
     private func setAddPhoto() {

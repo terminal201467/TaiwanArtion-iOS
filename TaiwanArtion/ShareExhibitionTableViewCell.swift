@@ -27,6 +27,7 @@ class ShareExhibitionTableViewCell: UITableViewCell {
     let downButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage.init(systemName: "chevron.down"), for: .normal)
+        button.tintColor = .darkGray
         button.isHidden = true
         return button
     }()
