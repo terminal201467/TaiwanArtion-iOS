@@ -11,6 +11,8 @@ class ShareExhibitionTableViewCell: UITableViewCell {
     
     static let identifier: String = "ShareExhibitionCell"
     
+    var choosed: (() -> (Void))?
+    
     private let grayAreaView: UIView = {
        let view = UIView()
         view.layer.cornerRadius = 5
@@ -18,7 +20,7 @@ class ShareExhibitionTableViewCell: UITableViewCell {
         return view
     }()
     
-    var exhibitionName: UILabel = {
+    var name: UILabel = {
         let label = UILabel()
         label.textColor = .whetherStartBorderGray
         return label
@@ -28,7 +30,7 @@ class ShareExhibitionTableViewCell: UITableViewCell {
         let button = UIButton()
         button.setImage(UIImage.init(systemName: "chevron.down"), for: .normal)
         button.tintColor = .darkGray
-        button.isHidden = true
+        button.addTarget(self, action: #selector(choose), for: .touchDown)
         return button
     }()
 
@@ -41,8 +43,12 @@ class ShareExhibitionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func choose() {
+        choosed?()
+    }
+    
     private func autoLayout() {
-        addSubview(grayAreaView)
+        contentView.addSubview(grayAreaView)
         grayAreaView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
@@ -50,14 +56,14 @@ class ShareExhibitionTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview()
         }
         
-        addSubview(exhibitionName)
-        exhibitionName.snp.makeConstraints { make in
+        contentView.addSubview(name)
+        name.snp.makeConstraints { make in
             make.leading.equalTo(grayAreaView.snp.leading).offset(10)
             make.trailing.equalTo(grayAreaView.snp.trailing)
             make.centerY.equalToSuperview()
         }
         
-        addSubview(downButton)
+        contentView.addSubview(downButton)
         downButton.snp.makeConstraints { make in
             make.trailing.equalTo(grayAreaView.snp.trailing).offset(-10)
             make.centerY.equalToSuperview()

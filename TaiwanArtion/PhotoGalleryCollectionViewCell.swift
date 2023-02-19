@@ -57,20 +57,20 @@ class PhotoGalleryCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func setSelectedCounterString(selected: Bool) -> String {
-        if selected {
-            counterNumber.isHidden = false
-            return "BrownCounter"
-        } else {
+    private func setSelectedCounterString(inputNumber: String) -> String {
+        if inputNumber == "" {
             counterNumber.isHidden = true
             return "ClearCounter"
+        } else {
+            counterNumber.isHidden = false
+            return "BrownCounter"
         }
     }
     
-    func configure(imageName: String, isSelected: Bool, countNumber: Int) {
+    func configure(imageName: String ,countNumber: String) {
         photo.image = UIImage(named: imageName)
-        cornerCounter.image = UIImage(named: setSelectedCounterString(selected: isSelected))
-        counterNumber.text = "\(countNumber)"
+        cornerCounter.image = UIImage(named: setSelectedCounterString(inputNumber: countNumber))
+        counterNumber.text = countNumber
     }
 
 }

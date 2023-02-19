@@ -9,7 +9,13 @@ import UIKit
 
 class ShareExhibitionHeaderView: UIView {
     
-    var photos: [String] = ["1","2","3","1","2","3","1","2","3"]
+    var photos: [String] = [] {
+        didSet {
+            photosView.photos = self.photos
+            setPhotoGallery(by: photos)
+            photosCollection.reloadData()
+        }
+    }
 
     private let shareLabel: UILabel = {
         let label = UILabel()
@@ -39,10 +45,7 @@ class ShareExhibitionHeaderView: UIView {
         return label
     }()
     
-    private let photosView: DisplayPhotosView = {
-       let view = DisplayPhotosView()
-        return view
-    }()
+    private let photosView = DisplayPhotosView()
     
     private let photosCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -55,12 +58,11 @@ class ShareExhibitionHeaderView: UIView {
         return collectionView
     }()
     
+    //MARK: -Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createGradient(view: photosView)
         setPhotoGallery(by: photos)
         setCollectionView()
-//        setPageViewAutoLayout()
         setPhotosCollection()
     }
     
@@ -68,6 +70,7 @@ class ShareExhibitionHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: -UI Layouts
     private func setUnPhotosAutoLayout() {
         addSubview(shareLabel)
         shareLabel.snp.makeConstraints { make in
@@ -96,14 +99,6 @@ class ShareExhibitionHeaderView: UIView {
             make.centerX.equalToSuperview()
         }
         
-    }
-    
-    private func createGradient(view: UIView) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.locations = [0.8, 1]
-        gradientLayer.colors = [UIColor.clear.cgColor ,UIColor.white.cgColor]
-        view.layer.addSublayer(gradientLayer)
     }
     
     private func setCollectionView() {

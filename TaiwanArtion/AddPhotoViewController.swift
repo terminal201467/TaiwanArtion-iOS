@@ -11,9 +11,9 @@ class AddPhotoViewController: UIViewController {
     //MARK: -Properties
     private let addPhotoView = AddPhotoView()
     
-    let viewModel: AddPhotoViewModel
+    private let viewModel: AddPhotoViewModel
     
-    private var isCellSelected: Bool = false
+    var returnSelectedItems: (([String]) -> ())?
     
     init(viewModel: AddPhotoViewModel) {
         self.viewModel = viewModel
@@ -36,7 +36,6 @@ class AddPhotoViewController: UIViewController {
         setPhotoGallery()
     }
     
-
     private func setNavigationBar() {
         title = "選擇照片"
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -49,7 +48,7 @@ class AddPhotoViewController: UIViewController {
         addPhotoView.photoGallery.dataSource = self
     }
     
-    @objc func takePhoto() {
+    @objc private func takePhoto() {
         //跳出照相機頁面
     }
 
@@ -63,7 +62,6 @@ extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
         cell.configure(imageName: viewModel.cellForItemAt(indexPath: indexPath),
-                       isSelected: viewModel.cellForSelectedItemAt(indexPath: indexPath),
                        countNumber: viewModel.cellForCountNumber(indexPath: indexPath))
         return cell
     }
@@ -71,10 +69,7 @@ extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
         viewModel.didSelectItemAt(indexPath: indexPath)
-        if viewModel.cellForSelectedItemAt(indexPath: indexPath) {
-            collectionView.reloadItems(at: [indexPath])
-        } else {
-            collectionView.reloadData()
-        }
+        returnSelectedItems?(viewModel.provideTheSelectedItems())
+        collectionView.reloadItems(at: [indexPath])
     }
 }

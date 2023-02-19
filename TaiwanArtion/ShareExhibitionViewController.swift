@@ -52,10 +52,12 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
-        view.isUserInteractionEnabled = true
         setTable()
         setAddPhoto()
         setTapGesture()
+        setReleaseAction()
+        setPreviewAction()
+        viewModel.get()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,28 +86,47 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
                 let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTextFieldTableViewCell.identifier, for: ip) as! ShareExhibitionTextFieldTableViewCell
                 cell.textField.placeholder = "輸入展覽名稱"
                 cell.textField.tag = 0
-                cell.textFieldTrigger = { self.setIsFramePush(trigger: $0) }
+                cell.textFieldTrigger = {
+                    self.setIsFramePush(trigger: $0)
+                }
+                cell.textChanged = { self.viewModel.receiveName(with: $0) }
                 return cell
             case .city:
                 let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
-                cell.downButton.isHidden = false
-                cell.exhibitionName.text = "\(element)"
+                cell.name.text = "\(element)"
                 cell.selectionStyle = .none
+                cell.choosed = {
+                    let filterViewController = FilterViewController(viewModel: FilterViewModel())
+                    self.navigationController?.pushViewController(filterViewController, animated: true)
+                    filterViewController.itemChoose = {
+                        cell.name.text = $0
+                        self.viewModel.receiveCity(with: $0)
+                        cell.name.textColor = .textBlack464646
+                    }
+                }
                 return cell
             case .place:
                 let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTableViewCell.identifier, for: ip) as! ShareExhibitionTableViewCell
-                cell.downButton.isHidden = false
-                cell.exhibitionName.text = "\(element)"
+                cell.name.text = "\(element)"
                 cell.selectionStyle = .none
+                cell.choosed = {
+                    let placeChooseController = PlaceChooseViewController()
+                    self.navigationController?.pushViewController(placeChooseController, animated: true)
+                    placeChooseController.choosePlaceKind = {
+                        cell.name.text = $0
+                        self.viewModel.receivePlaceKind(with: $0)
+                        cell.name.textColor = .textBlack464646
+                    }
+                }
                 return cell
             case .webSite:
                 let cell = tv.dequeueReusableCell(withIdentifier: ShareExhibitionTextFieldTableViewCell.identifier, for: ip) as! ShareExhibitionTextFieldTableViewCell
                 cell.textField.placeholder = "輸入網址"
                 cell.textField.tag = 1
                 cell.textFieldTrigger = { self.setIsFramePush(trigger: $0) }
+                cell.textChanged = { self.viewModel.receiveWebSite(with: $0) }
                 return cell
-            case .none:
-                print("none")
+            case .none: print("none")
             }
             return UITableViewCell()
         }
@@ -113,26 +134,6 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].sectionName
         }
-        shareView.table.rx.itemSelected.subscribe { [weak self] indexPath in
-            guard let section = indexPath.element?.section else { return }
-            switch Sections(rawValue: section) {
-            case .name:
-                print("name")
-            case .city:
-                //推到城市選擇頁面
-                let filterViewController = FilterViewController(viewModel: FilterViewModel())
-                self?.navigationController?.pushViewController(filterViewController, animated: true)
-            case .place:
-                //推到單位選擇頁面
-                let placeChooseController = PlaceChooseViewController()
-                self?.navigationController?.pushViewController(placeChooseController, animated: true)
-            case .webSite:
-                print("webSite")
-            case .none:
-                print("")
-            }
-        }
-        .disposed(by: disposeBag)
         
         viewModel.tableItems.bind(to: shareView.table.rx.items(dataSource:dataSource))
             .disposed(by: disposeBag)
@@ -154,7 +155,31 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
             let addPhotoViewController = AddPhotoViewController(viewModel: AddPhotoViewModel())
             self.navigationController?.pushViewController(addPhotoViewController, animated: true)
             self.navigationController?.navigationBar.tintColor = .brownColor
+            addPhotoViewController.returnSelectedItems = { photos in
+                self.viewModel.receivePhotos(with: photos)
+                self.shareView.scrollHeader.photos = photos
+            }
         }
     }
+    
+    
+    //MARK: - Send Data and Checking
+    private func setPreviewAction() {
+        shareView.previewActions = {
+            print("previewAction:\(self.viewModel.preview())")
+        }
+    }
+    
+    private func setReleaseAction () {
+        shareView.releaseActions = {
+            if self.viewModel.preview() == "資料無缺漏" {
+                self.viewModel.release()
+                print("releaseAction")
+            }
+            let alert = AlertViewController()
+            self.present(AlertViewController(), animated: true)
+        }
+    }
+    
 }
 

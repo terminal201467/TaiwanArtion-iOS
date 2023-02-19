@@ -22,6 +22,8 @@ enum PlaceKind: Int,CaseIterable {
 
 class PlaceChooseViewController: UIViewController {
     
+    var choosePlaceKind: ((String) -> (Void))?
+    
     private let placeChooseCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -83,7 +85,7 @@ class PlaceChooseViewController: UIViewController {
     }
     
     @objc private func correct() {
-        
+        navigationController?.popViewController(animated: true)
     }
 
 
@@ -98,6 +100,10 @@ extension PlaceChooseViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NorthAreaCell.identifier, for: indexPath) as! NorthAreaCell
         cell.areaLabel.text = PlaceKind(rawValue: indexPath.row)?.text
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        choosePlaceKind?(PlaceKind(rawValue: indexPath.row)!.text)
     }
     
     

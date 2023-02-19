@@ -9,7 +9,11 @@ import UIKit
 
 class DisplayPhotosView: UIView {
     
-    var photos: [String] = ["1","2","3"]
+    var photos: [String] = [] {
+        didSet {
+            displayPhotos.reloadData()
+        }
+    }
     
     var currentPhotoPage: Int = 0
 
@@ -20,6 +24,7 @@ class DisplayPhotosView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ChoosedPhotoCollectionViewCell.self, forCellWithReuseIdentifier: ChoosedPhotoCollectionViewCell.identifier)
         collectionView.isPagingEnabled = true
+        collectionView.bounces = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = false
         collectionView.contentSize = CGSize(width: 400, height: 400)
@@ -50,6 +55,7 @@ class DisplayPhotosView: UIView {
         return view
     }()
     
+    //MARK: -Initailization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setCollectionView()
@@ -61,6 +67,7 @@ class DisplayPhotosView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: -UI SetUp
     private func setCollectionView() {
         displayPhotos.delegate = self
         displayPhotos.dataSource = self
@@ -113,10 +120,9 @@ extension DisplayPhotosView: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveOfItemFromOriginalIndexPath originalIndexPath: IndexPath, atCurrentIndexPath currentIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath {
-        print("currentIndexPath:\(currentIndexPath)")
-        
-        return currentIndexPath
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let indexPath = displayPhotos.indexPathsForVisibleItems.first {
+            setDisplayBar(by: indexPath.row)
+        }
     }
-    
 }

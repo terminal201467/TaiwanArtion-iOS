@@ -16,18 +16,23 @@ struct SelectedItem {
 
 class AddPhotoViewModel {
     
-    var photos: [String] = ["1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"
-                            ,"1","2","3"]
+    private var photos: [String] = ["1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"
+                                    ,"1","2","3"]
     
-    var selectedItems:[String] = []
+    private var selectedItems: [String] = []
 
-    var selectedOrders:[Int:Int] = [:]
+    private var selectedOrders: [Int:Int] = [:]
+    
+    //MARK: - localStoragePhotos
+    func getPhotos() {
+        
+    }
     
     //MARK: - collectionView setting
     func numberOfItemsInSection(section: Int) -> Int{
@@ -38,31 +43,28 @@ class AddPhotoViewModel {
         photos[indexPath.row]
     }
     
-    func cellForSelectedItemAt(indexPath: IndexPath) -> Bool {
-        selectedItems.contains(photos[indexPath.row])
-    }
-    
     func didSelectItemAt(indexPath: IndexPath) {
-//        if selectedOrders.isEmpty {
-//            selectedItems.append(photos[indexPath.row])
-//            selectedOrders[indexPath.row] = selectedItems.count
-//        } else {
-//            //如果不是空的字典
-//            //先判斷selectedOrders裡面是不是有選過的indexPath.row
-//            for order in selectedOrders {
-//                //如果排序的indexPath跟選單的目錄重複
-//            }
-//        }
-//        print("selectedItems:\(selectedItems)")
-//        print("selectedOrders:\(selectedOrders)")
+        if let existingOrder = selectedOrders[indexPath.row] {
+                if let indexToRemove = selectedItems.index(where: { $0 == photos[indexPath.row] }) {
+                    selectedItems.remove(at: indexToRemove)
+                    selectedOrders.removeValue(forKey: indexPath.row)
+                }
+            } else {
+                selectedItems.append(photos[indexPath.row])
+                selectedOrders[indexPath.row] = selectedItems.count
+            }
     }
     
-    func cellForCountNumber(indexPath: IndexPath) -> Int {
+    func cellForCountNumber(indexPath: IndexPath) -> String {
         if let order = selectedOrders[indexPath.row] {
-            return order
+            return "\(order)"
         } else {
-            return 0
+            return ""
         }
+    }
+    
+    func provideTheSelectedItems() -> [String] {
+        selectedItems
     }
     
 }

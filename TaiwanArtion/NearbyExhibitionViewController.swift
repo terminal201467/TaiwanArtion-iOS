@@ -103,6 +103,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                     self.nearByExhibitionView.listView.frame.origin.y = safeAreaInsetsTop
                     self.nearByExhibitionView.listView.blackLine.alpha = 0.5
                     self.nearByExhibitionView.listView.showListTitle.alpha = 0.5
+                    self.nearByExhibitionView.listView.collectionItems.selectItem(at: [0,0], animated: false, scrollPosition: .top)
                 } completion: { _ in
                     self.nearByExhibitionView.listView.blackLine.isHidden = true
                     self.nearByExhibitionView.listView.showListTitle.isHidden = true

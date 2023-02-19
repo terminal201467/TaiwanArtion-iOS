@@ -15,11 +15,7 @@ class ShareExhibitionView: UIView {
     
     var releaseActions: (() -> Void)?
     
-    private let scrollHeader: UIView = {
-       let view = ShareExhibitionHeaderView()
-        view.addImageButton.addTarget(self, action: #selector(add), for: .touchDown)
-        return view
-    }()
+    let scrollHeader = ShareExhibitionHeaderView()
     
     private let scrollFooter: UIView = {
        let view = ShareExhibitionFooterView()
@@ -52,6 +48,7 @@ class ShareExhibitionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         autoLayout()
+        setHeaderView()
         print("scrollViewWidth:\(scrollView.frame.width),scrollViewHeight:\(scrollView.frame.height)")
     }
     
@@ -95,6 +92,10 @@ class ShareExhibitionView: UIView {
             make.height.equalTo(100)
             make.width.equalTo(scrollView.snp.width)
         }
+    }
+    
+    private func setHeaderView() {
+        scrollHeader.addImageButton.addTarget(self, action: #selector(add), for: .touchDown)
     }
     
     @objc func add() {

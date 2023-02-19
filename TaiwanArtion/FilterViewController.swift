@@ -20,6 +20,8 @@ class FilterViewController: UIViewController, UIScrollViewDelegate {
     
     private let disposeBag = DisposeBag()
     
+    var itemChoose: ((String) -> (Void))?
+    
     init(viewModel: FilterViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -58,6 +60,14 @@ class FilterViewController: UIViewController, UIScrollViewDelegate {
         
         viewModel.areas
             .bind(to: filterView.areaView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        filterView.areaView
+            .rx
+            .modelSelected(String.self)
+            .subscribe { item in
+                self.itemChoose?(item.element!)
+            }
             .disposed(by: disposeBag)
     }
     
