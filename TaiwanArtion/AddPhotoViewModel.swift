@@ -63,6 +63,15 @@ class AddPhotoViewModel {
         }
     }
     
+    //MARK:- CRUD in the PhotoGallery
+    func addPhoto(photo: String) {
+        photos.append(photo)
+    }
+    
+    func providePhotos() -> [String] {
+        photos
+    }
+    
     func provideTheSelectedItems() -> [String] {
         selectedItems
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class AddPhotoViewController: UIViewController {
     //MARK: -Properties
@@ -14,6 +15,13 @@ class AddPhotoViewController: UIViewController {
     private let viewModel: AddPhotoViewModel
     
     var returnSelectedItems: (([String]) -> ())?
+    
+    private let pickerViewController: PHPickerViewController = {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        return picker
+    }()
     
     init(viewModel: AddPhotoViewModel) {
         self.viewModel = viewModel
@@ -34,6 +42,7 @@ class AddPhotoViewController: UIViewController {
         super.viewDidLoad()
         setNavigationBar()
         setPhotoGallery()
+        setImagePicker()
     }
     
     private func setNavigationBar() {
@@ -48,8 +57,12 @@ class AddPhotoViewController: UIViewController {
         addPhotoView.photoGallery.dataSource = self
     }
     
+    private func setImagePicker() {
+        pickerViewController.delegate = self
+    }
+    
     @objc private func takePhoto() {
-        //跳出照相機頁面
+        present(pickerViewController, animated: true)
     }
 
 }
@@ -72,4 +85,27 @@ extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewData
         returnSelectedItems?(viewModel.provideTheSelectedItems())
         collectionView.reloadItems(at: [indexPath])
     }
+}
+
+
+extension AddPhotoViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProviders = results.map { $0.itemProvider }
+                if let itemProvider = itemProviders.first, itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    let previousImage = viewModel.provideTheSelectedItems().first
+                    print("previousImage:\(previousImage)")
+                    itemProvider.loadObject(ofClass: UIImage.self) {[weak self] (image, error) in
+                        DispatchQueue.main.async {
+//                            guard let self = self,
+//                                let image = image as? UIImage, self.imageViews.first?.image == previousImage else { return }
+//                            self.imageViews.first?.image = image
+                        }
+                    }
+                }
+    }
+    
+    
+    
 }

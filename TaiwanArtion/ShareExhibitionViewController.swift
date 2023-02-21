@@ -23,6 +23,9 @@ enum Sections: Int, CaseIterable {
     }
 }
 
+enum Mode: Int {
+    case preview = 0, edit, release
+}
 
 class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     
@@ -31,6 +34,8 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     private var viewModel: ShareExhibitionViewModel
     
     private let disposeBag = DisposeBag()
+    
+    private var isPreviewMode: Bool = false
     
     //MARK: -initialize
     init(viewModel: ShareExhibitionViewModel) {
@@ -68,6 +73,27 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     private func setNavigationBar() {
         title = "建立展覽"
         navigationController?.navigationBar.prefersLargeTitles = true
+        setIsPreviewModeUI(with: .edit)
+    }
+    
+    private func setIsPreviewModeUI(with mode: Mode) {
+        switch mode {
+        case .preview:
+            shareView.scrollFooter.previewButton.setTitle("回到編輯", for: .normal)
+        case .edit:
+            navigationController?.navigationBar.tintColor = .backgroundColor
+            navigationController?.navigationItem.leftBarButtonItem = nil
+            shareView.scrollFooter.previewButton.setTitle("預覽", for: .normal)
+        case .release:
+            print("release")
+            navigationController?.navigationBar.tintColor = .backgroundColor
+            navigationController?.navigationItem.leftBarButtonItem = nil
+            shareView.scrollFooter.previewButton.setTitle("預覽", for: .normal)
+        }
+    }
+    
+    private func setGrayPreviewBar() {
+        
     }
     
     private func setIsFramePush(trigger: Bool) {
@@ -165,8 +191,13 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - Send Data and Checking
     private func setPreviewAction() {
-        shareView.previewActions = {
-            print("previewAction:\(self.viewModel.preview())")
+        shareView.previewActions = { isPreviewMode in
+            if isPreviewMode {
+                self.setIsPreviewModeUI(with: .preview)
+                print("previewAction:\(self.viewModel.preview())")
+            } else {
+                self.setIsPreviewModeUI(with: .edit)
+            }
         }
     }
     
@@ -174,10 +205,11 @@ class ShareExhibitionViewController: UIViewController, UIScrollViewDelegate {
         shareView.releaseActions = {
             if self.viewModel.preview() == "資料無缺漏" {
                 self.viewModel.release()
+                self.setIsPreviewModeUI(with: .release)
                 print("releaseAction")
             }
             let alert = AlertViewController()
-            self.present(AlertViewController(), animated: true)
+            self.present(alert, animated: true)
         }
     }
     

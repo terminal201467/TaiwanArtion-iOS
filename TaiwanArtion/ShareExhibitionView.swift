@@ -11,18 +11,15 @@ class ShareExhibitionView: UIView {
     
     var addAction: (() -> Void)?
     
-    var previewActions: (() -> Void)?
+    var previewActions: ((Bool) -> Void)?
     
     var releaseActions: (() -> Void)?
     
+    private var isPreview: Bool = false
+    
     let scrollHeader = ShareExhibitionHeaderView()
     
-    private let scrollFooter: UIView = {
-       let view = ShareExhibitionFooterView()
-        view.previewButton.addTarget(self, action: #selector(previewAction), for: .touchDown)
-        view.releaseButton.addTarget(self, action: #selector(releaseAction), for: .touchDown)
-        return view
-    }()
+    let scrollFooter = ShareExhibitionFooterView()
     
     let scrollView: UIScrollView = {
        let view = UIScrollView()
@@ -49,6 +46,7 @@ class ShareExhibitionView: UIView {
         super.init(frame: frame)
         autoLayout()
         setHeaderView()
+        setFooterView()
         print("scrollViewWidth:\(scrollView.frame.width),scrollViewHeight:\(scrollView.frame.height)")
     }
     
@@ -98,12 +96,18 @@ class ShareExhibitionView: UIView {
         scrollHeader.addImageButton.addTarget(self, action: #selector(add), for: .touchDown)
     }
     
+    private func setFooterView() {
+        scrollFooter.previewButton.addTarget(self, action: #selector(previewAction), for: .touchDown)
+        scrollFooter.releaseButton.addTarget(self, action: #selector(releaseAction), for: .touchDown)
+    }
+    
     @objc func add() {
         addAction?()
     }
     
     @objc func previewAction() {
-        previewActions?()
+        isPreview.toggle()
+        previewActions?(isPreview)
     }
     
     @objc func releaseAction() {

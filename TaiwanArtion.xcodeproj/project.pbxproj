@@ -1213,6 +1213,8 @@
 				DEVELOPMENT_TEAM = QRA5DG5SAD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaiwanArtion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "APP想取用相機權限";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "APP想取用相簿權限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1241,6 +1243,8 @@
 				DEVELOPMENT_TEAM = QRA5DG5SAD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaiwanArtion/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "APP想取用相機權限";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "APP想取用相簿權限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
