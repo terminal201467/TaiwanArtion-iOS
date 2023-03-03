@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCalendarViewController" customModule="TaiwanArtion" customModuleProvider="target">
+            <connections>
+                <outlet property="alertView" destination="OgP-fV-kJw" id="kQR-zR-pQ9"/>
+                <outlet property="calendarLogo" destination="z5P-mn-FeG" id="zqs-n8-wny"/>
+                <outlet property="cancelButton" destination="Eek-vu-Gg5" id="Il6-cR-KRn"/>
+                <outlet property="confirmButton" destination="A1o-cd-UDe" id="QtV-dZ-wOv"/>
+                <outlet property="descriptionLabel" destination="yfW-SI-da2" id="9Je-JL-jHY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" id="nwy-vU-yne" userLabel="backgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgP-fV-kJw" userLabel="AlertView">
+                    <rect key="frame" x="61.666666666666657" y="349" width="270" height="154"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfW-SI-da2" userLabel="Description">
+                            <rect key="frame" x="0.0" y="77" width="270" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Ra-7O-svs" userLabel="Buttons">
+                            <rect key="frame" x="0.0" y="116" width="270" height="38"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Eek-vu-Gg5" userLabel="Cancel">
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="A1o-cd-UDe" userLabel="Confirm">
+                                    <rect key="frame" x="135" y="0.0" width="135" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="6PI-2z-uik"/>
+                                <constraint firstAttribute="width" constant="270" id="sqP-Xp-bpc"/>
+                            </constraints>
+                        </stackView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-mn-FeG" userLabel="CalendarIcon">
+                            <rect key="frame" x="115" y="27" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="J0q-PR-6Cx"/>
+                                <constraint firstAttribute="width" constant="40" id="iX5-q0-xTi"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="yfW-SI-da2" firstAttribute="centerY" secondItem="OgP-fV-kJw" secondAttribute="centerY" constant="10" id="2p5-Xr-uNx"/>
+                        <constraint firstItem="yfW-SI-da2" firstAttribute="leading" secondItem="OgP-fV-kJw" secondAttribute="leading" id="A9k-cn-shh"/>
+                        <constraint firstAttribute="trailing" secondItem="8Ra-7O-svs" secondAttribute="trailing" id="D8k-kh-66f"/>
+                        <constraint firstItem="yfW-SI-da2" firstAttribute="top" secondItem="z5P-mn-FeG" secondAttribute="bottom" constant="10" id="N1h-gO-Ns2"/>
+                        <constraint firstAttribute="bottom" secondItem="8Ra-7O-svs" secondAttribute="bottom" id="PjG-OA-9em"/>
+                        <constraint firstAttribute="trailing" secondItem="yfW-SI-da2" secondAttribute="trailing" id="c3H-Eu-9yK"/>
+                        <constraint firstItem="z5P-mn-FeG" firstAttribute="centerX" secondItem="OgP-fV-kJw" secondAttribute="centerX" id="eOB-2k-Ci3"/>
+                        <constraint firstItem="8Ra-7O-svs" firstAttribute="leading" secondItem="OgP-fV-kJw" secondAttribute="leading" id="z9W-SP-Pd3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="OgP-fV-kJw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="21p-C6-3M2"/>
+                <constraint firstItem="OgP-fV-kJw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GnD-YT-9ZU"/>
+                <constraint firstItem="OgP-fV-kJw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="290" id="TWz-l2-3l2"/>
+            </constraints>
+            <point key="canvasLocation" x="10" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

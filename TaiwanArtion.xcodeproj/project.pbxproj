@@ -101,6 +101,11 @@
 		97E2137329B0B3A0008F3E15 /* ChooseCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */; };
 		97E2137529B0B466008F3E15 /* ChooseCalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */; };
 		97E2137729B0C245008F3E15 /* ChooseCalenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */; };
+		97E213EC29B1C3DA008F3E15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97E213EB29B1C3DA008F3E15 /* GoogleService-Info.plist */; };
+		97E213F929B1D107008F3E15 /* AddCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E213F729B1D107008F3E15 /* AddCalendarViewController.swift */; };
+		97E213FA29B1D107008F3E15 /* AddCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E213F829B1D107008F3E15 /* AddCalendarViewController.xib */; };
+		97E213FD29B1EBED008F3E15 /* CheckAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */; };
+		97E213FE29B1EBED008F3E15 /* CheckAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */; };
 		97EC71312955DBBE009A2B14 /* ShareExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */; };
 		97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */; };
 		97EC713529593161009A2B14 /* ExhibitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */; };
@@ -231,6 +236,11 @@
 		97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderViewController.swift; sourceTree = "<group>"; };
 		97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderView.swift; sourceTree = "<group>"; };
 		97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderTableViewCell.swift; sourceTree = "<group>"; };
+		97E213EB29B1C3DA008F3E15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		97E213F729B1D107008F3E15 /* AddCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCalendarViewController.swift; sourceTree = "<group>"; };
+		97E213F829B1D107008F3E15 /* AddCalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCalendarViewController.xib; sourceTree = "<group>"; };
+		97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAlertViewController.swift; sourceTree = "<group>"; };
+		97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckAlertViewController.xib; sourceTree = "<group>"; };
 		97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionView.swift; sourceTree = "<group>"; };
 		97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailModel.swift; sourceTree = "<group>"; };
@@ -619,7 +629,11 @@
 		97E0992C299F28F600C2731F /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				97E213F729B1D107008F3E15 /* AddCalendarViewController.swift */,
+				97E213F829B1D107008F3E15 /* AddCalendarViewController.xib */,
 				97E0992D299F295400C2731F /* AlertViewController.swift */,
+				97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */,
+				97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */,
 			);
 			name = Alerts;
 			sourceTree = "<group>";
@@ -693,6 +707,7 @@
 				97F6AEA82809737F00B61974 /* Assets.xcassets */,
 				97E0992F299F906B00C2731F /* Logo.xcassets */,
 				97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */,
+				97E213EB29B1C3DA008F3E15 /* GoogleService-Info.plist */,
 				97F6AEAD2809737F00B61974 /* Info.plist */,
 			);
 			path = TaiwanArtion;
@@ -828,9 +843,12 @@
 			files = (
 				6211AE3F289766E30092202B /* Colors.xcassets in Resources */,
 				97672CCB2916246A002BE893 /* Localizable.strings in Resources */,
+				97E213FE29B1EBED008F3E15 /* CheckAlertViewController.xib in Resources */,
+				97E213FA29B1D107008F3E15 /* AddCalendarViewController.xib in Resources */,
 				97F6AEAC2809737F00B61974 /* LaunchScreen.storyboard in Resources */,
 				97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */,
 				97E09930299F906B00C2731F /* Logo.xcassets in Resources */,
+				97E213EC29B1C3DA008F3E15 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +957,7 @@
 				97287AA52951E16B0003B184 /* FilterView.swift in Sources */,
 				97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */,
 				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
+				97E213FD29B1EBED008F3E15 /* CheckAlertViewController.swift in Sources */,
 				97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */,
 				97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */,
 				97E0991F299C8E4200C2731F /* ChoosedPhotoCollectionViewCell.swift in Sources */,
@@ -965,6 +984,7 @@
 				9756CA6C2963AA0C00DFCD61 /* ChooseCityViewController.swift in Sources */,
 				97F409B62813CA6800527646 /* MapView.swift in Sources */,
 				624605C328913A3D00E590E3 /* CalendarView.swift in Sources */,
+				97E213F929B1D107008F3E15 /* AddCalendarViewController.swift in Sources */,
 				626C319F289E17EE005A3190 /* PhotosCollectionViewCell.swift in Sources */,
 				9756CA6E2963AA2000DFCD61 /* ChooseCityView.swift in Sources */,
 				62EAB028288131520001B9BF /* SearchResultsTableViewCell.swift in Sources */,

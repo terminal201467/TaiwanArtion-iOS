@@ -8,23 +8,6 @@
 import UIKit
 import SnapKit
 
-enum CalendarKinds: Int, CaseIterable {
-    case googleCalendar = 0, iOSCalendar
-    var logo: String {
-        switch self {
-        case .googleCalendar: return "GoogleCalendar"
-        case .iOSCalendar: return "iOSCalendar"
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .googleCalendar: return "Google Calendar"
-        case .iOSCalendar: return "iOS 行事曆"
-        }
-    }
-}
-
 class ChooseCalenderView: UIView {
     
     var closeAction: (()->(Void))?
@@ -51,7 +34,7 @@ class ChooseCalenderView: UIView {
         return view
     }()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
        let tableView = UITableView()
         tableView.register(ChooseCalenderTableViewCell.self, forCellReuseIdentifier: ChooseCalenderTableViewCell.identifier)
         tableView.separatorStyle = .none
@@ -60,7 +43,6 @@ class ChooseCalenderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setTableView()
         autoLayout()
     }
     
@@ -68,10 +50,6 @@ class ChooseCalenderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
     
     private func autoLayout() {
         addSubview(backgroundview)
@@ -108,22 +86,4 @@ class ChooseCalenderView: UIView {
         closeAction?()
     }
     
-}
-
-extension ChooseCalenderView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        CalendarKinds.allCases.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let kinds = CalendarKinds(rawValue: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChooseCalenderTableViewCell.identifier, for: indexPath) as! ChooseCalenderTableViewCell
-        cell.configure(logoString: kinds?.logo, calenderString: kinds?.title)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexPath.row:\(indexPath.row)")
-    }
 }
