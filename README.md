@@ -14,13 +14,14 @@ To solve the find Exhibition problem.
 
 ##ExhibitionPage
 
-<img src="your_gif_url" width="300" height="200">
+<img src="https://github.com/terminal201467/TaiwanArtion/blob/MJ/GIF/ExhibitionPage.GIF" width="300" height="200">
+<img src="https://github.com/terminal201467/TaiwanArtion/blob/MJ/GIF/ExhibitionDetail.GIF" width="300" height="200">
 
 ##NearExhibitionPage
 
-<img src="your_gif_url" width="300" height="200">
+<img src="https://github.com/terminal201467/TaiwanArtion/blob/MJ/GIF/NearPage.GIF" width="300" height="200">
 
 ##SharePage
 
-<img src="your_gif_url" width="300" height="200">
+<img src="https://github.com/terminal201467/TaiwanArtion/blob/MJ/GIF/SharePageToChoosePhoto.GIF" width="300" height="200">
 
