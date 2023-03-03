@@ -95,9 +95,12 @@
 		97E09925299D7C5D00C2731F /* PlaceChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E09924299D7C5D00C2731F /* PlaceChooseViewController.swift */; };
 		97E09927299D9C0500C2731F /* ShareExhibitionTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E09926299D9C0500C2731F /* ShareExhibitionTextFieldTableViewCell.swift */; };
 		97E09929299DFEA700C2731F /* ExhibitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E09928299DFEA700C2731F /* ExhibitionModel.swift */; };
-		97E0992B299F26EA00C2731F /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0992A299F26EA00C2731F /* UIAlert.swift */; };
+		97E0992B299F26EA00C2731F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0992A299F26EA00C2731F /* UIViewController.swift */; };
 		97E0992E299F295400C2731F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0992D299F295400C2731F /* AlertViewController.swift */; };
 		97E09930299F906B00C2731F /* Logo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E0992F299F906B00C2731F /* Logo.xcassets */; };
+		97E2137329B0B3A0008F3E15 /* ChooseCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */; };
+		97E2137529B0B466008F3E15 /* ChooseCalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */; };
+		97E2137729B0C245008F3E15 /* ChooseCalenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */; };
 		97EC71312955DBBE009A2B14 /* ShareExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */; };
 		97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */; };
 		97EC713529593161009A2B14 /* ExhibitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */; };
@@ -222,9 +225,12 @@
 		97E09924299D7C5D00C2731F /* PlaceChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceChooseViewController.swift; sourceTree = "<group>"; };
 		97E09926299D9C0500C2731F /* ShareExhibitionTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		97E09928299DFEA700C2731F /* ExhibitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionModel.swift; sourceTree = "<group>"; };
-		97E0992A299F26EA00C2731F /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
+		97E0992A299F26EA00C2731F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		97E0992D299F295400C2731F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		97E0992F299F906B00C2731F /* Logo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logo.xcassets; sourceTree = "<group>"; };
+		97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderViewController.swift; sourceTree = "<group>"; };
+		97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderView.swift; sourceTree = "<group>"; };
+		97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderTableViewCell.swift; sourceTree = "<group>"; };
 		97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionView.swift; sourceTree = "<group>"; };
 		97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailModel.swift; sourceTree = "<group>"; };
@@ -395,7 +401,7 @@
 			children = (
 				62806AEB281A297900FD5AF2 /* Color.swift */,
 				97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */,
-				97E0992A299F26EA00C2731F /* UIAlert.swift */,
+				97E0992A299F26EA00C2731F /* UIViewController.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -418,6 +424,9 @@
 				6274AA0828164AB7008D076D /* ScrollPhotoTableViewCell.swift */,
 				6274AA0A2816D326008D076D /* FilterTableViewCell.swift */,
 				62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */,
+				97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */,
+				97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */,
+				97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */,
 				62CD76AC280D87BF00696DBC /* SideMenu */,
 				62D51EAE2817DA0D00010C6A /* SeeAll */,
 				62CD76AA280D805900696DBC /* Search */,
@@ -892,7 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E0992B299F26EA00C2731F /* UIAlert.swift in Sources */,
+				97E0992B299F26EA00C2731F /* UIViewController.swift in Sources */,
 				62B753BD2835F4BA00286FFF /* DateViewController.swift in Sources */,
 				62A558272872BB3C00EDCCB3 /* FindExhibitionViewModel.swift in Sources */,
 				62D51EB02817DA7D00010C6A /* SeeAllExhibitionViewController.swift in Sources */,
@@ -926,6 +935,7 @@
 				62E6BE2F288946F10050920F /* SouthAreaCell.swift in Sources */,
 				627F4ACF287FEDD100D86B07 /* WhetherStartExhibitionButton.swift in Sources */,
 				626B7B37288D7938002D6540 /* DateCell.swift in Sources */,
+				97E2137729B0C245008F3E15 /* ChooseCalenderTableViewCell.swift in Sources */,
 				97287AA52951E16B0003B184 /* FilterView.swift in Sources */,
 				97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */,
 				624605CF2893D2C000E590E3 /* TotalExhibitionTableViewCell.swift in Sources */,
@@ -965,6 +975,7 @@
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
 				97287AA72951E20B0003B184 /* FilterViewModel.swift in Sources */,
 				97EC713929593C02009A2B14 /* ShareExhibitionFooter.swift in Sources */,
+				97E2137529B0B466008F3E15 /* ChooseCalenderView.swift in Sources */,
 				97E09929299DFEA700C2731F /* ExhibitionModel.swift in Sources */,
 				62E6BE21288945290050920F /* NorthAreaButtons.swift in Sources */,
 				6274AA0928164AB7008D076D /* ScrollPhotoTableViewCell.swift in Sources */,
@@ -977,6 +988,7 @@
 				9756CA62295E88D600DFCD61 /* AddPhotoView.swift in Sources */,
 				9756CA682963A9AF00DFCD61 /* InputNameView.swift in Sources */,
 				62B753B72835F3FE00286FFF /* TabButtonCollectionViewCell.swift in Sources */,
+				97E2137329B0B3A0008F3E15 /* ChooseCalenderViewController.swift in Sources */,
 				97F6AEA22809737E00B61974 /* SceneDelegate.swift in Sources */,
 				62E6BE27288945D30050920F /* SouthAreaButtons.swift in Sources */,
 				626B7B39288D809D002D6540 /* MonthCollectionViewCell.swift in Sources */,
@@ -1224,7 +1236,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TaiwanArtion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mj.TaiwanArtion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1254,7 +1266,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TaiwanArtion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mj.TaiwanArtion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

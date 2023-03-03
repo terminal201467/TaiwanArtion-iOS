@@ -12,4 +12,5 @@ target 'TaiwanArtion' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'Firebase/Core'
 end

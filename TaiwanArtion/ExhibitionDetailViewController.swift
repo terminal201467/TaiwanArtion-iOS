@@ -241,12 +241,13 @@ class ExhibitionDetailViewController: UIViewController {
     
     @objc
     private func rightCalendarButton(_ sender: UIBarButtonItem) {
-        
+        let chooseCalendarViewController = ChooseCalenderViewController()
+        presentOnTop(chooseCalendarViewController, animated: true)
     }
     
     @objc
     private func rightShareButton(_ sender: UIBarButtonItem) {
-        
+        //推出分享頁面
     }
     
     private func pageViewChange(index: Int) -> UIViewController? {
