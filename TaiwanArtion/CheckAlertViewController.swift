@@ -8,22 +8,37 @@
 import UIKit
 
 class CheckAlertViewController: UIViewController {
+    
+    @IBOutlet var checkLogo: UIImageView!
+    
+    @IBOutlet var descriptionLabel: UILabel!
 
+    private var logo: String
+    
+    private var descriptions: String
+    
+    init(logo: String, descriptions: String) {
+        self.logo = logo
+        self.descriptions = descriptions
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setLogo(with: logo)
+        setDescriptionLabel(with: descriptions)
+    }
+    
+    private func setLogo(with logo: String) {
+        checkLogo.image = UIImage(named: logo)
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setDescriptionLabel(with description: String) {
+        descriptionLabel.text = "已儲存至\(description) Calendar"
     }
-    */
 
 }

@@ -18,6 +18,8 @@ class AddCalendarViewController: UIViewController {
     
     @IBOutlet var cancelButton: UIButton!
     
+    @IBOutlet var closeButton: UIButton!
+    
     @IBOutlet var alertView: UIView!
     
     //Properties
@@ -28,6 +30,7 @@ class AddCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAlertView()
+        setCloseButton()
         setLogo(with: logo)
         setButtons(with: "確認", with: "取消")
         setDescription(with: app)
@@ -55,9 +58,16 @@ class AddCalendarViewController: UIViewController {
     
     private func setButtons(with confirmString: String, with cancelString: String) {
         confirmButton.setTitle(confirmString, for: .normal)
+        confirmButton.tintColor = .textBlack464646
         cancelButton.setTitle(cancelString, for: .normal)
+        cancelButton.tintColor = .textBlack464646
         confirmButton.addTarget(self, action: #selector(confirmAction), for: .touchDown)
         cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchDown)
+    }
+    
+    private func setCloseButton() {
+        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeAction), for: .touchDown)
     }
     
     private func setDescription(with app: String) {
@@ -67,12 +77,17 @@ class AddCalendarViewController: UIViewController {
     @objc private func confirmAction() {
         dismiss(animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
-                self.present("", animated: true)
+                let checkAlertViewController = CheckAlertViewController(logo: "CheckCircle", descriptions: "\(self.app)")
+                self.presentOnTop(checkAlertViewController, animated: true)
             }
         }
     }
     
     @objc private func cancelAction() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func closeAction() {
         dismiss(animated: true)
     }
 

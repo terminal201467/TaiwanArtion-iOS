@@ -14,6 +14,7 @@
                 <outlet property="alertView" destination="OgP-fV-kJw" id="kQR-zR-pQ9"/>
                 <outlet property="calendarLogo" destination="z5P-mn-FeG" id="zqs-n8-wny"/>
                 <outlet property="cancelButton" destination="Eek-vu-Gg5" id="Il6-cR-KRn"/>
+                <outlet property="closeButton" destination="ol4-hU-MoL" id="oa6-YF-t4P"/>
                 <outlet property="confirmButton" destination="A1o-cd-UDe" id="QtV-dZ-wOv"/>
                 <outlet property="descriptionLabel" destination="yfW-SI-da2" id="9Je-JL-jHY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" id="nwy-vU-yne" userLabel="backgroundView">
+                <view alpha="0.5" contentMode="scaleToFill" id="nwy-vU-yne" userLabel="BackgroundView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,16 +67,29 @@
                                 <constraint firstAttribute="width" constant="40" id="iX5-q0-xTi"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ol4-hU-MoL" userLabel="CloseButton">
+                            <rect key="frame" x="237" y="10" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="IBT-Ig-yaH"/>
+                                <constraint firstAttribute="height" constant="24" id="lXo-8F-zzY"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="yfW-SI-da2" firstAttribute="centerY" secondItem="OgP-fV-kJw" secondAttribute="centerY" constant="10" id="2p5-Xr-uNx"/>
                         <constraint firstItem="yfW-SI-da2" firstAttribute="leading" secondItem="OgP-fV-kJw" secondAttribute="leading" id="A9k-cn-shh"/>
+                        <constraint firstItem="ol4-hU-MoL" firstAttribute="top" secondItem="OgP-fV-kJw" secondAttribute="top" constant="10" id="BOU-t7-G1m"/>
                         <constraint firstAttribute="trailing" secondItem="8Ra-7O-svs" secondAttribute="trailing" id="D8k-kh-66f"/>
                         <constraint firstItem="yfW-SI-da2" firstAttribute="top" secondItem="z5P-mn-FeG" secondAttribute="bottom" constant="10" id="N1h-gO-Ns2"/>
                         <constraint firstAttribute="bottom" secondItem="8Ra-7O-svs" secondAttribute="bottom" id="PjG-OA-9em"/>
                         <constraint firstAttribute="trailing" secondItem="yfW-SI-da2" secondAttribute="trailing" id="c3H-Eu-9yK"/>
+                        <constraint firstAttribute="trailing" secondItem="ol4-hU-MoL" secondAttribute="trailing" constant="10" id="c5r-BB-XV7"/>
                         <constraint firstItem="z5P-mn-FeG" firstAttribute="centerX" secondItem="OgP-fV-kJw" secondAttribute="centerX" id="eOB-2k-Ci3"/>
+                        <constraint firstAttribute="height" constant="154" id="hxr-Z9-91S"/>
+                        <constraint firstAttribute="width" constant="270" id="vaV-PP-50W"/>
                         <constraint firstItem="8Ra-7O-svs" firstAttribute="leading" secondItem="OgP-fV-kJw" secondAttribute="leading" id="z9W-SP-Pd3"/>
                     </constraints>
                 </view>
