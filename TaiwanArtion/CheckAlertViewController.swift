@@ -12,6 +12,8 @@ class CheckAlertViewController: UIViewController {
     @IBOutlet var checkLogo: UIImageView!
     
     @IBOutlet var descriptionLabel: UILabel!
+    
+    @IBOutlet var checkView: UIView!
 
     private var logo: String
     
@@ -31,6 +33,11 @@ class CheckAlertViewController: UIViewController {
         super.viewDidLoad()
         setLogo(with: logo)
         setDescriptionLabel(with: descriptions)
+        setCheckView()
+    }
+    
+    private func setCheckView() {
+        checkView.addRoundedCorners(cornerRadius: 10)
     }
     
     private func setLogo(with logo: String) {

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckAlertViewController" customModule="TaiwanArtion" customModuleProvider="target">
             <connections>
                 <outlet property="checkLogo" destination="9a8-jt-vrF" id="qRc-RD-LN1"/>
+                <outlet property="checkView" destination="76z-2f-2Jo" id="YYN-HJ-yWa"/>
                 <outlet property="descriptionLabel" destination="Gcc-9b-7VM" id="68f-gN-RQV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -20,11 +20,12 @@ class ShareAlertViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         setGesture()
+        setOptionView()
     }
     
     //設置可滑動區域
     private func setOptionView() {
-        
+        optionView.addRoundedCornersToTopLeftAndTopRight(cornerRadius: 10)
         
     }
     
@@ -81,7 +82,6 @@ extension ShareAlertViewController: UITableViewDelegate, UITableViewDataSource {
         case .socialAPP:
             let cell = tableView.dequeueReusableCell(withIdentifier: ShareAppTableViewCell.identifier, for: indexPath) as! ShareAppTableViewCell
             cell.selectionStyle = .none
-        
             return cell
         case .copyLink:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
