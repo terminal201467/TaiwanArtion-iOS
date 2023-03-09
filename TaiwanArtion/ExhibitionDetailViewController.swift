@@ -247,7 +247,8 @@ class ExhibitionDetailViewController: UIViewController {
     
     @objc
     private func rightShareButton(_ sender: UIBarButtonItem) {
-        //推出分享頁面
+        let shareAlertViewController = ShareAlertViewController()
+        presentOnTop(shareAlertViewController, animated: true)
     }
     
     private func pageViewChange(index: Int) -> UIViewController? {

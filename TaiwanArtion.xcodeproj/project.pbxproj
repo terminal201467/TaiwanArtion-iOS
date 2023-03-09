@@ -84,6 +84,10 @@
 		9756CA702963AA3100DFCD61 /* ChooseCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756CA6F2963AA3100DFCD61 /* ChooseCityViewModel.swift */; };
 		97672CCB2916246A002BE893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97672CCA2916246A002BE893 /* Localizable.strings */; };
 		97672CCD29164142002BE893 /* NearbyExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */; };
+		9767879429B723D4003B88E3 /* ShareAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767879229B723D4003B88E3 /* ShareAppTableViewCell.swift */; };
+		9767879A29B8199E003B88E3 /* ShareItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767879829B8199E003B88E3 /* ShareItemTableViewCell.swift */; };
+		9767879E29B893C2003B88E3 /* ShareAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767879C29B893C2003B88E3 /* ShareAppCollectionViewCell.swift */; };
+		976787A229B893DE003B88E3 /* ShareMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976787A029B893DE003B88E3 /* ShareMemberCollectionViewCell.swift */; };
 		979B5A4F295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */; };
 		97B3F6DD29417F7E004BBC67 /* NearByExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */; };
 		97B3F6DF2946D4CE004BBC67 /* UIBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */; };
@@ -97,7 +101,6 @@
 		97E09929299DFEA700C2731F /* ExhibitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E09928299DFEA700C2731F /* ExhibitionModel.swift */; };
 		97E0992B299F26EA00C2731F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0992A299F26EA00C2731F /* UIViewController.swift */; };
 		97E0992E299F295400C2731F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0992D299F295400C2731F /* AlertViewController.swift */; };
-		97E09930299F906B00C2731F /* Logo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E0992F299F906B00C2731F /* Logo.xcassets */; };
 		97E2137329B0B3A0008F3E15 /* ChooseCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */; };
 		97E2137529B0B466008F3E15 /* ChooseCalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */; };
 		97E2137729B0C245008F3E15 /* ChooseCalenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */; };
@@ -106,6 +109,10 @@
 		97E213FA29B1D107008F3E15 /* AddCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E213F829B1D107008F3E15 /* AddCalendarViewController.xib */; };
 		97E213FD29B1EBED008F3E15 /* CheckAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */; };
 		97E213FE29B1EBED008F3E15 /* CheckAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */; };
+		97E2140129B2DCE3008F3E15 /* ShareAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E213FF29B2DCE3008F3E15 /* ShareAlertViewController.swift */; };
+		97E2140229B2DCE3008F3E15 /* ShareAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E2140029B2DCE3008F3E15 /* ShareAlertViewController.xib */; };
+		97E2141229B57B4E008F3E15 /* ShareItemHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2141129B57B4E008F3E15 /* ShareItemHeaderView.swift */; };
+		97E2141429B58AB6008F3E15 /* ShareAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2141329B58AB6008F3E15 /* ShareAlertViewModel.swift */; };
 		97EC71312955DBBE009A2B14 /* ShareExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */; };
 		97EC71332955DBEA009A2B14 /* ShareExhibitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */; };
 		97EC713529593161009A2B14 /* ExhibitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */; };
@@ -219,6 +226,10 @@
 		9756CA6F2963AA3100DFCD61 /* ChooseCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityViewModel.swift; sourceTree = "<group>"; };
 		97672CCA2916246A002BE893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyExhibitionViewModel.swift; sourceTree = "<group>"; };
+		9767879229B723D4003B88E3 /* ShareAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAppTableViewCell.swift; sourceTree = "<group>"; };
+		9767879829B8199E003B88E3 /* ShareItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemTableViewCell.swift; sourceTree = "<group>"; };
+		9767879C29B893C2003B88E3 /* ShareAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAppCollectionViewCell.swift; sourceTree = "<group>"; };
+		976787A029B893DE003B88E3 /* ShareMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		979B5A4E295BD3A3005662B2 /* ShareExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByExhibitionView.swift; sourceTree = "<group>"; };
 		97B3F6DE2946D4CE004BBC67 /* UIBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBinder.swift; sourceTree = "<group>"; };
@@ -232,7 +243,6 @@
 		97E09928299DFEA700C2731F /* ExhibitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionModel.swift; sourceTree = "<group>"; };
 		97E0992A299F26EA00C2731F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		97E0992D299F295400C2731F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		97E0992F299F906B00C2731F /* Logo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Logo.xcassets; sourceTree = "<group>"; };
 		97E2137229B0B3A0008F3E15 /* ChooseCalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderViewController.swift; sourceTree = "<group>"; };
 		97E2137429B0B466008F3E15 /* ChooseCalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderView.swift; sourceTree = "<group>"; };
 		97E2137629B0C245008F3E15 /* ChooseCalenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCalenderTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +251,10 @@
 		97E213F829B1D107008F3E15 /* AddCalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCalendarViewController.xib; sourceTree = "<group>"; };
 		97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAlertViewController.swift; sourceTree = "<group>"; };
 		97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckAlertViewController.xib; sourceTree = "<group>"; };
+		97E213FF29B2DCE3008F3E15 /* ShareAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAlertViewController.swift; sourceTree = "<group>"; };
+		97E2140029B2DCE3008F3E15 /* ShareAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareAlertViewController.xib; sourceTree = "<group>"; };
+		97E2141129B57B4E008F3E15 /* ShareItemHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemHeaderView.swift; sourceTree = "<group>"; };
+		97E2141329B58AB6008F3E15 /* ShareAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAlertViewModel.swift; sourceTree = "<group>"; };
 		97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionView.swift; sourceTree = "<group>"; };
 		97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExhibitionViewModel.swift; sourceTree = "<group>"; };
 		97EC713429593161009A2B14 /* ExhibitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionDetailModel.swift; sourceTree = "<group>"; };
@@ -634,6 +648,14 @@
 				97E0992D299F295400C2731F /* AlertViewController.swift */,
 				97E213FB29B1EBEC008F3E15 /* CheckAlertViewController.swift */,
 				97E213FC29B1EBED008F3E15 /* CheckAlertViewController.xib */,
+				97E213FF29B2DCE3008F3E15 /* ShareAlertViewController.swift */,
+				97E2141329B58AB6008F3E15 /* ShareAlertViewModel.swift */,
+				97E2140029B2DCE3008F3E15 /* ShareAlertViewController.xib */,
+				9767879829B8199E003B88E3 /* ShareItemTableViewCell.swift */,
+				976787A029B893DE003B88E3 /* ShareMemberCollectionViewCell.swift */,
+				9767879C29B893C2003B88E3 /* ShareAppCollectionViewCell.swift */,
+				9767879229B723D4003B88E3 /* ShareAppTableViewCell.swift */,
+				97E2141129B57B4E008F3E15 /* ShareItemHeaderView.swift */,
 			);
 			name = Alerts;
 			sourceTree = "<group>";
@@ -705,7 +727,6 @@
 				97E0992C299F28F600C2731F /* Alerts */,
 				6211AE3E289766E30092202B /* Colors.xcassets */,
 				97F6AEA82809737F00B61974 /* Assets.xcassets */,
-				97E0992F299F906B00C2731F /* Logo.xcassets */,
 				97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */,
 				97E213EB29B1C3DA008F3E15 /* GoogleService-Info.plist */,
 				97F6AEAD2809737F00B61974 /* Info.plist */,
@@ -842,12 +863,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6211AE3F289766E30092202B /* Colors.xcassets in Resources */,
+				97E2140229B2DCE3008F3E15 /* ShareAlertViewController.xib in Resources */,
 				97672CCB2916246A002BE893 /* Localizable.strings in Resources */,
 				97E213FE29B1EBED008F3E15 /* CheckAlertViewController.xib in Resources */,
 				97E213FA29B1D107008F3E15 /* AddCalendarViewController.xib in Resources */,
 				97F6AEAC2809737F00B61974 /* LaunchScreen.storyboard in Resources */,
 				97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */,
-				97E09930299F906B00C2731F /* Logo.xcassets in Resources */,
 				97E213EC29B1C3DA008F3E15 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,12 +943,14 @@
 				97E0992B299F26EA00C2731F /* UIViewController.swift in Sources */,
 				62B753BD2835F4BA00286FFF /* DateViewController.swift in Sources */,
 				62A558272872BB3C00EDCCB3 /* FindExhibitionViewModel.swift in Sources */,
+				97E2141429B58AB6008F3E15 /* ShareAlertViewModel.swift in Sources */,
 				62D51EB02817DA7D00010C6A /* SeeAllExhibitionViewController.swift in Sources */,
 				62E6BE31288947040050920F /* EastAreaCell.swift in Sources */,
 				624605D8289686DD00E590E3 /* IntroduceViewController.swift in Sources */,
 				62B753BB2835F4A900286FFF /* ExhibitionPlaceViewController.swift in Sources */,
 				62CD76A6280D7EEF00696DBC /* SearchViewController.swift in Sources */,
 				62DCAC1B28783061004EC187 /* SeeAllExhibitionTableView.swift in Sources */,
+				9767879E29B893C2003B88E3 /* ShareAppCollectionViewCell.swift in Sources */,
 				9756CA6A2963A9CA00DFCD61 /* InputNameViewModel.swift in Sources */,
 				62CD76A0280D40A800696DBC /* SideMenuViewController.swift in Sources */,
 				624605CD2893C66F00E590E3 /* SearchResultListTableViewCell.swift in Sources */,
@@ -935,17 +958,21 @@
 				97287A9F294C27410003B184 /* ItemsCollectionCell.swift in Sources */,
 				9756CA662963A99800DFCD61 /* InputNameViewController.swift in Sources */,
 				625938FE289AC32600A900FD /* SearchResultViewModel.swift in Sources */,
+				97E2141229B57B4E008F3E15 /* ShareItemHeaderView.swift in Sources */,
 				9756CA60295E88C300DFCD61 /* AddPhotoViewController.swift in Sources */,
 				97B3F6E3294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift in Sources */,
 				62CD7696280D067200696DBC /* FindExhibitionViewController.swift in Sources */,
+				9767879429B723D4003B88E3 /* ShareAppTableViewCell.swift in Sources */,
 				62EAB02F2881720A0001B9BF /* FilterPositionCell.swift in Sources */,
 				9756CA64295E96FB00DFCD61 /* AddPhotoViewModel.swift in Sources */,
 				624605C628927F8800E590E3 /* SearchResultViewController.swift in Sources */,
 				62CD769C280D08A600696DBC /* MainTabBarController.swift in Sources */,
 				97E09927299D9C0500C2731F /* ShareExhibitionTextFieldTableViewCell.swift in Sources */,
+				976787A229B893DE003B88E3 /* ShareMemberCollectionViewCell.swift in Sources */,
 				624605CB2893C65800E590E3 /* SearchResultTableView.swift in Sources */,
 				624605D6289686A300E590E3 /* FareViewController.swift in Sources */,
 				62CD769A280D073E00696DBC /* ShareExhibitionViewController.swift in Sources */,
+				97E2140129B2DCE3008F3E15 /* ShareAlertViewController.swift in Sources */,
 				62E6BE33288947150050920F /* OuterIslandAreaCell.swift in Sources */,
 				626C31A328A20DA4005A3190 /* SearchPageViewController.swift in Sources */,
 				97F6AEA02809737E00B61974 /* AppDelegate.swift in Sources */,
@@ -993,6 +1020,7 @@
 				97EC713729593BE4009A2B14 /* ShareExhibitionHeader.swift in Sources */,
 				62593904289C2EF700A900FD /* SearchRecordTableViewCell.swift in Sources */,
 				626B7B33288D4923002D6540 /* MonthCollectionView.swift in Sources */,
+				9767879A29B8199E003B88E3 /* ShareItemTableViewCell.swift in Sources */,
 				97287AA72951E20B0003B184 /* FilterViewModel.swift in Sources */,
 				97EC713929593C02009A2B14 /* ShareExhibitionFooter.swift in Sources */,
 				97E2137529B0B466008F3E15 /* ChooseCalenderView.swift in Sources */,
