@@ -67,7 +67,7 @@ class AddPhotoViewController: UIViewController {
 
 }
 
-extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section: section)
     }
@@ -85,6 +85,12 @@ extension AddPhotoViewController: UICollectionViewDelegate, UICollectionViewData
         returnSelectedItems?(viewModel.provideTheSelectedItems())
         collectionView.reloadItems(at: [indexPath])
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = addPhotoView.photoGallery.frame.width * 1 / 3 - 5
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+    
 }
 
 
