@@ -32,35 +32,34 @@
                     <rect key="frame" x="46.666666666666657" y="401" width="300" height="50"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckCircle" translatesAutoresizingMaskIntoConstraints="NO" id="9a8-jt-vrF" userLabel="CheckLogo">
-                            <rect key="frame" x="10" y="5" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="fII-7c-u7H"/>
-                            </constraints>
+                            <rect key="frame" x="5" y="13" width="40" height="24"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcc-9b-7VM" userLabel="Description">
-                            <rect key="frame" x="60" y="14.666666666666686" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcc-9b-7VM" userLabel="Description">
+                            <rect key="frame" x="50" y="14.666666666666686" width="240" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <viewLayoutGuide key="safeArea" id="XAL-eT-umh"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="9a8-jt-vrF" firstAttribute="top" secondItem="76z-2f-2Jo" secondAttribute="top" constant="5" id="Bsn-t9-4cq"/>
-                        <constraint firstItem="Gcc-9b-7VM" firstAttribute="centerY" secondItem="76z-2f-2Jo" secondAttribute="centerY" id="VeN-aK-New"/>
-                        <constraint firstItem="Gcc-9b-7VM" firstAttribute="leading" secondItem="9a8-jt-vrF" secondAttribute="trailing" constant="10" id="b6P-He-bon"/>
-                        <constraint firstAttribute="height" constant="50" id="d55-b3-t95"/>
-                        <constraint firstItem="9a8-jt-vrF" firstAttribute="centerY" secondItem="76z-2f-2Jo" secondAttribute="centerY" id="oF9-iZ-JeD"/>
-                        <constraint firstItem="9a8-jt-vrF" firstAttribute="leading" secondItem="76z-2f-2Jo" secondAttribute="leading" constant="10" id="vjd-o5-Qgg"/>
-                        <constraint firstAttribute="width" constant="300" id="z2H-zQ-Mp3"/>
+                        <constraint firstItem="9a8-jt-vrF" firstAttribute="leading" secondItem="76z-2f-2Jo" secondAttribute="leading" constant="5" id="94B-dg-mCZ"/>
+                        <constraint firstItem="9a8-jt-vrF" firstAttribute="centerY" secondItem="Gcc-9b-7VM" secondAttribute="centerY" id="9zN-xa-boP"/>
+                        <constraint firstItem="Gcc-9b-7VM" firstAttribute="leading" secondItem="9a8-jt-vrF" secondAttribute="trailing" constant="5" id="At4-XB-sEz"/>
+                        <constraint firstAttribute="trailing" secondItem="Gcc-9b-7VM" secondAttribute="trailing" constant="10" id="M8O-h3-UKl"/>
+                        <constraint firstItem="Gcc-9b-7VM" firstAttribute="centerY" secondItem="76z-2f-2Jo" secondAttribute="centerY" id="bCK-yn-QdI"/>
+                        <constraint firstItem="9a8-jt-vrF" firstAttribute="height" secondItem="76z-2f-2Jo" secondAttribute="height" multiplier="0.48" id="pgL-1q-Z18"/>
+                        <constraint firstItem="9a8-jt-vrF" firstAttribute="width" secondItem="76z-2f-2Jo" secondAttribute="width" multiplier="0.133333" id="yRX-lv-F07"/>
+                        <constraint firstItem="9a8-jt-vrF" firstAttribute="centerY" secondItem="76z-2f-2Jo" secondAttribute="centerY" id="yWM-hT-69d"/>
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
-                <constraint firstItem="76z-2f-2Jo" firstAttribute="centerY" secondItem="GsS-OQ-wZy" secondAttribute="centerY" id="IJp-GC-eJp"/>
-                <constraint firstItem="76z-2f-2Jo" firstAttribute="centerX" secondItem="GsS-OQ-wZy" secondAttribute="centerX" id="kdu-aL-kaE"/>
+                <constraint firstItem="76z-2f-2Jo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dhj-ZT-Cq1"/>
+                <constraint firstItem="76z-2f-2Jo" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0586854" id="Myu-qX-4ya"/>
+                <constraint firstItem="Gcc-9b-7VM" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0246479" id="YeY-Sl-0s7"/>
+                <constraint firstItem="76z-2f-2Jo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nte-BY-mED"/>
+                <constraint firstItem="76z-2f-2Jo" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.763359" id="pen-Vh-lF6"/>
             </constraints>
             <point key="canvasLocation" x="138" y="21"/>
         </view>

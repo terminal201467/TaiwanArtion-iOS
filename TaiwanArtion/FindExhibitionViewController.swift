@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 import SideMenu
 import RxSwift
+import Firebase
+import FirebaseFirestore
 
 class FindExhibitionViewController: UIViewController {
     
@@ -16,6 +18,7 @@ class FindExhibitionViewController: UIViewController {
     private let viewModel: FindExhibitionViewModelType
     private let disposeBag = DisposeBag()
     
+    private let firebaseManager = FirebaseManager.shared
     
     // MARK: - UIs
     private let tableView = FindExhibitionTableView()
@@ -41,6 +44,19 @@ class FindExhibitionViewController: UIViewController {
         setupNavigation()
         setupBinding()
         viewModel.inputs.viewDidLoad.accept(())
+        firebaseManager.readDocument(fromCollection: "test", withDocumentId: "student1") { result in
+            switch result {
+            case .success(let document):
+                if let document = document, document.exists {
+                    let data = document.data()
+                    print("Document data: \(data)")
+                } else {
+                    print("Document does not exist")
+                }
+            case .failure(let error):
+                print("error:\(error.localizedDescription)")
+            }
+        }
     }
     
     // MARK: - Set SideMenu
