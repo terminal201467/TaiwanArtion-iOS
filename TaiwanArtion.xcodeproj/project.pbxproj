@@ -66,6 +66,7 @@
 		62EBB6D8280F999D00161036 /* FindExhibitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */; };
 		9703603129B97B6000A01B5D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703603029B97B6000A01B5D /* UIView.swift */; };
 		9703603429B9A75600A01B5D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703603329B9A75600A01B5D /* FirebaseManager.swift */; };
+		9703603629BAD31D00A01B5D /* ShareExhibitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9703603529BAD31D00A01B5D /* ShareExhibitionView.xib */; };
 		97287A9F294C27410003B184 /* ItemsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287A9E294C27410003B184 /* ItemsCollectionCell.swift */; };
 		97287AA1295084280003B184 /* NavigateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA0295084280003B184 /* NavigateLocationView.swift */; };
 		97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA22951E11B0003B184 /* FilterViewController.swift */; };
@@ -208,6 +209,7 @@
 		62EBB6D7280F999D00161036 /* FindExhibitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindExhibitionTableViewCell.swift; sourceTree = "<group>"; };
 		9703603029B97B6000A01B5D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9703603329B9A75600A01B5D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		9703603529BAD31D00A01B5D /* ShareExhibitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShareExhibitionView.xib; path = "/Users/jhenmu/Developer/TaiwanArtion-iOS/TaiwanArtion/ShareExhibitionView.xib"; sourceTree = "<absolute>"; };
 		97287A9E294C27410003B184 /* ItemsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionCell.swift; sourceTree = "<group>"; };
 		97287AA0295084280003B184 /* NavigateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateLocationView.swift; sourceTree = "<group>"; };
 		97287AA22951E11B0003B184 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				62CD7699280D073E00696DBC /* ShareExhibitionViewController.swift */,
 				97E09924299D7C5D00C2731F /* PlaceChooseViewController.swift */,
 				97EC71302955DBBD009A2B14 /* ShareExhibitionView.swift */,
+				9703603529BAD31D00A01B5D /* ShareExhibitionView.xib */,
 				97EC71322955DBEA009A2B14 /* ShareExhibitionViewModel.swift */,
 				97EC713629593BE4009A2B14 /* ShareExhibitionHeader.swift */,
 				97E09922299C903A00C2731F /* DisplayPhotosView.swift */,
@@ -880,6 +883,7 @@
 				97E2140229B2DCE3008F3E15 /* ShareAlertViewController.xib in Resources */,
 				97672CCB2916246A002BE893 /* Localizable.strings in Resources */,
 				97E213FE29B1EBED008F3E15 /* CheckAlertViewController.xib in Resources */,
+				9703603629BAD31D00A01B5D /* ShareExhibitionView.xib in Resources */,
 				97E213FA29B1D107008F3E15 /* AddCalendarViewController.xib in Resources */,
 				97F6AEAC2809737F00B61974 /* LaunchScreen.storyboard in Resources */,
 				97F6AEA92809737F00B61974 /* Assets.xcassets in Resources */,

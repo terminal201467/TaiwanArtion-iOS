@@ -27,7 +27,7 @@ class ShareExhibitionView: UIView {
         view.showsVerticalScrollIndicator = false
         view.bounces = true
         view.isPagingEnabled = false
-        view.contentSize = CGSize(width: 0, height: 1200)
+        view.contentSize = CGSize(width: 0, height: 1000)
         return view
     }()
     
@@ -42,6 +42,15 @@ class ShareExhibitionView: UIView {
         return tableView
     }()
     
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [scrollHeader, table, scrollFooter])
+        stackView.alignment = .fill
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        return stackView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         autoLayout()
@@ -62,34 +71,29 @@ class ShareExhibitionView: UIView {
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
-
-        scrollView.addSubview(scrollHeader)
+        addSubview(scrollHeader)
         scrollHeader.snp.makeConstraints { make in
             make.height.equalTo(400)
-            make.width.equalTo(safeAreaLayoutGuide.snp.width)
-            make.top.equalTo(scrollView.snp.top)
-            make.leading.equalTo(scrollView.snp.leading)
-            make.trailing.equalTo(scrollView.snp.trailing)
+            make.width.equalToSuperview()
         }
-
-        scrollView.addSubview(table)
+        addSubview(table)
         table.snp.makeConstraints { make in
-            make.top.equalTo(scrollHeader.snp.bottom)
-            make.leading.equalTo(scrollView.snp.leading)
-            make.trailing.equalTo(scrollView.snp.trailing)
-            make.height.equalTo(scrollHeader.snp.height)
-            make.width.equalTo(scrollView.snp.width)
+            make.height.equalTo(500)
+            make.width.equalToSuperview()
+        }
+        addSubview(scrollFooter)
+        scrollFooter.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.width.equalToSuperview()
+        }
+        
+        scrollView.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(scrollView.contentSize.height)
         }
 
-        scrollView.addSubview(scrollFooter)
-        scrollFooter.snp.makeConstraints { make in
-            make.top.equalTo(table.snp.bottom).offset(50)
-            make.leading.equalTo(scrollView.snp.leading)
-            make.trailing.equalTo(scrollView.snp.trailing)
-            make.bottom.equalTo(scrollView.snp.bottom)
-            make.height.equalTo(100)
-            make.width.equalTo(scrollView.snp.width)
-        }
     }
     
     private func setHeaderView() {
