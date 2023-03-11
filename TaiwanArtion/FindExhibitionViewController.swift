@@ -44,7 +44,7 @@ class FindExhibitionViewController: UIViewController {
         setupNavigation()
         setupBinding()
         viewModel.inputs.viewDidLoad.accept(())
-        firebaseManager.readDocument(fromCollection: "test", withDocumentId: "student1") { result in
+        firebaseManager.readDocument(fromCollection: "exhibitions", withDocumentId: "00QQZuAp4br9K3v7ue4S") { result in
             switch result {
             case .success(let document):
                 if let document = document, document.exists {
