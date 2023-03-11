@@ -7,59 +7,16 @@
 
 import UIKit
 import MapKit
+import RxSwift
+import RxCocoa
 
 class NearByExhibitionView: UIView {
-
     
+    private let disposeBag = DisposeBag()
+
     var cityFilter: (() -> Void)?
     
     var dateFilter: (() -> Void)?
-    
-    //FindButtons
-    let findExhibitionButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .brownColor
-        button.tintColor = .tintColor
-        button.setTitle("尋找展覽", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.layer.cornerRadius = 5
-        return button
-    }()
-    
-    let findLocationButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .brownColor
-        button.tintColor = .tintColor
-        button.setTitle("尋找地點", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.layer.cornerRadius = 5
-        return button
-    }()
-    
-    let findExhibitionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "尋找展覽"
-        label.textColor = .brownColor
-        label.font = .boldSystemFont(ofSize: 16)
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    let containerView: UIView = {
-       let view = UIView()
-        return view
-    }()
-    
-    lazy var findButtons: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [findExhibitionButton,findLocationButton])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.alignment = .leading
-        stackView.spacing = 8
-        return stackView
-    }()
     
     let searchContainerView: UIView = {
        let view = UIView()
@@ -80,7 +37,7 @@ class NearByExhibitionView: UIView {
        let button = UIButton()
         button.setTitle("縣市", for: .normal)
         button.backgroundColor = .brownColor
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.titleLabel?.font = .systemFont(ofSize: 14)
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(cityFilterAction), for: .touchDown)
         return button
@@ -89,9 +46,10 @@ class NearByExhibitionView: UIView {
     let dateFilterButton: UIButton = {
        let button = UIButton()
         button.setTitle("日期", for: .normal)
-        button.backgroundColor = .brownColor
-        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.backgroundColor = .cardBackgroundGray
+        button.titleLabel?.font = .systemFont(ofSize: 14)
         button.layer.cornerRadius = 5
+        button.setTitleColor(.textGrayB0B0B0, for: .normal)
         button.addTarget(self, action: #selector(dateFilterAction), for: .touchDown)
         return button
     }()
@@ -105,10 +63,7 @@ class NearByExhibitionView: UIView {
         return stackView
     }()
     
-    let navigationBar: UIView = {
-        let view = NavigationBarView()
-        return view
-    }()
+    let navigationBar = NavigationBarView()
     
     let mapView: MKMapView = {
         let mapView = MKMapView()
@@ -137,10 +92,10 @@ class NearByExhibitionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setMapViewLayout()
-        setNavigationModeLayout()
+        setNavigationView()
+        setNavigationBar()
         setSearchContainerView()
         setNavigatorDetailView()
-        setNavigationView()
         setListViewLayout()
     }
     
@@ -148,52 +103,48 @@ class NearByExhibitionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setNavigationModeLayout() {
-        findExhibitionLabel.removeFromSuperview()
-        containerView.addSubview(findButtons)
-        findButtons.snp.makeConstraints { make in
-            make.leading.equalTo(containerView.snp.leading)
-            make.top.equalTo(containerView.snp.top)
-            make.bottom.equalTo(containerView.snp.bottom)
-            make.trailing.equalTo(containerView.snp.centerX)
-        }
-    }
-    
-    func setSearchModeLayout() {
-        findButtons.removeFromSuperview()
-        containerView.addSubview(findExhibitionLabel)
-        findExhibitionLabel.snp.makeConstraints { make in
-            make.leading.equalTo(containerView.snp.leading).offset(20)
-            make.top.equalTo(containerView.snp.top)
-            make.bottom.equalTo(containerView.snp.bottom)
-            make.trailing.equalTo(containerView.snp.centerX).offset(-70)
+    func setNavigationBar() {
+        navigationBar.searchAction = {
+            self.searchContainerView.isHidden.toggle()
         }
     }
     
     private func setSearchContainerView() {
         addSubview(searchContainerView)
-        searchContainerView.addSubview(searchBar)
-        searchContainerView.addSubview(filterButtons)
         searchContainerView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.height.equalTo(100)
+            make.height.equalToSuperview().multipliedBy(100.0 / 864.0)
         }
         
+        searchContainerView.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.leading.equalTo(searchContainerView.snp.leading).offset(20)
-            make.trailing.equalTo(searchContainerView.snp.trailing).offset(-20)
-            make.top.equalTo(searchContainerView.snp.top)
-            make.height.equalTo(40)
+            make.top.equalToSuperview().offset(5)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(358.0 / 390.0)
+            make.height.equalToSuperview().multipliedBy(40.0 / 100.0)
+        }
+        searchContainerView.addSubview(cityFilterButton)
+        cityFilterButton.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(83.0 / 390.0)
+            make.height.equalToSuperview().multipliedBy(30.0 / 100.0)
         }
         
-        filterButtons.snp.makeConstraints { make in
-            make.leading.equalTo(searchBar.snp.leading)
-            make.trailing.equalTo(searchContainerView.snp.centerX).offset(-20)
-            make.top.equalTo(searchBar.snp.bottom).offset(10)
-            make.bottom.equalTo(searchContainerView.snp.bottom).offset(-20)
+        searchContainerView.addSubview(dateFilterButton)
+        dateFilterButton.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(83.0 / 390.0)
+            make.height.equalToSuperview().multipliedBy(30.0 / 100.0)
         }
+        
+        searchContainerView.addSubview(filterButtons)
+        filterButtons.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(10)
+            make.leading.equalTo(searchBar.snp.leading)
+            make.width.equalToSuperview().multipliedBy(174.0 / 390)
+            make.height.equalToSuperview().multipliedBy(30.0 / 100.0)
+        }
+
     }
     
     private func setMapViewLayout() {

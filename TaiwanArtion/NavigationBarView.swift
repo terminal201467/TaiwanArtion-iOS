@@ -20,6 +20,8 @@ class NavigationBarView: UIView {
     
     var sideMenuSelectionAction: (()->(Void))?
     
+    var searchAction: (()->(Void))?
+    
     //MARK: - UI settings
     private let searchButton: UIButton = {
         let button = UIButton()
@@ -93,6 +95,7 @@ class NavigationBarView: UIView {
             .bind { [unowned self] in
                 self.isSearchMode.toggle()
                 setModeSwitch(with: isSearchMode)
+                searchAction?()
             }
             .disposed(by: disposeBag)
     }
