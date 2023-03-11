@@ -28,15 +28,14 @@ class MainTabBarController: UITabBarController {
         findController.tabBarItem.title = "早找展覽"
         
         let nearbyVC = NearbyExhibitionViewController(viewModel: NearbyExhibitionViewModel())
-        let nearbyController = UINavigationController(rootViewController: nearbyVC)
-        nearbyController.tabBarItem.image = UIImage(named: "Map")
-        nearbyController.tabBarItem.title = "附近展覽"
+        nearbyVC.tabBarItem.image = UIImage(named: "Map")
+        nearbyVC.tabBarItem.title = "附近展覽"
         
         let shareVC = ShareExhibitionViewController(viewModel: ShareExhibitionViewModel())
         let shareController = UINavigationController(rootViewController: shareVC)
         shareController.tabBarItem.image = UIImage(named: "Share")
         shareController.tabBarItem.title = "分享展覽"
         
-        viewControllers = [findController, nearbyController, shareController]
+        viewControllers = [findController, nearbyVC, shareController]
     }
 }

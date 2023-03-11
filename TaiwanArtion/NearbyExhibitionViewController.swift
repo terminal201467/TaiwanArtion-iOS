@@ -46,7 +46,6 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         setMapView()
         setListView()
         setItems()
-        setNavigationMode()
         setExhibitionListBinding()
         setfilter()
         setStartNavigator()
@@ -61,34 +60,6 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         self.view.endEditing(true)
     }
     
-    
-    private func setNavigationMode() {
-        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                               style: .plain,
-                                               target: self,
-                                               action: #selector(searchButtonPress))
-
-        let menuButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuButtonPress))
-        
-        searchButton.tintColor = .black
-        menuButton.tintColor = .black
-        self.navigationController?.navigationBar.tintColor = .backgroundColor
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationItem.rightBarButtonItem = searchButton
-        navigationItem.leftBarButtonItem = menuButton
-        navigationItem.titleView = nearByExhibitionView.containerView
-        nearByExhibitionView.searchContainerView.isHidden = true
-    }
-    
-    private func setSearchMode() {
-        let arrowButton = UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(searchButtonPress))
-        arrowButton.tintColor = .black
-        navigationItem.rightBarButtonItem = arrowButton
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.titleView = nearByExhibitionView.containerView
-        nearByExhibitionView.searchContainerView.isHidden = false
-    }
-    
     private func setMapView() {
         let location = CLLocationCoordinate2D(latitude: 22.999696, longitude: 120.212768)
         let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -97,7 +68,8 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
     
     private func setListView() {
         nearByExhibitionView.listView.slideUp = {
-            let safeAreaInsetsTop = self.nearByExhibitionView.safeAreaInsets.top
+            let safeAreaInsetsTop = self.nearByExhibitionView.safeAreaInsets.top + self.nearByExhibitionView.navigationBar.frame.height
+            print("safeAreaInsetsTop:\(safeAreaInsetsTop)")
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut) {
                     self.nearByExhibitionView.listView.frame.origin.y = safeAreaInsetsTop
@@ -114,7 +86,7 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
         }
         
         nearByExhibitionView.listView.slideDown = {
-            let initListViewOriginY = self.nearByExhibitionView.safeAreaInsets.top + 550
+            let initListViewOriginY = self.nearByExhibitionView.safeAreaInsets.top + self.view.frame.height * 600 / 864
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut) {
                     self.nearByExhibitionView.listView.frame.origin.y = initListViewOriginY
@@ -174,8 +146,8 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                 cell.configure(info: element)
                 cell.selectionStyle = .none
                 return cell
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
         
         nearByExhibitionView.listView.exhibitionList.rx.itemSelected.subscribe { indexPath in
             let maxY = self.nearByExhibitionView.frame.maxY
@@ -185,27 +157,11 @@ class NearbyExhibitionViewController: UIViewController, UIScrollViewDelegate {
                 self.nearByExhibitionView.listView.isHidden = true
                 UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut) {
                     self.nearByExhibitionView.navigatorDetailView.isHidden = false
-//                    self.nearByExhibitionView.navigatorDetailView.transform = CGAffineTransform(translationX: 0, y: -175)
-                    
                     self.nearByExhibitionView.navigatorDetailView.configure(info: ExhibitionLocationInfo(exhibitionTitle: "會動的文藝復興", exhibitionImage: "1", buisinessType: true, buisinessTime: "11:30-13:30", location: "臺灣,台南市", distance: "23"))
-
-//                    self.nearByExhibitionView.navigatorDetailView.configure(info: )
                 }
             }
-            print("indexPath:\(indexPath)")
         }
         .disposed(by: disposeBag)
-
-    }
-    
-    @objc private func searchButtonPress() {
-        searchMode.toggle()
-        searchMode ? setSearchMode() : setNavigationMode()
-        nearByExhibitionView.searchMode.toggle()
-    }
-    
-    @objc private func menuButtonPress() {
-        
     }
     
     private func setfilter() {

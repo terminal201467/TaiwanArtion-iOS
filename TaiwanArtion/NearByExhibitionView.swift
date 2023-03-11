@@ -9,12 +9,7 @@ import UIKit
 import MapKit
 
 class NearByExhibitionView: UIView {
-    
-    var searchMode: Bool = false {
-        didSet {
-            searchMode ? setSearchModeLayout() : setNavigationModeLayout()
-        }
-    }
+
     
     var cityFilter: (() -> Void)?
     
@@ -110,6 +105,11 @@ class NearByExhibitionView: UIView {
         return stackView
     }()
     
+    let navigationBar: UIView = {
+        let view = NavigationBarView()
+        return view
+    }()
+    
     let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.mapType = .standard
@@ -137,10 +137,11 @@ class NearByExhibitionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setMapViewLayout()
-        setListViewLayout()
         setNavigationModeLayout()
         setSearchContainerView()
         setNavigatorDetailView()
+        setNavigationView()
+        setListViewLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -224,6 +225,16 @@ class NearByExhibitionView: UIView {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-16)
+        }
+    }
+    
+    func setNavigationView() {
+        addSubview(navigationBar)
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(56.0 / 846.0)
         }
     }
     

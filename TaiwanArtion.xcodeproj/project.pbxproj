@@ -67,6 +67,7 @@
 		9703603129B97B6000A01B5D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703603029B97B6000A01B5D /* UIView.swift */; };
 		9703603429B9A75600A01B5D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703603329B9A75600A01B5D /* FirebaseManager.swift */; };
 		9703603629BAD31D00A01B5D /* ShareExhibitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9703603529BAD31D00A01B5D /* ShareExhibitionView.xib */; };
+		9703603E29BB057700A01B5D /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703603D29BB057700A01B5D /* NavigationBarView.swift */; };
 		97287A9F294C27410003B184 /* ItemsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287A9E294C27410003B184 /* ItemsCollectionCell.swift */; };
 		97287AA1295084280003B184 /* NavigateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA0295084280003B184 /* NavigateLocationView.swift */; };
 		97287AA32951E11B0003B184 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97287AA22951E11B0003B184 /* FilterViewController.swift */; };
@@ -210,6 +211,7 @@
 		9703603029B97B6000A01B5D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9703603329B9A75600A01B5D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9703603529BAD31D00A01B5D /* ShareExhibitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShareExhibitionView.xib; path = "/Users/jhenmu/Developer/TaiwanArtion-iOS/TaiwanArtion/ShareExhibitionView.xib"; sourceTree = "<absolute>"; };
+		9703603D29BB057700A01B5D /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		97287A9E294C27410003B184 /* ItemsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionCell.swift; sourceTree = "<group>"; };
 		97287AA0295084280003B184 /* NavigateLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateLocationView.swift; sourceTree = "<group>"; };
 		97287AA22951E11B0003B184 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				62CD7697280D070300696DBC /* NearbyExhibitionViewController.swift */,
 				97672CCC29164142002BE893 /* NearbyExhibitionViewModel.swift */,
 				97B3F6DC29417F7E004BBC67 /* NearByExhibitionView.swift */,
+				9703603D29BB057700A01B5D /* NavigationBarView.swift */,
 				97B3F6E02948236C004BBC67 /* NearByExhibitionListView.swift */,
 				97287AA0295084280003B184 /* NavigateLocationView.swift */,
 				97B3F6E2294824A0004BBC67 /* ExhibitionListTableViewTableViewCell.swift */,
@@ -971,6 +974,7 @@
 				9767879E29B893C2003B88E3 /* ShareAppCollectionViewCell.swift in Sources */,
 				9756CA6A2963A9CA00DFCD61 /* InputNameViewModel.swift in Sources */,
 				62CD76A0280D40A800696DBC /* SideMenuViewController.swift in Sources */,
+				9703603E29BB057700A01B5D /* NavigationBarView.swift in Sources */,
 				624605CD2893C66F00E590E3 /* SearchResultListTableViewCell.swift in Sources */,
 				62A3F942287D262A0067B03C /* FilterExhibitionButtonCell.swift in Sources */,
 				97287A9F294C27410003B184 /* ItemsCollectionCell.swift in Sources */,
